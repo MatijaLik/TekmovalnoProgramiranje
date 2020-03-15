@@ -31,6 +31,7 @@ typedef unsigned long long ull;
 
 int main(){
     int a = 3;
+    cin >> a;
     int* p = &a;
     cout << (ll)p%mod << endl;
     cout << *p << endl;
