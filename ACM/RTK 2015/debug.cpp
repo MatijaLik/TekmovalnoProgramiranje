@@ -33,8 +33,8 @@ typedef unsigned long long ull;
 int main(){
     srand (time(NULL));
     freopen("input.txt", "w", stdout);
-    cout << limit << " " << limit << endl;
-    loop(i, limit){
-        cout << rand() % limit + 1 << " " << rand() % limit + 1 << " " << rand() % limit + 1 << endl;
+    cout << 40 << " " << 400 << endl;
+    loop(i, 40){
+        cout << rand() % limit + 1;
     }
 }
