@@ -19,25 +19,42 @@ typedef unsigned long long ull;
 #define mod 1000000007
 #define debug(x) cout << "# " << x << endl
 
-#define limit 1000010
 
-vector<ll> primes;
-bool b[limit];
-ll divisor[limit];
+void solve(){
+    int n, m, a, b;
+    cin >> n >> m >> a >> b;
+    if(n*a != m*b){
+        cout << "NO" << endl;
+        return;
+    }
 
-void erat(){
-    FOR(i, 2, limit){
-        if(b[i]==0){
-            primes.pb(i);
-            for(ll j = i*i; j < limit; j += i){
-                b[j] = 1; 
-                divisor[j]=i;
-            }
+    cout << "YES" << endl;
+
+
+    bool grid[n][m];
+    memset(grid, 0, sizeof grid);
+
+
+    int index = 0;
+    loop(i, n){
+        loop(h, a){
+            grid[i][index] = 1;
+            index++;
+            index %= m;
         }
     }
-    return;
+
+    loop(i, n){
+        loop(j, m){
+            cout << grid[i][j];
+        }
+        cout << endl;
+    }
+
 }
 
-    int main(){
-
+int main(){
+    int t;
+    cin >> t;
+    while(t--) solve();
 }

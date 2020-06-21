@@ -19,25 +19,19 @@ typedef unsigned long long ull;
 #define mod 1000000007
 #define debug(x) cout << "# " << x << endl
 
-#define limit 1000010
+int main(){
 
-vector<ll> primes;
-bool b[limit];
-ll divisor[limit];
-
-void erat(){
-    FOR(i, 2, limit){
-        if(b[i]==0){
-            primes.pb(i);
-            for(ll j = i*i; j < limit; j += i){
-                b[j] = 1; 
-                divisor[j]=i;
-            }
-        }
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    
+    //freopen("input.txt", "r", stdin);
+    //freopen("output.txt", "w", stdout);
+    ll n;
+    cin >> n;
+    ll base = 2;
+    n--;
+    loop(i, n){
+        base = (2*base)%mod;
     }
-    return;
-}
-
-    int main(){
-
+    cout << base << endl;
 }

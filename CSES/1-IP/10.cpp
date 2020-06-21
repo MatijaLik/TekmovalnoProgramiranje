@@ -19,25 +19,40 @@ typedef unsigned long long ull;
 #define mod 1000000007
 #define debug(x) cout << "# " << x << endl
 
-#define limit 1000010
-
-vector<ll> primes;
-bool b[limit];
-ll divisor[limit];
-
-void erat(){
-    FOR(i, 2, limit){
-        if(b[i]==0){
-            primes.pb(i);
-            for(ll j = i*i; j < limit; j += i){
-                b[j] = 1; 
-                divisor[j]=i;
-            }
-        }
+ll solve(ll n){
+    ll res = 0;
+    
+    ll dvojke = 0;
+    //2s
+    ll secondBase = 2;
+    loop(i, 32){
+        dvojke += n/secondBase;
+        secondBase *= 2;
     }
-    return;
+
+    ll petke = 0;
+    //5s
+    ll fifthBase = 5;
+    loop(i, 14){
+        petke += n/fifthBase;
+        fifthBase *= 5;
+    }
+
+    res = min(petke, dvojke);
+    return res;
+
 }
 
-    int main(){
 
+int main(){
+
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    
+    //freopen("input.txt", "r", stdin);
+    //freopen("output.txt", "w", stdout);
+
+    ll n;
+    cin >> n;
+    cout << solve(n) << endl;   
 }

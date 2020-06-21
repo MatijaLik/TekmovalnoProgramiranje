@@ -19,25 +19,28 @@ typedef unsigned long long ull;
 #define mod 1000000007
 #define debug(x) cout << "# " << x << endl
 
-#define limit 1000010
+int main(){
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
+        cin >> n;
+        int minDif = inf;
 
-vector<ll> primes;
-bool b[limit];
-ll divisor[limit];
+        vector<int> v(n);
 
-void erat(){
-    FOR(i, 2, limit){
-        if(b[i]==0){
-            primes.pb(i);
-            for(ll j = i*i; j < limit; j += i){
-                b[j] = 1; 
-                divisor[j]=i;
+        loop(i, n)cin >> v[i];
+
+        sort(all(v));
+
+        int prev = 0;
+        loop(i, n){
+            if(i!= 0){
+                minDif = min(minDif, v[i]-prev);
             }
+            prev = v[i];
         }
+
+        cout << minDif << endl;
     }
-    return;
-}
-
-    int main(){
-
 }

@@ -2,6 +2,15 @@
     "files.associations": {
         "*.tcc": "cpp",
         "iostream": "cpp",
-        "ios": "cpp"
+        "ios": "cpp",
+        "deque": "cpp",
+        "string": "cpp",
+        "vector": "cpp",
+        "chrono": "cpp",
+        "random": "cpp",
+        "limits": "cpp",
+        "ranges": "cpp",
+        "valarray": "cpp",
+        "ostream": "cpp"
     }
 }
