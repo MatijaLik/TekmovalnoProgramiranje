@@ -1,4 +1,6 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
+#include <cstring>
 using namespace std;
 typedef long long ll;
 #define pll pair<ll, ll>
@@ -29,9 +31,20 @@ struct Matrix{
         loop(i, 200){
             loop(k, 200){
                 loop(j, 200){
-                    res.a[i][k] += (a[i][j] * other.a[j][k])%mod;
+                    res.a[i][k] += ((long long)a[i][j] * (long long)other.a[j][k])%mod;
                     res.a[i][k] %= mod;
                 }
+            }
+        }
+        return res;
+    }
+
+    vector<ll> operator * (vector<ll> v){
+        vector<ll> res(200);
+        loop(i, 200){
+            loop(j, 200){
+                res[i] += v[j] * a[j][i];
+                res[i] %= mod;
             }
         }
         return res;
@@ -75,10 +88,32 @@ void solve(){
     
     //precompute
     Matrix mexp[32];
- 
+    mexp[0] = Matrix(1);
+    FOR(i, 1, 31){
+        mexp[i] = base;
+        //printf("Matrix %lld\n", i);
+        //1printMatrix(base);
+        base = base * base;
+    }
+
+
     loop(i, Q){
         ll a, b, k;
         cin >> a >> b >> k;
+
+        vector<ll> v(200);
+        v[a-1] = 1;
+
+        int it = 1;
+        while(k){
+            if(k%2){
+                v = mexp[it]*v;
+            }
+            it++;
+            k/=2;
+        }
+
+        cout << v[b-1] << endl;
     }
  
  
