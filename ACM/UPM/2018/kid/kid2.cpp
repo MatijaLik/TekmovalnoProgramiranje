@@ -19,7 +19,6 @@ typedef long long ll;
 #define mod 1000000007
 
 
-
 //Dolzina in sirina zadeve
 int X, Y;
 
@@ -82,7 +81,7 @@ struct State{
                 State newState = State(!turn, newKing, queen);
                 //if(!newState.valid()) printf("Jao retard1\n");
                 //if(check()) printf("Jao retard 2\n");
-                if(newState.valid() and (backTrack or !newState.check())){
+                if(newState.valid() and (backTrack or !newState.check()) and !newState.queenAttacked()){
                     //printf("ide\n");
                     result.pb(newState);
                 }
@@ -155,7 +154,7 @@ void getMates(){
             if(queen.valid()){
                 State s = State(0, king, queen);
                 q.push(mp(s, 0));
-                printf("MATE || KING %d %d || QUEEN %d %d\n", king.y, king.x, queen.y, queen.x);
+                //printf("MATE || KING %d %d || QUEEN %d %d\n", king.y, king.x, queen.y, queen.x);
             }
         }
     }
@@ -179,12 +178,13 @@ void bfs(){
         //printf("Verified! on %d examples\n", nm.size());
     }
     //2 || KING 2 3 || QUEEN 2 1
-
+    //4 || KING 1 3 || QUEEN 3 1
+    //4 || KING 1 3 || QUEEN 3 2 || turn 0
     visited.insert(s);
     memo[s] = depth;
     
     
-    printf("%d || KING %d %d || QUEEN %d %d || turn %d\n", depth, s.king.y, s.king.x, s.queen.y, s.queen.x, s.turn);
+    //printf("%d || KING %d %d || QUEEN %d %d || turn %d\n", depth, s.king.y, s.king.x, s.queen.y, s.queen.x, s.turn);
     //push forward
     for(auto ps : s.getPrevMoves()){
         if(visited.count(ps)) continue;
@@ -196,7 +196,8 @@ void bfs(){
 }
 
 void query(State s){
-
+    if(visited.count(s) == 0) printf("KRUCIFIKS\n");
+    else printf("%d\n", memo[s]);
 }
 
 void solve(){
@@ -218,7 +219,7 @@ int main(){
     cin >> Y >> X;
     getMates();
     while(!q.empty()) bfs();
-    printf("Ended precomputation\n");
+    //printf("Ended precomputation\n");
     int t;
     cin >> t;
     while(t--) solve();   

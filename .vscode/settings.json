@@ -11,6 +11,8 @@
         "limits": "cpp",
         "ranges": "cpp",
         "valarray": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "algorithm": "cpp",
+        "cmath": "cpp"
     }
 }

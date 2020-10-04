@@ -1,0 +1,11 @@
+{
+    "name": "stations",
+    "code": "stations",
+    "title": "Stations",
+    "type": "Communication",
+    "num_processes": 2,
+    "grader_name": "stub",
+    "time_limit": 1.0,
+    "memory_limit": 2048,
+    "description": "stations"
+}

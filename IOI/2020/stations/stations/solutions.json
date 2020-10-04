@@ -1,0 +1,118 @@
+{
+	"william-ac.cpp": {
+		"verdict": "model_solution"
+	},
+	"william-ac.java": {
+		"verdict": "correct"
+	},
+	"william-line.cpp": {
+		"verdict": "incorrect",
+		"except" : {
+			"line": "correct"
+		}
+	},
+	"william-line.java": {
+		"verdict": "incorrect",
+		"except" : {
+			"line": "correct"
+		}
+	},
+	"william-binary-tree.cpp": {
+		"verdict": "incorrect",
+		"except" : {
+			"binary-tree": "correct"
+		}
+	},
+	"william-binary-tree.java": {
+		"verdict": "incorrect",
+		"except" : {
+			"binary-tree": "correct"
+		}
+	},
+	"william-star.cpp": {
+		"verdict": "incorrect",
+		"except" : {
+			"line": "correct",
+			"binary-tree": "correct"
+		}
+	},
+	"william-star.java": {
+		"verdict": "incorrect",
+		"except" : {
+			"line": "correct",
+			"binary-tree": "correct"
+		}
+	},
+	"william-exponential.cpp": {
+		"verdict": "incorrect",
+		"except" : {
+			"exponential": "correct"
+		}
+	},
+	"william-exponential.java": {
+		"verdict": "incorrect",
+		"except" : {
+			"exponential": "correct"
+		}
+	},
+	"william-n2.cpp": {
+		"verdict": "incorrect",
+		"except" : {
+		    "star": "correct",
+			"exponential": "correct",
+			"partial": "partially_correct"
+		}
+	},
+	"william-n2.java": {
+		"verdict": "incorrect",
+		"except" : {
+		    "star": "correct",
+			"exponential": "correct",
+			"partial": "partially_correct"
+		}
+	},
+	"william-2n.cpp": {
+		"verdict": "incorrect",
+		"except" : {
+		    "star": "correct",
+			"exponential": "correct",
+			"partial": "partially_correct"
+		}
+	},
+	"william-2n.java": {
+		"verdict": "incorrect",
+		"except" : {
+		    "star": "correct",
+			"exponential": "correct",
+			"partial": "partially_correct"
+		}
+	},
+	"felix-ac.cpp": {
+		"verdict": "correct"
+	},
+	"raymond-ac.cpp": {
+		"verdict": "correct"
+	},
+	"chuanyu-exponential.cpp": {
+		"verdict": "incorrect",
+		"except" : {
+			"exponential": "correct"
+		}
+	},
+	"zichun-2n.cpp": {
+		"verdict": "incorrect",
+		"except" : {
+		    "star": "correct",
+			"exponential": "correct",
+			"partial": "partially_correct"
+		}
+	},
+	"zichun-partial.cpp": {
+		"verdict": "incorrect",
+		"except" : {
+			"exponential": "correct",
+			"partial": "partially_correct"
+		}
+	}
+}
+

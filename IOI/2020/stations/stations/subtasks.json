@@ -1,0 +1,35 @@
+{
+	"global_validators": ["validator.cpp"],
+	"subtasks": {
+		"samples": {
+			"index": 0,
+			"score": 0,
+			"validators": []
+		},
+		"line": {
+			"index": 1,
+			"score": 5,
+			"validators": ["validator-line.cpp"]
+		},
+		"binary-tree": {
+			"index": 2,
+			"score": 8,
+			"validators": ["validator-binary-tree.cpp"]
+		},
+		"star": {
+			"index": 3,
+			"score": 16,
+			"validators": ["validator-star.cpp"]
+		},
+		"exponential": {
+			"index": 4,
+			"score": 10,
+			"validators": ["validator-exponential.cpp"]
+		},
+		"partial": {
+			"index": 5,
+			"score": 61,
+			"validators": ["validator-partial.cpp"]
+		}
+	}
+}

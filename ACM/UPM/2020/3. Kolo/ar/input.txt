@@ -1,0 +1,3 @@
+NOT true AND false OR NOT false
+false
+true XOR
