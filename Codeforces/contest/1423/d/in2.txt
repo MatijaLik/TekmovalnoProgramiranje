@@ -1,0 +1,8 @@
+3 3
+5 2 15
+M S S
+S S S
+S S P
+S E N N N N N N N N N N N N N
+2 1 0
+1 2 0
