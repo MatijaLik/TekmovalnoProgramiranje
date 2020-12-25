@@ -17,6 +17,7 @@ typedef long long ll;
 #define all(v) v.begin(),v.end()
 #define inf 1000000005
 #define mod 1000000007
+#define print(v) for(auto e : v) cout << e << " "; cout << endl;
 
 void solve(){
 

@@ -60,7 +60,7 @@ vector<Treap*> split(Treap *me, int nInLeft) {
 		vector<Treap*> leftRes=split(me->kids[0], nInLeft);
 		me->kids[0]=leftRes[1];
 		recalc(me);
-		return {leftRes[0], me};
+		return {leftRes[0], me}; 
 	}
 	else {
 		nInLeft = nInLeft - size(me->kids[0]) - 1;
