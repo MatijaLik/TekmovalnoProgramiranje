@@ -54,8 +54,8 @@ ll dp(ll x, ll i){
 
     //printf("dp %d %d\n", x, i);
     ll price = inf;
-    FOR(i, sb, n-1){
-        Camera cam = v[i];
+    FOR(j, sb, n-1){
+        Camera cam = v[j];
         if(cam.a > x) break; 
         if(cam.b > x){
             //printf("checking cam %d\n", i);
