@@ -1,0 +1,105 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from cp-algorithms.com/combinatorics/stars_and_bars.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 19 Aug 2021 18:44:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <base />
+    <title>Stars and bars - Competitive Programming Algorithms</title>
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJaxdda6.js"></script>
+    <link rel="stylesheet" href="../css/common.css"/>
+
+    <!-- highlightjs for code highlighting -->
+    <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/xcode.min.css">
+    <script src="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- end highlightjs -->
+    <meta name="google-site-verification" content="qSnbeMPNVgZ3kIpGVsPIAPIvEdwYSg583kPdwgJtFO8" />
+    <meta name="yandex-verification" content="315535a6d9f1c0bd" />
+</head>
+<body>
+<div id="container">
+    <div id="navbar">
+        <span id="title">
+            <a href="../index-2.html">CP-Algorithms</a>
+        </span>
+        <span id="menu">
+            <a href="../../external.html?link=https://github.com/e-maxx-eng/e-maxx-eng/commits/master/src/combinatorics/stars_and_bars.md" title="Changes History">Page Authors</a>
+        </span>
+        <span id="search" style="display:inline-block;width:200px;float:right;margin-top:7px;margin-right:20px;">
+            <div class="ya-site-form ya-site-form_inited_no" data-bem="{&quot;action&quot;:&quot;https://cp-algorithms.com/search-results.html&quot;,&quot;arrow&quot;:false,&quot;bg&quot;:&quot;transparent&quot;,&quot;fontsize&quot;:12,&quot;fg&quot;:&quot;#000000&quot;,&quot;language&quot;:&quot;en&quot;,&quot;logo&quot;:&quot;rb&quot;,&quot;publicname&quot;:&quot;Yandex Site Search #2490798&quot;,&quot;suggest&quot;:true,&quot;target&quot;:&quot;_self&quot;,&quot;tld&quot;:&quot;com&quot;,&quot;type&quot;:3,&quot;usebigdictionary&quot;:true,&quot;searchid&quot;:2490798,&quot;input_fg&quot;:&quot;#000000&quot;,&quot;input_bg&quot;:&quot;#ffffff&quot;,&quot;input_fontStyle&quot;:&quot;normal&quot;,&quot;input_fontWeight&quot;:&quot;normal&quot;,&quot;input_placeholder&quot;:null,&quot;input_placeholderColor&quot;:&quot;#000000&quot;,&quot;input_borderColor&quot;:&quot;#7f9db9&quot;}"><form action="../../external.html?link=https://yandex.com/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2490798"/><input type="hidden" name="l10n" value="en"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value=""/><input type="submit" value="Search"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+        </span>
+    </div>
+
+<h1>Stars and bars</h1>
+<p>Stars and bars is a mathematical technique for solving certain combinatorial problems.
+It occurs whenever you want to count the number of ways to group identical objects.</p>
+<h2>Theorem</h2>
+<p>The number of ways to put \(n\) identical objects into \(k\) labeled boxes is</p>
+\[
+\binom{n + k - 1}{n}.
+\]
+
+<p>The proof involves turning the objects into stars and separating the boxes using bars (therefore the name).
+E.g. we can represent with \(\bigstar | \bigstar \bigstar |~| \bigstar \bigstar\) the following situation:
+in the first box is one object, in the second box are two objects, the third one is empty and in the last box are two objects.
+This is one way of dividing 5 objects into 4 boxes.</p>
+<p>It should be pretty obvious, that every partition can be represented using \(n\) stars and \(k - 1\) bars and every stars and bars permutation using \(n\) stars and \(k - 1\) bars represents one partition.
+Therefore the number of ways to divide \(n\) identical objects into \(k\) labeled boxes is the same number as there are permutations of \(n\) stars and \(k - 1\) bars.
+The <a href="binomial-coefficients.html" rel="nofollow">Binomial Coefficient</a> gives us the desired formula.</p>
+<h2>Number of non-negative integer sums</h2>
+<p>This problem is a direct application of the theorem.</p>
+<p>You want to count the number of solution of the equation </p>
+\[
+x_1 + x_2 + \dots + x_k = n
+\]
+
+<p>with \(x_i \ge 0\).</p>
+<p>Again we can represent a solution using stars and bars.
+E.g. the solution \(1 + 3 + 0 = 4\) for \(n = 4\), \(k = 3\) can be represented using \(\bigstar | \bigstar \bigstar \bigstar |\).</p>
+<p>It is easy to see, that this is exactly the stars an bars theorem.
+Therefore the solution is \(\binom{n + k - 1}{n}\).</p>
+<h2>Number of lower-bound integer sums</h2>
+<p>This can easily be extended to integer sums with different lower bounds.
+I.e. we want to count the number of solutions for  the equation</p>
+\[
+x_1 + x_2 + \dots + x_k = n
+\]
+
+<p>with \(x_i \ge a_i\).</p>
+<p>After substituting \(x_i' := x_i - a_i\) we receive the modified equation</p>
+\[
+(x_1' + a_i) + (x_2' + a_i) + \dots + (x_k' + a_k) = n
+\]
+
+\[
+\Leftrightarrow ~ ~ x_1' + x_2' + \dots + x_k' = n - a_1 - a_2 - \dots - a_k
+\]
+
+<p>with \(x_i' \ge 0\).
+So we have reduced the problem to the simpler case with \(x_i' \ge 0\) and again can apply the stars and bars theorem.</p>
+
+    <div id="footer">
+    (c) 2014-2021 translation by <a href="../../external.html?link=http://github.com/e-maxx-eng">http://github.com/e-maxx-eng</a>
+    </div>
+</div>
+
+<script>
+if (/e\-maxx\-eng|cp\-algorithms/.test(location.href)) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85220282-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+</body>
+
+<!-- Mirrored from cp-algorithms.com/combinatorics/stars_and_bars.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 19 Aug 2021 18:44:00 GMT -->
+</html>

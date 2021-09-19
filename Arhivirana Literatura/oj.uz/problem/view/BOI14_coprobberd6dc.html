@@ -1,0 +1,714 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from oj.uz/problem/view/BOI14_coprobber?locale=ko by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 14:17:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <!-- Basic -->
+    <title>문제 보기 - 경찰관과 강도 (BOI14_coprobber) :: oj.uz</title>
+
+    <!-- Define Charset -->
+    <meta charset="utf-8"/>
+
+    <!-- Responsive Metatag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <!-- Page Description and Author -->
+    <meta name="description" content="oj.uz"/>
+    <meta name="author" content="박수찬"/>
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91767657-1', 'auto');
+  ga('send', 'pageview');
+</script>
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/css/bootstrap.min.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/polygon_statement.css" type="text/css"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/codeforces-community.css" type="text/css"/>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/font-awesome.min.css" type="text/css" media="screen"/>
+    <!-- slicknav -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/slicknav.css" media="screen"/>
+    <!-- Margo CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/style.css" media="screen"/>
+
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/custom_style.css" media="screen"/>
+
+    <!-- Responsive CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/responsive.css" media="screen"/>
+
+    <!-- Css3 Transitions Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/animate.css" media="screen"/>
+
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/colors/green.css" title="green" media="screen" />
+
+    <!-- Margo JS  -->
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.migrate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/modernizrr.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.appear.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.textillate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.lettering.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.slicknav.js"></script>
+
+<script data-ad-client="ca-pub-9767392980647759" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/humanize-duration.js"></script>
+
+<script type="text/javascript">
+  moment.locale("ko");
+  var my_humanizer = humanizeDuration.humanizer({language: 'ko'});
+
+  $(document).ready(function(){
+    user_timezone_utc_offset = moment().utcOffset() / 60;
+    if(user_timezone_utc_offset > 0) user_timezone_utc_offset = "+" + user_timezone_utc_offset;
+    else if(user_timezone_utc_offset == 0) user_timezone_utc_offset = "";
+    var offsets = document.getElementsByClassName("render-offset");
+    for(var i = 0; i < offsets.length; i++) {
+      offsets[i].innerHTML = "UTC" + user_timezone_utc_offset;
+    }
+
+    var datetimes = document.getElementsByClassName('render-datetime');
+    for(var i = 0; i < datetimes.length; i++) {
+      var obj = datetimes[i];
+      obj.innerHTML = moment(obj.innerHTML).format(obj.attributes['format'].value);
+    }
+
+    var datetimes_fromnow = document.getElementsByClassName('render-datetime-fromnow');
+    for(var i = 0; i < datetimes_fromnow.length; i++) {
+      var obj = datetimes_fromnow[i];
+      obj.innerHTML = moment(obj.innerHTML).fromNow();
+    }
+
+    var durations = document.getElementsByClassName("render-duration");
+    for(var i = 0; i < durations.length; i++) {
+      var obj = durations[i];
+      obj.innerHTML = my_humanizer(Number(obj.innerHTML));
+    }
+
+    var setoffsets = document.getElementsByName('set-offset');
+    for(var i = 0; i < setoffsets.length; i++) {
+      setoffsets[i].value = moment().utcOffset() * 60; // 초
+    }
+
+    var offsetfields = document.getElementsByClassName('offset-field');
+    for(var i = 0; i < offsetfields.length; i++) {
+      var obj = offsetfields[i];
+      if (obj.attributes['data'].value != "None")
+        obj.value = moment.unix(Number(obj.attributes['data'].value)).format("YYYY-MM-DD HH:mm:ss");
+    }
+  });
+</script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/circle-progressbar.js"></script>
+<link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/progressbar.css" type="text/css">
+
+
+
+<script type="text/javascript">
+$(document).ready(() => {
+  const goodBrowser = !!window.Worker;
+  const hasBuiltInPdf = !("ActiveXObject" in window) && !/iPhone|iPod|Android|BlackBerry|Opera Mini|Phone|Mobile/i.test(navigator.userAgent);
+  if(goodBrowser && hasBuiltInPdf){
+    for(iii = 0; iii < pdf_file_list.length; iii++) {
+      $(pdf_file_list[iii][1]).html('<object data="' + pdf_file_list[iii][0] + '" type="application/pdf" style="width: 100%; height: 600px;">Your browser is outdated, or your PDF plugin is deactivated</object>');
+    }
+  }else if(goodBrowser){
+    for(iii = 0; iii < pdf_file_list.length; iii++) {
+      $(pdf_file_list[iii][1]).html('<iframe seamless src="https://s3-ap-northeast-1.amazonaws.com/ojuz-attach/pdfjs/pdfjs-2.5.207-dist/web/viewer_with_ojuz.html?file=' + pdf_file_list[iii][0] + '" style="width: 100%; height: 600px;"></iframe>');
+    }
+  }else {
+    for(iii = 0; iii < pdf_file_list.length; iii++) {
+      PDFObject.embed(pdf_file_list[iii][0], pdf_file_list[iii][1], pdf_file_list[iii][2]);
+    }
+  }
+});
+</script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$']]}
+    });
+    </script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/pygments.css">
+    <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/favicon/ver_20161112174211.ico">
+
+</head>
+
+<body>
+
+    <!-- Full Body Container -->
+    <div id="container">
+
+        <!-- Start Header Section -->
+        <div class="hidden-header"></div>
+        <header class="clearfix">
+
+            <!-- Start Top Bar -->
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <!-- Start Contact Info -->
+                            <!-- End Contact Info -->
+                        </div><!-- .col-md-6 -->
+                        <div class="col-md-5 ">
+                            <ul class="login-bar">
+                                <li>
+                                    <a href="https://oj.uz/login?next=%2Fproblem%2Fview%2FBOI14_coprobber%3Flocale%3Dko">로그인</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="../../register.html">회원가입</a>
+                                </li>
+                            </ul>
+                        </div><!-- .col-md-6 -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- .top-bar -->
+            <!-- End Top Bar -->
+
+
+            <!-- Start  Logo & Naviagtion  -->
+            <div class="navbar navbar-default navbar-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <!-- Stat Toggle Nav Link For Mobiles -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- End Toggle Nav Link For Mobiles -->
+                        <a class="navbar-brand" href="../../index.html">
+                            <img alt="oj.uz" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/logo/ver_20170205.png" style="height: 30px;">
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <div class="search-side">
+                          <a class="show-search dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-language" aria-hidden="true"></i>
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><a href="BOI14_coprobber7038.html?locale=en">English</a></li>
+                            <li><a href="BOI14_coprobberd6dc.html?locale=ko">한국어</a></li>
+                          </ul>
+                        </div>
+                        <!-- End Search -->
+                        <!-- Start Navigation List -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+				    <a href="../../contests.html">대회</a>
+                            </li>
+                            <li>
+                                <a href="../../problems.html">문제</a>
+                            </li>
+                            <li>
+                                <a href="https://oj.uz/submissions">답안 목록</a>
+                            </li>
+			    <li>
+				    <a href="https://github.com/ojuz/ojuz-contribute">기여하기</a>
+			    </li>
+                        </ul>
+                        <!-- End Navigation List -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Logo & Naviagtion -->
+
+            <!-- Mobile Menu Start -->
+                <ul class="wpb-mobile-menu">
+                    <li>
+			    <a href="../../contests.html">대회 </a>
+                    </li>
+                    <li>
+                        <a href="../../problems.html">문제</a>
+                    </li>
+                    <li>
+                        <a href="https://oj.uz/submissions">답안 목록</a>
+                    </li>
+		    <li>
+			    <a href="https://github.com/ojuz/ojuz-contribute">기여하기</a>
+		    </li>
+                    <li>
+                      <a><i class="fa fa-language" aria-hidden="true"></i> 언어</a>
+                      <ul class="dropdown">
+                        <li><a href="BOI14_coprobber7038.html?locale=en">English</a></li>
+                        <li><a href="BOI14_coprobberd6dc.html?locale=ko">한국어</a></li>
+                      </ul>
+                    </li>
+                </ul>
+                <!-- Mobile Menu End -->
+        </header>
+        <!-- End Header Section -->
+
+            <!-- Start Page Banner -->
+            <div class="page-banner no-subtitle">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h2 class="page-banner-title">문제 보기 - 경찰관과 강도 (BOI14_coprobber)</h2>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="breadcrumbs">
+                     </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Page Banner -->
+
+<script type="text/javascript">var pdf_file_list = [];</script>
+
+
+
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="page-header problem-title">
+          <h1>
+            경찰관과 강도
+            <small>
+              <span class="label label-info">Interactive</span>
+              <a href="#" class="btn btn-default" data-toggle="modal" data-target="#view_compilation_commands"><i class="glyphicon glyphicon-list-alt"></i> 컴파일 명령</a>
+            </small>
+          </h1>
+        </div>
+        <ul class="nav nav-tabs" style="margin-bottom: 10px;">
+            <li role="presentation" class="active">
+    <a href="BOI14_coprobber.html">문제 내용</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="https://oj.uz/login?next=%2Fproblem%2Fsubmit%2FBOI14_coprobber">제출</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="../statistics/BOI14_coprobber.html">통계</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="https://oj.uz/submissions?problem=BOI14_coprobber">답안들</a>
+  </li>
+
+        </ul>
+        
+  <div class="table-responsive">
+  <table class="table">
+      <thead>
+        <tr>
+          <th style="width: 20%">시간 제한</th>
+          <th style="width: 20%">메모리 제한</th>
+          <th style="width: 20%">제출 횟수</th>
+          <th style="width: 20%">통과한 사람 수</th>
+          <th style="width: 20%">비율</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>1500 ms</td>
+              <td>256 MiB</td>
+	      <td>551</td>
+              <td>76</td>
+              <td>13.79%</td>
+	  </tr>
+      </tbody>
+  </table>
+  </div>
+  <div id='statement'>
+    <p><strong><em>중요</em></strong>: 이 문제는 대회 규정상 C로 채점할 수 없습니다. C로 제출할 시 컴파일 에러가 발생합니다. 반드시 C++로 채점하시기 바랍니다.</p>
+
+<p>Bytemore 시에서 범죄 수준은 역대 최고를 달리고 있습니다. 모든 경범죄들을 통틀어 강도 사건은 매일매일 일어나고 있습니다. 그리고 그 범죄가 행해질 때, 항상 한 명의 순찰 경찰이 강도를 쫓아서 길모퉁이를 연결하는 좁은 골목길을 지나가야 합니다. 불행히도, 강도들은 경찰에게 잡히는 경우보다 탈출에 성공하는 경우가 많은데, 그들이 경찰보다 도시 지리를 더 잘 알기 때문입니다.</p>
+
+<p>Bytemore 시의 경찰청(The Bytemore City Police Department, BCPD)은 범죄를 줄이기 위한 정상 회의를 준비하고 있습니다. 계획들 중 하나는 강도들을 쫓을 때 컴퓨터를 사용하는 것입니다. 이를 위해, BCPD는 도시의 정밀한 지도를 만들었습니다. 이제 그들은 추적 전략을 마련하기 위한 컴퓨터 소프트웨어가 필요합니다.</p>
+
+<p>한 명의 강도를 쫓는 경찰관 한 명의 추적 문제는 아래와 같이 모델화됩니다.</p>
+
+<ol>
+<li>경찰관은 순찰할 길모퉁이를 하나 고릅니다.</li>
+<li>강도는 강도질을 할 길모퉁이를 하나 고릅니다. (그는 경찰관이 어디 있는지 알고 있습니다.) 이것은 아래에서 '시작점'이나 '출발점'을 고르는 과정입니다. 이 순간부터 경찰관과 강도는 서로가 어디에 있는지 항상 알고 있다고 가정합니다.</li>
+<li>경찰관은 자신이 있는 길모퉁이와 이웃한 길모퉁이(현재 있는 길모퉁이와 골목길로 연결된 길모퉁이)로 가거나 기다릴(움직이지 않을) 수 있습니다.</li>
+<li>강도는 자신이 있는 길모퉁이와 이웃한 길모퉁이로 이동해야 합니다. 강도는 경찰관과 다르게 기다릴 수 없습니다.</li>
+<li>경찰관과 강도는 아래와 같은 상황 중 하나가 벌어지기 전까지 번갈아 가면서 이동합니다.
+<ul>
+<li>상황이 계속 반복됩니다. (여기서 '상황'이란 두 사람의 위치와 다음에 이동할 사람이 누구인지에 따라 정의됩니다) 이것은 강도가 영원히 잡히지 않을 수 있다는 것을 의미하며, 따라서 강도는 탈출합니다.</li>
+<li>경찰관과 강도 둘 중 하나가 움직여서 같은 길모퉁이에서 만납니다. 이 상황에서 경찰관은 강도를 잡습니다.</li>
+</ul></li>
+</ol>
+
+<h3>해야 할 일</h3>
+
+<p>여러분은 도시의 지도가 주어질 때, 강도를 잡을 수 있는지 결정하고, 만약 잡을 수 있다면, 각 상황마다 경찰관이 어디로 움직일지 결정하는 프로그램을 작성해야 합니다.</p>
+
+<p>여러분의 프로그램은 반드시 강도가 항상 최선을 다해 도망친다고 가정해야 합니다.</p>
+
+<h3>구현</h3>
+
+<p>여러분은 두 개의 함수를 구현해야 합니다.</p>
+
+<ul>
+<li><code>start(N, A)</code>
+<ul>
+<li>$N$ : 길모퉁이의 수 (길모퉁이들은 $0$ 이상 $N-1$ 이하의 정수 번호를 가집니다)</li>
+<li>$A$ : 골목길들을 표현하는 이차원 배열입니다. $0 \le i, j \le N-1$을 만족하는 두 $i, j$에 대해, 만약 $i$와 $j$가 한 골목길로 연결되어 있다면 $A[i,j]$는 <code>true</code>이고 그렇지 않다면 $A[i,j]$는 <code>false</code>입니다. 모든 골목길은 양방향 통행이 가능하고 (즉 모든 가능한 $i, j$에 대해 $A[i, j] = A[j, i]$) 자기 자신을 연결하는 골목길은 없습니다. (즉 모든 가능한 $i$에 대해 $A[i, i]$는 <code>false</code>입니다) 또한, 여러분은 어떤 길모퉁이에서 여러 개의 골목길들을 따라 다른 모든 길모퉁이로 이동할 수 있다고 가정해도 좋습니다.</li>
+<li>만약 경찰이 주어진 도시에서 강도을 잡을 수 있다면, <code>start</code>는 경찰이 순찰하기로 결정할 길모퉁이의 번호를 반환해야 합니다. 그렇지 않다면 (잡을 수 없다면), $-1$을 반환해야 합니다.</li>
+</ul></li>
+<li><code>nextMove(R)</code>은 현재 강도가 있는 길모퉁이의 번호 $R$을 인자로 받아서 현재 상황에서 경찰관이 이동해야 할 길모퉁이의 번호를 반환해야 합니다.</li>
+</ul>
+
+<p>함수 <code>start</code>는 <code>nextMove</code>를 호출하기 전 정확히 한 번 호출될 것입니다. <code>start</code>가 $-1$을 반환한다면, <code>nextMove</code>는 호출되지 않습니다. 그렇지 않다면, <code>nextMove</code> 함수는 추적이 끝날 때까지 반복적으로 호출됩니다. 정확히 말해서, 프로그램은 아래 상황 중 적어도 하나가 발생해야만 종료됩니다.</p>
+
+<ul>
+<li><code>nextMove</code> 함수가 경찰관이 이동할 수 없는 길모퉁이의 번호를 반환합니다.</li>
+<li>'상황'이 반복됩니다.</li>
+<li>도둑이 잡힙니다.</li>
+</ul>
+
+<h3>예제</h3>
+
+<div style="text-align: center;">
+<img src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/old/BOI14_coprobber/city.png">
+</div>
+
+<p>위 그림을 봅시다. 이 경우에는 어떤 길모퉁이도 경찰관에게는 좋은 시작점입니다. 만약 그가 0번 길모퉁이에서 시작한다면, 그는 첫 선택에서 강도를 기다리기만 하면 강도가 알아서 0번 길모퉁이로 올 것입니다. 반면, 경찰관이 다른 길모퉁이에서 시작한다면 그는 강도가 0번 길모퉁이로 들어갈 때까지 기다리다가 들어가는 순간 0번 길모퉁이로 이동하면 됩니다.</p>
+
+<p>이 경우 아래와 같이 함수가 호출될 수 있습니다.</p>
+
+<div class="table-responsive">
+<table class="table table-bordered">
+ <thead>
+  <tr>
+   <th>함수 호출</th>
+   <th>반환값</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td><code>start(4, [[0, 1, 1, 1], [1, 0, 0, 0], [1, 0, 0, 0], [1, 0, 0, 0]])</code></td>
+   <td>3</td>
+  </tr>
+  <tr>
+   <td><code>nextMove(1)</code></td>
+   <td>3</td>
+  </tr>
+  <tr>
+   <td><code>nextMove(0)</code></td>
+   <td>0</td>
+  </tr>
+ </tbody>
+</table>
+</div>
+
+<p>참고로 <code>start</code> 함수 호출에서 <code>0</code>은 <code>false</code>를, <code>1</code>은 <code>true</code>를 나타냅니다.</p>
+
+<h3>채점</h3>
+
+<h4>서브태스크 1 (16점)</h4>
+
+<ul>
+<li>$2 \le N \le 500$</li>
+<li>각 길모퉁이는 정확히 한 개의 골목길과 연결되어 있습니다.</li>
+</ul>
+
+<h4>서브태스크 2 (14점)</h4>
+
+<ul>
+<li>$2 \le N \le 500$</li>
+<li>길모퉁이들과 골목길은 격자판 모양의 구조를 형성합니다. 격자판은 적어도 2개 이상의 행과 2개 이상의 열을 가지며 번호는 아래 그림과 같이 붙여질 것입니다.</li>
+</ul>
+
+<div style="text-align: center;">
+ <img src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/old/BOI14_coprobber/grid.png">
+</div>
+
+<h4>서브태스크 3 (30점)</h4>
+
+<ul>
+<li>$2 \le N \le 100$</li>
+</ul>
+
+<h4>서브태스크 4 (40점)</h4>
+
+<ul>
+<li>$2 \le N \le 500$</li>
+</ul>
+
+<p>여러분의 답안은 반드시 두 요구사항을 만족해야 합니다.</p>
+
+<ol>
+<li>경찰관이 강도를 잡을 수 있는지 정확히 결정해야 합니다.</li>
+<li>만약 잡을 수 있다면 경찰을 대신하여 이동하여 성공적으로 도둑을 잡아야 합니다.</li>
+</ol>
+
+<p>서브태스크 1과 2에서 여러분의 답안이 점수를 얻기 위해서는 두 요구사항을 모두 만족해야 합니다. 서브태스크 3과 4에서 첫 번째 요구사항만을 만족하는 답안은 30%의 점수를 얻을 수 있습니다. 만약 여러분의 부분점수를 받고자 한다면, 아무 불가능한 움직임을 반환함으로써 프로그램을 종료하면 됩니다. (<code>nextMove</code> 함수에서 -1을 반환한다거나..)</p>
+
+<p>참고로 평소의 제약조건들 (시간 제한, 메모리 제한, 런타임 에러 없이 프로그램 종료)는 어떤 경우에도 반드시 만족해야 합니다.</p>
+
+<h3>제약 조건</h3>
+
+<p><strong>시간 제한</strong>: 1.5초.</p>
+
+<p><strong>메모리 제한</strong>: 256 MB.</p>
+
+<h3>실험</h3>
+
+<p><a href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/old/BOI14_coprobber/coprobber.zip">주어지는 예제 채점기</a>는 표준 입력(stdin)으로부터 데이터를 입력받을 것입니다. 입력의 첫 번째 줄은 길모퉁이의 수 $N$을 포함해야 합니다. 다음 $N$개 줄은 반드시 인접 행렬 $A$를 포함해야 합니다. 각 줄은 $N$개의 수를 포함해야 하며, 수들은 0이나 1 중 하나여야 합니다. 행렬은 반드시 대칭적이어야 하며 주요 대각선의 값은 ($A[i, i]$)은 반드시 0이어야 합니다.</p>
+
+<p>그 다음 줄에는 경찰관이 강도를 잡을 수 있다면 <code>1</code>을, 잡을 수 없다면 <code>0</code>을 포함해야 합니다.</p>
+
+<p>마침내, 만약 경찰관이 강도를 잡을 수 있다면, 도둑의 전략을 나타내는 $N$개의 줄이 주어져야 합니다. 각 줄에는 $0$ 이상 $N-1$ 이하의 정수 $N+1$개를 포함해야 합니다. $r$행의 $c$번째 숫자는 (단 $c &lt; N$), 경찰관이 $r$번 길모퉁이에 있고 강도가 $c$번 길모퉁이에 있을 때 강도가 이동할 길모퉁이의 번호를 나타냅니다. 주요 대각선의 값 ($i$행의 $i$번째 수)은 강도와 경찰관이 같은 곳에 있는 경우이므로 무시됩니다. $r$행의 마지막 수는 경찰의 시작점이 $r$일 때 강도가 출발할 길모퉁이의 번호를 나타냅니다.</p>
+
+<p>아래 입력은 골목길들로 서로 연결된 세 개의 길모퉁이가 있는 도시를 나타냅니다.</p>
+
+<pre>3
+0 1 1
+1 0 1
+1 1 0
+1
+0 2 1 2
+2 0 0 2
+1 0 0 1
+
+</pre>
+
+<p>아래 입력은 '예제'에서 주어진 도시와 일치합니다.</p>
+
+<pre>4
+0 1 1 1
+1 0 0 0
+1 0 0 0
+1 0 0 0
+1
+0 0 0 0 1
+2 0 0 0 2
+3 0 0 0 3
+1 0 0 0 1
+</pre>
+
+  </div>
+
+  <script type="text/javascript">
+    $('.problem-statement-pdf').css('width', $("#statement").width()+'px');
+  </script>
+      </div>
+      <div class="col-lg-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">출처</div>
+          <div class="panel-body">
+            <ul style="padding-left: 20px;">
+              <li>
+                <a href="../../problems/source/42.html">
+                  Baltic Olympiad in Informatics 2014 Day 1 1번
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="panel panel-default">
+          <div class="panel-heading"><i class="fa fa-download"></i> 첨부 파일</div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>파일명</th>
+                <th>파일 크기</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td><a href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/old/BOI14_coprobber/coprobber.zip">coprobber.zip</a></td>
+                  <td>6.7 KiB</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading"><i class="fa fa-github"></i> 문제 내용 수정하기</div>
+          <div class="panel-body">
+            <div class="btn-group" role="group" aria-label="...">
+              <a class="btn btn-default" target="_blank" href="https://github.com/ojuz/problem-statements/edit/master/problems/BOI14_coprobber/en.md">English</a>
+              <a class="btn btn-default" target="_blank" href="https://github.com/ojuz/problem-statements/edit/master/problems/BOI14_coprobber/ko.md">한국어</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="view_compilation_commands" tabindex="-1" role="dialog" aria-labelledby="compilation_commands_title" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="compilation_commands_title">컴파일 명령</h4>
+      </div>
+      <div class="modal-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>언어</th>
+                  <th>명령
+                </tr>
+              </thead>
+              <tbody>
+ 
+                  <tr>
+                    <th>C++17 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o coprobber -O2 coprobber.cpp grader.cpp -std=c++17</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++ / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o coprobber -O2 coprobber.cpp grader.cpp </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++11 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o coprobber -O2 coprobber.cpp grader.cpp -std=c++11</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++14 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o coprobber -O2 coprobber.cpp grader.cpp -std=c++14</code>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#my-score').circleProgress({
+      value: 0.0,
+      size: 100,
+      thickness: 50,
+      animationStartValue: 0.0,
+      fill: {
+          color: 'rgb(0, 140, 0)', // fallback color when image is not loaded
+      }
+  });
+});
+</script>
+<script src="https://s3-ap-northeast-1.amazonaws.com/ojuz-attach/pdfobject/pdfobject.min.js"></script>
+
+    </div>
+    <!-- End Full Body Container -->
+
+    <!-- Start Footer Section -->
+    <footer>
+      <div class="container">
+        <!-- Start Copyright -->
+        <div class="copyright-section">
+          <div class="row">
+            <div class="col-md-6">
+              <p>&copy; 2013-2021 박수찬</p>
+            </div>
+            <!-- .col-md-6 -->
+            <div class="col-md-6">
+              <ul class="footer-nav">
+                <li><a href="https://facebook.com/oj.uz.official" target="_blank"><i class="fa fa-facebook"></i> 페이스북</a>
+                </li>
+                <li><a href="https://twitter.com/ojuz_official" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                <li><a href="https://github.com/ojuz" target="_blank"><i class="fa fa-github"></i> Github</a>
+                </li>
+              </ul>
+            </div>
+            <!-- .col-md-6 -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- End Copyright -->
+
+      </div>
+    </footer>
+
+
+    <!-- Go To Top Link -->
+  <!-- LOADER and BACK TO TOP
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  -->
+
+  <div id="loader" style="display: none;">
+      <div class="spinner">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+      </div>
+  </div>
+
+
+
+    <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/script.js"></script>
+
+    <!-- Start of Async Drift Code -->
+    <script>
+    !function() {
+      var t;
+      if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0,
+      t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+      t.factory = function(e) {
+        return function() {
+          var n;
+          return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+        };
+      }, t.methods.forEach(function(e) {
+        t[e] = t.factory(e);
+      }), t.load = function(t) {
+        var e, n, o, i;
+        e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"),
+        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js",
+        n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+      });
+    }();
+    drift.SNIPPET_VERSION = '0.3.1';
+    drift.load('dvpnv4hgnhsg');
+    drift.config({
+     locale: "ko"
+    });
+    drift.on('ready',function(api){
+      api.hideWelcomeMessage();
+    });
+    </script>
+    <!-- End of Async Drift Code -->
+
+</body>
+
+
+<!-- Mirrored from oj.uz/problem/view/BOI14_coprobber?locale=ko by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 14:17:41 GMT -->
+</html>

@@ -1,0 +1,179 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from cp-algorithms.com/data_structures/sparse-table.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 19 Aug 2021 18:43:20 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <base />
+    <title>Sparse Table - Competitive Programming Algorithms</title>
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJaxdda6.js"></script>
+    <link rel="stylesheet" href="../css/common.css"/>
+
+    <!-- highlightjs for code highlighting -->
+    <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/xcode.min.css">
+    <script src="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- end highlightjs -->
+    <meta name="google-site-verification" content="qSnbeMPNVgZ3kIpGVsPIAPIvEdwYSg583kPdwgJtFO8" />
+    <meta name="yandex-verification" content="315535a6d9f1c0bd" />
+</head>
+<body>
+<div id="container">
+    <div id="navbar">
+        <span id="title">
+            <a href="../index-2.html">CP-Algorithms</a>
+        </span>
+        <span id="menu">
+            <a href="../../external.html?link=https://github.com/e-maxx-eng/e-maxx-eng/commits/master/src/data_structures/sparse-table.md" title="Changes History">Page Authors</a>
+        </span>
+        <span id="search" style="display:inline-block;width:200px;float:right;margin-top:7px;margin-right:20px;">
+            <div class="ya-site-form ya-site-form_inited_no" data-bem="{&quot;action&quot;:&quot;https://cp-algorithms.com/search-results.html&quot;,&quot;arrow&quot;:false,&quot;bg&quot;:&quot;transparent&quot;,&quot;fontsize&quot;:12,&quot;fg&quot;:&quot;#000000&quot;,&quot;language&quot;:&quot;en&quot;,&quot;logo&quot;:&quot;rb&quot;,&quot;publicname&quot;:&quot;Yandex Site Search #2490798&quot;,&quot;suggest&quot;:true,&quot;target&quot;:&quot;_self&quot;,&quot;tld&quot;:&quot;com&quot;,&quot;type&quot;:3,&quot;usebigdictionary&quot;:true,&quot;searchid&quot;:2490798,&quot;input_fg&quot;:&quot;#000000&quot;,&quot;input_bg&quot;:&quot;#ffffff&quot;,&quot;input_fontStyle&quot;:&quot;normal&quot;,&quot;input_fontWeight&quot;:&quot;normal&quot;,&quot;input_placeholder&quot;:null,&quot;input_placeholderColor&quot;:&quot;#000000&quot;,&quot;input_borderColor&quot;:&quot;#7f9db9&quot;}"><form action="../../external.html?link=https://yandex.com/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2490798"/><input type="hidden" name="l10n" value="en"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value=""/><input type="submit" value="Search"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+        </span>
+    </div>
+
+<h1>Sparse Table</h1>
+<p>Sparse Table is a data structure, that allows answering range queries.
+It can answer most range queries in \(O(\log n)\), but its true power is answering range minimum queries (or equivalent range maximum queries).
+For those queries it can compute the answer in \(O(1)\) time.</p>
+<p>The only drawback of this data structure is, that it can only be used on <em>immutable</em> arrays.
+This means, that the array cannot be changed between two queries.
+If any element in the array changes, the complete data structure has to be recomputed.</p>
+<h2>Intuition</h2>
+<p>Any non-negative number can be uniquely represented as a sum of decreasing powers of two.
+This is just a variant of the binary representation of a number.
+E.g. \(13 = (1101)_2 = 8 + 4 + 1\).
+For a number \(x\) there can be at most \(\lceil \log_2 x \rceil\) summands.</p>
+<p>By the same reasoning any interval can be uniquely represented as a union of intervals with lengths that are decreasing powers of two.
+E.g. \([2, 14] = [2, 9] \cup [10, 13] \cup [14, 14]\), where the complete interval has length 13, and the individual intervals have the lengths 8, 4 and 1 respectably.
+And also here the union consists of at most \(\lceil \log_2(\text{length of interval}) \rceil\) many intervals.</p>
+<p>The main idea behind Sparse Tables is to precompute all answers for range queries with power of two length.
+Afterwards a different range query can be answered by splitting the range into ranges with power of two lengths, looking up the precomputed answers, and combining them to receive a complete answer.</p>
+<h2>Precomputation</h2>
+<p>We will use a 2-dimensional array for storing the answers to the precomputed queries.
+\(\text{st}[i][j]\) will store the answer for the range \([i, i + 2^j - 1]\) of length \(2^j\).
+The size of the 2-dimensional array will be \(\text{MAXN} \times (K + 1)\), where \(\text{MAXN}\) is the biggest possible array length.
+\(\text{K}\) has to satisfy \(\text{K} \ge \lfloor \log_2 \text{MAXN} \rfloor\), because \(2^{\lfloor \log_2 \text{MAXN} \rfloor}\) is the biggest power of two range, that we have to support.
+For arrays with reasonable length (\(\le 10^7\) elements), \(K = 25\) is a good value.</p>
+<pre><code class="language-cpp">int st[MAXN][K + 1];
+</code></pre>
+<p>Because the range \([i, i + 2^j - 1]\) of length \(2^j\) splits nicely into the ranges \([i, i + 2^{j - 1} - 1]\) and \([i + 2^{j - 1}, i + 2^j - 1]\), both of length \(2^{j - 1}\), we can generate the table efficiently using dynamic programming:</p>
+<pre><code class="language-cpp">for (int i = 0; i &lt; N; i++)
+    st[i][0] = f(array[i]);
+
+for (int j = 1; j &lt;= K; j++)
+    for (int i = 0; i + (1 &lt;&lt; j) &lt;= N; i++)
+        st[i][j] = f(st[i][j-1], st[i + (1 &lt;&lt; (j - 1))][j - 1]);
+</code></pre>
+<p>The function \(f\) will depend on the type of query.
+For range sum queries it will compute the sum, for range minimum queries it will compute the minimum.</p>
+<p>The time complexity of the precomputation is \(O(\text{N} \log \text{N})\).</p>
+<h2>Range Sum Queries</h2>
+<p>For this type of queries, we want to find the sum of all values in a range.
+Therefore the natural definition of the function \(f\) is \(f(x, y) = x + y\).
+We can construct the data structure with:</p>
+<pre><code class="language-cpp">long long st[MAXN][K + 1];
+
+for (int i = 0; i &lt; N; i++)
+    st[i][0] = array[i];
+
+for (int j = 1; j &lt;= K; j++)
+    for (int i = 0; i + (1 &lt;&lt; j) &lt;= N; i++)
+        st[i][j] = st[i][j-1] + st[i + (1 &lt;&lt; (j - 1))][j - 1];
+</code></pre>
+<p>To answer the sum query for the range \([L, R]\), we iterate over all powers of two, starting from the biggest one.
+As soon as a power of two \(2^j\) is smaller or equal to the length of the range (\(= R - L + 1\)), we process the first the first part of range \([L, L + 2^j - 1]\), and continue with the remaining range \([L + 2^j, R]\).</p>
+<pre><code class="language-cpp">long long sum = 0;
+for (int j = K; j &gt;= 0; j--) {
+    if ((1 &lt;&lt; j) &lt;= R - L + 1) {
+        sum += st[L][j];
+        L += 1 &lt;&lt; j;
+    }
+}
+</code></pre>
+<p>Time complexity for a Range Sum Query is \(O(K) = O(\log \text{MAXN})\).</p>
+<h2>Range Minimum Queries (RMQ)</h2>
+<p>These are the queries where the Sparse Table shines.
+When computing the minimum of a range, it doesn't matter if we process a value in the range once or twice.
+Therefore instead of splitting a range into multiple ranges, we can also split the range into only two overlapping ranges with power of two length.
+E.g. we can split the range \([1, 6]\) into the ranges \([1, 4]\) and \([3, 6]\).
+The range minimum of \([1, 6]\) is clearly the same as the minimum of the range minimum of \([1, 4]\) and the range minimum of \([3, 6]\).
+So we can compute the minimum of the range \([L, R]\) with:</p>
+\[
+\min(\text{st}[L][j], \text{st}[R - 2^j + 1][j]) \quad \text{ where } j = \log_2(R - L + 1)
+\]
+
+<p>This requires that we are able to compute \(\log_2(R - L + 1)\) fast.
+You can accomplish that by precomputing all logarithms:</p>
+<pre><code class="language-cpp">int log[MAXN+1];
+log[1] = 0;
+for (int i = 2; i &lt;= MAXN; i++)
+    log[i] = log[i/2] + 1;
+</code></pre>
+<p>Afterwards we need to precompute the Sparse Table structure. This time we define \(f\) with \(f(x, y) = \min(x, y)\).</p>
+<pre><code class="language-cpp">int st[MAXN][K + 1];
+
+for (int i = 0; i &lt; N; i++)
+    st[i][0] = array[i];
+
+for (int j = 1; j &lt;= K; j++)
+    for (int i = 0; i + (1 &lt;&lt; j) &lt;= N; i++)
+        st[i][j] = min(st[i][j-1], st[i + (1 &lt;&lt; (j - 1))][j - 1]);
+</code></pre>
+<p>And the minimum of a range \([L, R]\) can be computed with:</p>
+<pre><code class="language-cpp">int j = log[R - L + 1];
+int minimum = min(st[L][j], st[R - (1 &lt;&lt; j) + 1][j]);
+</code></pre>
+<p>Time complexity for a Range Minimum Query is \(O(1)\).</p>
+<h2>Similar data structures supporting more types of queries</h2>
+<p>One of the main weakness of the \(O(1)\) approach discussed in the previous section is, that this approach only supports queries of <a href="../../external.html?link=https://en.wikipedia.org/wiki/Idempotence" rel="nofollow">idempotent functions</a>.
+I.e. it works great for range minimum queries, but it is not possible to answer range sum queries using this approach.</p>
+<p>There are similar data structures that can handle any type of associative functions and answer range queries in \(O(1)\).
+One of them is called is called <a href="../../external.html?link=https://discuss.codechef.com/questions/117696/tutorial-disjoint-sparse-table" rel="nofollow">Disjoint Sparse Table</a>.
+Another one would be the <a href="sqrt-tree.html" rel="nofollow">Sqrt Tree</a>.</p>
+<h2>Practice Problems</h2>
+<ul>
+<li><a href="../../external.html?link=http://www.spoj.com/problems/RMQSQ/" rel="nofollow">SPOJ - RMQSQ</a></li>
+<li><a href="../../external.html?link=http://www.spoj.com/problems/THRBL/" rel="nofollow">SPOJ - THRBL</a></li>
+<li><a href="../../external.html?link=https://www.codechef.com/problems/MSTICK" rel="nofollow">Codechef - MSTICK</a></li>
+<li><a href="../../external.html?link=https://www.codechef.com/problems/SEAD" rel="nofollow">Codechef - SEAD</a></li>
+<li><a href="../../external.html?link=http://codeforces.com/contest/475/problem/D" rel="nofollow">Codeforces - CGCDSSQ</a></li>
+<li><a href="../../external.html?link=http://codeforces.com/problemset/problem/514/D" rel="nofollow">Codeforces - R2D2 and Droid Army</a></li>
+<li><a href="../../external.html?link=http://codeforces.com/problemset/problem/872/B" rel="nofollow">Codeforces - Maximum of Maximums of Minimums</a></li>
+<li><a href="../../external.html?link=http://www.spoj.com/problems/TNVFC1M/" rel="nofollow">SPOJ - Miraculous</a></li>
+<li><a href="../../external.html?link=https://devskill.com/CodingProblems/ViewProblem/19" rel="nofollow">DevSkills - Multiplication Interval</a></li>
+<li><a href="../../external.html?link=http://codeforces.com/contest/713/problem/D" rel="nofollow">Codeforces - Animals and Puzzles</a></li>
+<li><a href="../../external.html?link=http://codeforces.com/contest/675/problem/E" rel="nofollow">Codeforces - Trains and Statistics</a></li>
+<li><a href="../../external.html?link=http://www.spoj.com/problems/POSTERIN/" rel="nofollow">SPOJ - Postering</a></li>
+<li><a href="../../external.html?link=http://www.spoj.com/problems/RPLN/" rel="nofollow">SPOJ - Negative Score</a></li>
+<li><a href="../../external.html?link=http://www.spoj.com/problems/CITY2/" rel="nofollow">SPOJ - A Famous City</a></li>
+<li><a href="../../external.html?link=http://www.spoj.com/problems/DIFERENC/" rel="nofollow">SPOJ - Diferencija</a></li>
+<li><a href="../../external.html?link=http://codeforces.com/contest/863/problem/E" rel="nofollow">Codeforces - Turn off the TV</a></li>
+<li><a href="../../external.html?link=http://codeforces.com/contest/15/problem/D" rel="nofollow">Codeforces - Map</a></li>
+<li><a href="../../external.html?link=http://codeforces.com/contest/873/problem/E" rel="nofollow">Codeforces - Awards for Contestants</a></li>
+<li><a href="../../external.html?link=http://codeforces.com/contest/5/problem/C" rel="nofollow">Codeforces - Longest Regular Bracket Sequence</a></li>
+</ul>
+
+    <div id="footer">
+    (c) 2014-2021 translation by <a href="../../external.html?link=http://github.com/e-maxx-eng">http://github.com/e-maxx-eng</a>
+    </div>
+</div>
+
+<script>
+if (/e\-maxx\-eng|cp\-algorithms/.test(location.href)) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85220282-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+</body>
+
+<!-- Mirrored from cp-algorithms.com/data_structures/sparse-table.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 19 Aug 2021 18:43:20 GMT -->
+</html>

@@ -1,0 +1,603 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from oj.uz/problem/view/IOI15_boxes?locale=ko by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 13:31:25 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <!-- Basic -->
+    <title>문제 보기 - 선물상자 (IOI15_boxes) :: oj.uz</title>
+
+    <!-- Define Charset -->
+    <meta charset="utf-8"/>
+
+    <!-- Responsive Metatag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <!-- Page Description and Author -->
+    <meta name="description" content="oj.uz"/>
+    <meta name="author" content="박수찬"/>
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91767657-1', 'auto');
+  ga('send', 'pageview');
+</script>
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/css/bootstrap.min.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/polygon_statement.css" type="text/css"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/codeforces-community.css" type="text/css"/>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/font-awesome.min.css" type="text/css" media="screen"/>
+    <!-- slicknav -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/slicknav.css" media="screen"/>
+    <!-- Margo CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/style.css" media="screen"/>
+
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/custom_style.css" media="screen"/>
+
+    <!-- Responsive CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/responsive.css" media="screen"/>
+
+    <!-- Css3 Transitions Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/animate.css" media="screen"/>
+
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/colors/green.css" title="green" media="screen" />
+
+    <!-- Margo JS  -->
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.migrate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/modernizrr.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.appear.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.textillate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.lettering.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.slicknav.js"></script>
+
+<script data-ad-client="ca-pub-9767392980647759" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/humanize-duration.js"></script>
+
+<script type="text/javascript">
+  moment.locale("ko");
+  var my_humanizer = humanizeDuration.humanizer({language: 'ko'});
+
+  $(document).ready(function(){
+    user_timezone_utc_offset = moment().utcOffset() / 60;
+    if(user_timezone_utc_offset > 0) user_timezone_utc_offset = "+" + user_timezone_utc_offset;
+    else if(user_timezone_utc_offset == 0) user_timezone_utc_offset = "";
+    var offsets = document.getElementsByClassName("render-offset");
+    for(var i = 0; i < offsets.length; i++) {
+      offsets[i].innerHTML = "UTC" + user_timezone_utc_offset;
+    }
+
+    var datetimes = document.getElementsByClassName('render-datetime');
+    for(var i = 0; i < datetimes.length; i++) {
+      var obj = datetimes[i];
+      obj.innerHTML = moment(obj.innerHTML).format(obj.attributes['format'].value);
+    }
+
+    var datetimes_fromnow = document.getElementsByClassName('render-datetime-fromnow');
+    for(var i = 0; i < datetimes_fromnow.length; i++) {
+      var obj = datetimes_fromnow[i];
+      obj.innerHTML = moment(obj.innerHTML).fromNow();
+    }
+
+    var durations = document.getElementsByClassName("render-duration");
+    for(var i = 0; i < durations.length; i++) {
+      var obj = durations[i];
+      obj.innerHTML = my_humanizer(Number(obj.innerHTML));
+    }
+
+    var setoffsets = document.getElementsByName('set-offset');
+    for(var i = 0; i < setoffsets.length; i++) {
+      setoffsets[i].value = moment().utcOffset() * 60; // 초
+    }
+
+    var offsetfields = document.getElementsByClassName('offset-field');
+    for(var i = 0; i < offsetfields.length; i++) {
+      var obj = offsetfields[i];
+      if (obj.attributes['data'].value != "None")
+        obj.value = moment.unix(Number(obj.attributes['data'].value)).format("YYYY-MM-DD HH:mm:ss");
+    }
+  });
+</script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/circle-progressbar.js"></script>
+<link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/progressbar.css" type="text/css">
+
+
+
+<script type="text/javascript">
+$(document).ready(() => {
+  const goodBrowser = !!window.Worker;
+  const hasBuiltInPdf = !("ActiveXObject" in window) && !/iPhone|iPod|Android|BlackBerry|Opera Mini|Phone|Mobile/i.test(navigator.userAgent);
+  if(goodBrowser && hasBuiltInPdf){
+    for(iii = 0; iii < pdf_file_list.length; iii++) {
+      $(pdf_file_list[iii][1]).html('<object data="' + pdf_file_list[iii][0] + '" type="application/pdf" style="width: 100%; height: 600px;">Your browser is outdated, or your PDF plugin is deactivated</object>');
+    }
+  }else if(goodBrowser){
+    for(iii = 0; iii < pdf_file_list.length; iii++) {
+      $(pdf_file_list[iii][1]).html('<iframe seamless src="https://s3-ap-northeast-1.amazonaws.com/ojuz-attach/pdfjs/pdfjs-2.5.207-dist/web/viewer_with_ojuz.html?file=' + pdf_file_list[iii][0] + '" style="width: 100%; height: 600px;"></iframe>');
+    }
+  }else {
+    for(iii = 0; iii < pdf_file_list.length; iii++) {
+      PDFObject.embed(pdf_file_list[iii][0], pdf_file_list[iii][1], pdf_file_list[iii][2]);
+    }
+  }
+});
+</script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$']]}
+    });
+    </script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/pygments.css">
+    <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/favicon/ver_20161112174211.ico">
+
+</head>
+
+<body>
+
+    <!-- Full Body Container -->
+    <div id="container">
+
+        <!-- Start Header Section -->
+        <div class="hidden-header"></div>
+        <header class="clearfix">
+
+            <!-- Start Top Bar -->
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <!-- Start Contact Info -->
+                            <!-- End Contact Info -->
+                        </div><!-- .col-md-6 -->
+                        <div class="col-md-5 ">
+                            <ul class="login-bar">
+                                <li>
+                                    <a href="https://oj.uz/login?next=%2Fproblem%2Fview%2FIOI15_boxes%3Flocale%3Dko">로그인</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="../../register.html">회원가입</a>
+                                </li>
+                            </ul>
+                        </div><!-- .col-md-6 -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- .top-bar -->
+            <!-- End Top Bar -->
+
+
+            <!-- Start  Logo & Naviagtion  -->
+            <div class="navbar navbar-default navbar-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <!-- Stat Toggle Nav Link For Mobiles -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- End Toggle Nav Link For Mobiles -->
+                        <a class="navbar-brand" href="../../index.html">
+                            <img alt="oj.uz" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/logo/ver_20170205.png" style="height: 30px;">
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <div class="search-side">
+                          <a class="show-search dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-language" aria-hidden="true"></i>
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><a href="IOI15_boxes7038.html?locale=en">English</a></li>
+                            <li><a href="IOI15_boxesd6dc.html?locale=ko">한국어</a></li>
+                          </ul>
+                        </div>
+                        <!-- End Search -->
+                        <!-- Start Navigation List -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+				    <a href="../../contests.html">대회</a>
+                            </li>
+                            <li>
+                                <a href="../../problems.html">문제</a>
+                            </li>
+                            <li>
+                                <a href="https://oj.uz/submissions">답안 목록</a>
+                            </li>
+			    <li>
+				    <a href="https://github.com/ojuz/ojuz-contribute">기여하기</a>
+			    </li>
+                        </ul>
+                        <!-- End Navigation List -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Logo & Naviagtion -->
+
+            <!-- Mobile Menu Start -->
+                <ul class="wpb-mobile-menu">
+                    <li>
+			    <a href="../../contests.html">대회 </a>
+                    </li>
+                    <li>
+                        <a href="../../problems.html">문제</a>
+                    </li>
+                    <li>
+                        <a href="https://oj.uz/submissions">답안 목록</a>
+                    </li>
+		    <li>
+			    <a href="https://github.com/ojuz/ojuz-contribute">기여하기</a>
+		    </li>
+                    <li>
+                      <a><i class="fa fa-language" aria-hidden="true"></i> 언어</a>
+                      <ul class="dropdown">
+                        <li><a href="IOI15_boxes7038.html?locale=en">English</a></li>
+                        <li><a href="IOI15_boxesd6dc.html?locale=ko">한국어</a></li>
+                      </ul>
+                    </li>
+                </ul>
+                <!-- Mobile Menu End -->
+        </header>
+        <!-- End Header Section -->
+
+            <!-- Start Page Banner -->
+            <div class="page-banner no-subtitle">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h2 class="page-banner-title">문제 보기 - 선물상자 (IOI15_boxes)</h2>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="breadcrumbs">
+                     </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Page Banner -->
+
+<script type="text/javascript">var pdf_file_list = [];</script>
+
+
+
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="page-header problem-title">
+          <h1>
+            선물상자
+            <small>
+              <span class="label label-info">Batch</span>
+              <a href="#" class="btn btn-default" data-toggle="modal" data-target="#view_compilation_commands"><i class="glyphicon glyphicon-list-alt"></i> 컴파일 명령</a>
+            </small>
+          </h1>
+        </div>
+        <ul class="nav nav-tabs" style="margin-bottom: 10px;">
+            <li role="presentation" class="active">
+    <a href="IOI15_boxes.html">문제 내용</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="https://oj.uz/login?next=%2Fproblem%2Fsubmit%2FIOI15_boxes">제출</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="../statistics/IOI15_boxes.html">통계</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="https://oj.uz/submissions?problem=IOI15_boxes">답안들</a>
+  </li>
+
+        </ul>
+        
+  <div class="table-responsive">
+  <table class="table">
+      <thead>
+        <tr>
+          <th style="width: 20%">시간 제한</th>
+          <th style="width: 20%">메모리 제한</th>
+          <th style="width: 20%">제출 횟수</th>
+          <th style="width: 20%">통과한 사람 수</th>
+          <th style="width: 20%">비율</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>2000 ms</td>
+              <td>512 MiB</td>
+	      <td>2444</td>
+              <td>339</td>
+              <td>13.87%</td>
+	  </tr>
+      </tbody>
+  </table>
+  </div>
+  <div id='statement'>
+    <p>IOI 2015 개막식이 거의 끝나가고 있다. 개막식이 진행되는 동안, 각 팀은 주최측으로부터 선물상자를 받게 되어 있다. 그러나 모든 자원봉사자들이 개막식에 너무 집중하는 바람에, 선물에 대해서는 완전히 잊고 있었다. 선물을 줘야 한다는 것을 기억하는 사람은 아만 뿐이다. 아만은 열정적인 자원봉사자이며, IOI가 완벽하게 진행되었으면 하는 바램으로 모든 선물을 최소의 시간에 전달하고자 한다.</p>
+
+<p>개막식이 진행되는 곳은 L개의 동일한 구역으로 나뉘어진 원 모양이다. 각 구역은 차례로 0부터 L-1까지 번호가 매겨져 있다. 즉, 0 ≤ i ≤ L-2일 때, 구역 i와 구역 i+1는 서로 인접해 있고, 구역 0과 구역 L-1도 서로 인접해 있다. 개막식에 온 팀들은 모두 N개 팀이다. 각 팀은 이 구역들 중 하나에 앉아 있다. 각 구역에는 임의의 수의 팀들이 있을 수 있다. 어떤 구역에는 팀이 전혀 없을 수도 있다.</p>
+
+<p>선물은 모두 동일하며, 총 N개가 있다. 처음에, 아만과 모든 선물은 구역 0에 있다. 아만은 각 팀에게 선물을 하나씩 주어야 하며, 선물을 다 나눠준 다음에는 구역 0으로 돌아와야 한다. 구역 0에도 팀들이 있을 수 있음에 주의하자.</p>
+
+<p>어떤 순간에도, 아만은 최대 K개의 선물들만을 들 수 있다. 아만은 구역 0에서 선물을 들어야 하고, 드는데는 시간이 들지 않는다. 각각의 선물은 팀에게 전달될 때까지 아만이 들고 있어야 한다. 아만이 하나 이상의 선물을 들고 있고, 아직 선물을 받지 않은 팀(들)이 있는 구역에 도착하면, 아만은 들고 있는 선물을 팀(들)에게 줄 수 있다. 선물을 주는데도 시간이 들지 않는다. 시간이 드는 것은 단지 이동 뿐이다. 아만은 원형인 개막식장에서 양 방향으로 움직일 수 있다. 인접한 구역간을 이동하는데 (시계방향이든 반시계방향이든) 정확히 1초가 걸리며, 선물을 몇 개 들고 있는지와는 관계가 없다.</p>
+
+<p>아만이 모든 선물을 전달하고, 처음 위치로 돌아오는데 필요한 최소의 시간을 구하시오.</p>
+
+<h3>예제</h3>
+
+<p>이 예제에서 N = 3팀이 있고, 아만은 동시에 최대 K = 2개의 선물을 들 수 있으며, 구역의 수는 L = 8이다. 팀들은 구역 1, 2, 5에 있다.</p>
+
+<div style="text-align: center;">
+<img src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/old/IOI15_boxes/1.png" style="">
+</div>
+
+<p>최적의 해 중 하나가 위 그림에 나와 있다. 처음에 아만은 선물 두 개를 들고, 이를 구역 2에 있는 팀에게 하나를 전달하고, 나머지 하나를 구역 5에 있는 팀에게 준 뒤 구역 0으로 돌아온다. 이 과정은 8초가 걸린다. 다음에 아만은 남은 선물 하나를 구역 1에 있는 팀에게 주고 다시 구역 0으로 돌아온다. 이 과정은 2초가 걸린다. 따라서, 전체 시간은 10초이다.</p>
+
+<h3>문제</h3>
+
+<p>N, K, L과 모든 팀들의 위치가 주어진다. 아만이 모든 선물을 전달하고 구역 으로 돌아오는데 걸리는 시간의 최소값을 구하시오.</p>
+
+<p>이를 위하여 <code>delivery</code> 함수를 구현해야 한다:</p>
+
+<ul>
+<li><code>delivery(N, K, L, positions)</code>
+<ul>
+<li><code>N</code>: 팀의 수</li>
+<li><code>K</code>: 아만이 한 번에 들 수 있는 선물의 최대 개수 </li>
+<li><code>L</code>: 개막식장의 구역 수</li>
+<li><code>positions</code>: 길이 N인 배열. <code>positions[0], ..., positions[N-1]</code>에 각 팀이 있는 구역 번호가 주어진다. <code>positions</code>의 성분들은 감소하지 않는 순서로 주어진다.</li>
+</ul></li>
+</ul>
+
+<p>이 함수의 리턴값은 아만이 임무를 완수하는데 최소 몇 초가 필요한지이다.</p>
+
+<h3>Sample grader</h3>
+
+<p><strong>Sample grader는 <a href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/old/IOI15_boxes/graders.zip">여기</a>에서 다운로드할 수 있습니다.</strong> </p>
+
+<p>Sample grader는 다음 양식에 따라 입력을 읽어들인다.</p>
+
+<ul>
+<li>line 1 : <code>N K L</code></li>
+<li>line 2 : <code>positions[0] ... positions[N-1]</code></li>
+</ul>
+
+<p>Sample grader는 <code>delivery</code>의 리턴 값을 출력한다.</p>
+
+  </div>
+
+  <script type="text/javascript">
+    $('.problem-statement-pdf').css('width', $("#statement").width()+'px');
+  </script>
+      </div>
+      <div class="col-lg-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">출처</div>
+          <div class="panel-body">
+            <ul style="padding-left: 20px;">
+              <li>
+                <a href="../../problems/source/170.html">
+                  IOI 2015 Day 1 1번
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="panel panel-default">
+          <div class="panel-heading"><i class="fa fa-download"></i> 첨부 파일</div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>파일명</th>
+                <th>파일 크기</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td><a href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/old/IOI15_boxes/graders.zip">graders.zip</a></td>
+                  <td>6.1 KiB</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading"><i class="fa fa-github"></i> 문제 내용 수정하기</div>
+          <div class="panel-body">
+            <div class="btn-group" role="group" aria-label="...">
+              <a class="btn btn-default" target="_blank" href="https://github.com/ojuz/problem-statements/edit/master/problems/IOI15_boxes/en.md">English</a>
+              <a class="btn btn-default" target="_blank" href="https://github.com/ojuz/problem-statements/edit/master/problems/IOI15_boxes/ko.md">한국어</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="view_compilation_commands" tabindex="-1" role="dialog" aria-labelledby="compilation_commands_title" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="compilation_commands_title">컴파일 명령</h4>
+      </div>
+      <div class="modal-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>언어</th>
+                  <th>명령
+                </tr>
+              </thead>
+              <tbody>
+ 
+                  <tr>
+                    <th>C++17 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o boxes -O2 boxes.cpp -Wshadow -Wextra -Wconversion grader.c -std=c++17</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C / gcc</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">gcc-10 -Wall -lm -static -DEVAL -o boxes -O2 boxes.c -Wshadow -Wextra -Wconversion grader.c </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++ / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o boxes -O2 boxes.cpp -Wshadow -Wextra -Wconversion grader.c </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++11 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o boxes -O2 boxes.cpp -Wshadow -Wextra -Wconversion grader.c -std=c++11</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++14 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o boxes -O2 boxes.cpp -Wshadow -Wextra -Wconversion grader.c -std=c++14</code>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#my-score').circleProgress({
+      value: 0.0,
+      size: 100,
+      thickness: 50,
+      animationStartValue: 0.0,
+      fill: {
+          color: 'rgb(0, 140, 0)', // fallback color when image is not loaded
+      }
+  });
+});
+</script>
+<script src="https://s3-ap-northeast-1.amazonaws.com/ojuz-attach/pdfobject/pdfobject.min.js"></script>
+
+    </div>
+    <!-- End Full Body Container -->
+
+    <!-- Start Footer Section -->
+    <footer>
+      <div class="container">
+        <!-- Start Copyright -->
+        <div class="copyright-section">
+          <div class="row">
+            <div class="col-md-6">
+              <p>&copy; 2013-2021 박수찬</p>
+            </div>
+            <!-- .col-md-6 -->
+            <div class="col-md-6">
+              <ul class="footer-nav">
+                <li><a href="https://facebook.com/oj.uz.official" target="_blank"><i class="fa fa-facebook"></i> 페이스북</a>
+                </li>
+                <li><a href="https://twitter.com/ojuz_official" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                <li><a href="https://github.com/ojuz" target="_blank"><i class="fa fa-github"></i> Github</a>
+                </li>
+              </ul>
+            </div>
+            <!-- .col-md-6 -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- End Copyright -->
+
+      </div>
+    </footer>
+
+
+    <!-- Go To Top Link -->
+  <!-- LOADER and BACK TO TOP
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  -->
+
+  <div id="loader" style="display: none;">
+      <div class="spinner">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+      </div>
+  </div>
+
+
+
+    <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/script.js"></script>
+
+    <!-- Start of Async Drift Code -->
+    <script>
+    !function() {
+      var t;
+      if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0,
+      t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+      t.factory = function(e) {
+        return function() {
+          var n;
+          return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+        };
+      }, t.methods.forEach(function(e) {
+        t[e] = t.factory(e);
+      }), t.load = function(t) {
+        var e, n, o, i;
+        e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"),
+        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js",
+        n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+      });
+    }();
+    drift.SNIPPET_VERSION = '0.3.1';
+    drift.load('dvpnv4hgnhsg');
+    drift.config({
+     locale: "ko"
+    });
+    drift.on('ready',function(api){
+      api.hideWelcomeMessage();
+    });
+    </script>
+    <!-- End of Async Drift Code -->
+
+</body>
+
+
+<!-- Mirrored from oj.uz/problem/view/IOI15_boxes?locale=ko by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 13:31:27 GMT -->
+</html>

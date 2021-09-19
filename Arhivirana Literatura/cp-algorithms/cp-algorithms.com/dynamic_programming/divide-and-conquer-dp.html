@@ -1,0 +1,160 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from cp-algorithms.com/dynamic_programming/divide-and-conquer-dp.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 19 Aug 2021 18:43:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <base />
+    <title>Divide and Conquer DP - Competitive Programming Algorithms</title>
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJaxdda6.js"></script>
+    <link rel="stylesheet" href="../css/common.css"/>
+
+    <!-- highlightjs for code highlighting -->
+    <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/xcode.min.css">
+    <script src="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- end highlightjs -->
+    <meta name="google-site-verification" content="qSnbeMPNVgZ3kIpGVsPIAPIvEdwYSg583kPdwgJtFO8" />
+    <meta name="yandex-verification" content="315535a6d9f1c0bd" />
+</head>
+<body>
+<div id="container">
+    <div id="navbar">
+        <span id="title">
+            <a href="../index-2.html">CP-Algorithms</a>
+        </span>
+        <span id="menu">
+            <a href="../../external.html?link=https://github.com/e-maxx-eng/e-maxx-eng/commits/master/src/dynamic_programming/divide-and-conquer-dp.md" title="Changes History">Page Authors</a>
+        </span>
+        <span id="search" style="display:inline-block;width:200px;float:right;margin-top:7px;margin-right:20px;">
+            <div class="ya-site-form ya-site-form_inited_no" data-bem="{&quot;action&quot;:&quot;https://cp-algorithms.com/search-results.html&quot;,&quot;arrow&quot;:false,&quot;bg&quot;:&quot;transparent&quot;,&quot;fontsize&quot;:12,&quot;fg&quot;:&quot;#000000&quot;,&quot;language&quot;:&quot;en&quot;,&quot;logo&quot;:&quot;rb&quot;,&quot;publicname&quot;:&quot;Yandex Site Search #2490798&quot;,&quot;suggest&quot;:true,&quot;target&quot;:&quot;_self&quot;,&quot;tld&quot;:&quot;com&quot;,&quot;type&quot;:3,&quot;usebigdictionary&quot;:true,&quot;searchid&quot;:2490798,&quot;input_fg&quot;:&quot;#000000&quot;,&quot;input_bg&quot;:&quot;#ffffff&quot;,&quot;input_fontStyle&quot;:&quot;normal&quot;,&quot;input_fontWeight&quot;:&quot;normal&quot;,&quot;input_placeholder&quot;:null,&quot;input_placeholderColor&quot;:&quot;#000000&quot;,&quot;input_borderColor&quot;:&quot;#7f9db9&quot;}"><form action="../../external.html?link=https://yandex.com/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2490798"/><input type="hidden" name="l10n" value="en"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value=""/><input type="submit" value="Search"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+        </span>
+    </div>
+
+<h1>Divide and Conquer DP</h1>
+<p>Divide and Conquer is a dynamic programming optimization.</p>
+<h3>Preconditions</h3>
+<p>Some dynamic programming problems have a recurrence of this form: </p>
+\[
+dp(i, j) =
+\min_{0 \leq k \leq j} \\{ dp(i - 1, k - 1) + C(k, j) \\}
+\]
+<p>Where \(C(k, j)\) is a cost
+function and \(dp(i, j) = 0\) when \(j \lt 0\).</p>
+<p>Say \(0 \leq i \lt m\) and \(0 \leq j \lt n\), and evaluating \(C\) takes \(O(1)\)
+time. Then the straightforward evaluation of the above recurrence is \(O(m n^2)\). There
+are \(m \times n\) states, and \(n\) transitions for each state.</p>
+<p>Let \(opt(i, j)\) be the value of \(k\) that minimizes the above expression. If
+\(opt(i, j) \leq opt(i, j + 1)\) for all \(i, j\), then we can apply
+divide-and-conquer DP. This is known as the <em>monotonicity condition</em>. The optimal
+"splitting point" for a fixed \(i\) increases as \(j\) increases.</p>
+<p>This lets us solve for all states more efficiently. Say we compute \(opt(i, j)\)
+for some fixed \(i\) and \(j\). Then for any \(j' &lt; j\) we know that \(opt(i, j') \leq opt(i, j)\).
+This means when computing \(opt(i, j')\), we don't have to consider as many
+splitting points!</p>
+<p>To minimize the runtime, we apply the idea behind divide and conquer. First,
+compute \(opt(i, n / 2)\). Then, compute \(opt(i, n / 4)\), knowing that it is less
+than or equal to \(opt(i, n / 2)\) and \(opt(i, 3 n / 4)\) knowing that it is
+greater than or equal to \(opt(i, n / 2)\). By recursively keeping track of the
+lower and upper bounds on \(opt\), we reach a \(O(m n \log n)\) runtime. Each
+possible value of \(opt(i, j)\) only appears in \(\log n\) different nodes.</p>
+<p>Note that it doesn't matter how "balanced" \(opt(i, j)\) is. Across a fixed
+level, each value of \(k\) is used at most twice, and there are at most \(\log n\)
+levels.</p>
+<h2>Generic implementation</h2>
+<p>Even though implementation varies based on problem, here's a fairly generic
+template.
+The function <code>compute</code> computes one row \(i\) of states <code>dp_cur</code>, given the previous row \(i-1\) of states <code>dp_before</code>.
+It has to be called with <code>compute(0, n-1, 0, n-1)</code>. The function <code>solve</code> computes <code>m</code> rows and returns the result.</p>
+<pre><code class="language-cpp">int m, n;
+vector&lt;long long&gt; dp_before(n), dp_cur(n);
+
+long long C(int i, int j);
+
+// compute dp_cur[l], ... dp_cur[r] (inclusive)
+void compute(int l, int r, int optl, int optr) {
+    if (l &gt; r)
+        return;
+
+    int mid = (l + r) &gt;&gt; 1;
+    pair&lt;long long, int&gt; best = {LLONG_MAX, -1};
+
+    for (int k = optl; k &lt;= min(mid, optr); k++) {
+        best = min(best, {(k ? dp_before[k - 1] : 0) + C(k, mid), k});
+    }
+
+    dp_cur[mid] = best.first;
+    int opt = best.second;
+
+    compute(l, mid - 1, optl, opt);
+    compute(mid + 1, r, opt, optr);
+}
+
+int solve() {
+    for (int i = 0; i &lt; n; i++)
+        dp_before[i] = C(0, i);
+
+    for (int i = 1; i &lt; m; i++) {
+        compute(0, n - 1, 0, n - 1);
+        dp_before = dp_cur;
+    }
+
+    return dp_before[n - 1];
+}
+</code></pre>
+<h3>Things to look out for</h3>
+<p>The greatest difficulty with Divide and Conquer DP problems is proving the
+monotonicity of \(opt\). Many Divide and Conquer DP problems can also be solved
+with the Convex Hull trick or vice-versa. It is useful to know and understand
+both!</p>
+<h2>Practice Problems</h2>
+<ul>
+<li><a href="../../external.html?link=https://atcoder.jp/contests/arc067/tasks/arc067_d" rel="nofollow">AtCoder - Yakiniku Restaurants</a></li>
+<li><a href="../../external.html?link=https://codeforces.com/contest/321/problem/E" rel="nofollow">CodeForces - Ciel and Gondolas</a> (Be careful with I/O!)</li>
+<li><a href="../../external.html?link=https://codeforces.com/problemset/problem/673/E" rel="nofollow">CodeForces - Levels And Regions</a></li>
+<li><a href="../../external.html?link=https://codeforces.com/contest/1527/problem/E" rel="nofollow">CodeForces - Partition Game</a></li>
+<li><a href="../../external.html?link=https://codeforces.com/problemset/problem/834/D" rel="nofollow">CodeForces - The Bakery</a></li>
+<li><a href="../../external.html?link=https://codeforces.com/contest/868/problem/F" rel="nofollow">CodeForces - Yet Another Minimization Problem</a></li>
+<li><a href="../../external.html?link=https://www.codechef.com/problems/CHEFAOR" rel="nofollow">Codechef - CHEFAOR</a></li>
+<li><a href="../../external.html?link=https://dunjudge.me/analysis/problems/894/" rel="nofollow">Dunjudge - GUARDS</a> (This is the exact problem in this article.)</li>
+<li><a href="../../external.html?link=https://www.hackerrank.com/contests/ioi-2014-practice-contest-2/challenges/guardians-lunatics-ioi14" rel="nofollow">Hackerrank - Guardians of the Lunatics</a></li>
+<li><a href="../../external.html?link=https://www.hackerrank.com/contests/world-codesprint-5/challenges/mining" rel="nofollow">Hackerrank - Mining</a></li>
+<li><a href="../../external.html?link=https://open.kattis.com/problems/money" rel="nofollow">Kattis - Money (ACM ICPC World Finals 2017)</a></li>
+<li><a href="../../external.html?link=https://www.spoj.com/problems/ADAMOLD/" rel="nofollow">SPOJ - ADAMOLD</a></li>
+<li><a href="../../external.html?link=https://www.spoj.com/problems/LARMY/" rel="nofollow">SPOJ - LARMY</a></li>
+<li><a href="../../external.html?link=https://www.spoj.com/problems/NKLEAVES/" rel="nofollow">SPOJ - NKLEAVES</a></li>
+<li><a href="../../external.html?link=https://acm.timus.ru/problem.aspx?space=1&amp;num=1167" rel="nofollow">Timus - Bicolored Horses</a></li>
+<li><a href="../../external.html?link=http://www.usaco.org/index.php?page=viewproblem2&amp;cpid=616" rel="nofollow">USACO - Circular Barn</a></li>
+<li><a href="../../onlinejudge.org/external/125/12524.pdf" rel="nofollow">UVA - Arranging Heaps</a></li>
+<li><a href="../../onlinejudge.org/external/125/12594.pdf" rel="nofollow">UVA - Naming Babies</a></li>
+</ul>
+<h2>References</h2>
+<ul>
+<li><a href="../../external.html?link=https://www.quora.com/What-is-divide-and-conquer-optimization-in-dynamic-programming" rel="nofollow">Quora Answer by Michael Levin</a></li>
+<li><a href="../../external.html?link=https://www.youtube.com/watch?v=wLXEWuDWnzI" rel="nofollow">Video Tutorial by "Sothe" the Algorithm Wolf</a></li>
+</ul>
+
+    <div id="footer">
+    (c) 2014-2021 translation by <a href="../../external.html?link=http://github.com/e-maxx-eng">http://github.com/e-maxx-eng</a>
+    </div>
+</div>
+
+<script>
+if (/e\-maxx\-eng|cp\-algorithms/.test(location.href)) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85220282-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+</body>
+
+<!-- Mirrored from cp-algorithms.com/dynamic_programming/divide-and-conquer-dp.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 19 Aug 2021 18:43:41 GMT -->
+</html>

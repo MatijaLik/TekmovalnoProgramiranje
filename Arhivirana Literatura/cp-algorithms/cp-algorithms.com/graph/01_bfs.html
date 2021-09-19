@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from cp-algorithms.com/graph/01_bfs.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 19 Aug 2021 18:44:21 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <base />
+    <title>0-1 BFS - Competitive Programming Algorithms</title>
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJaxdda6.js"></script>
+    <link rel="stylesheet" href="../css/common.css"/>
+
+    <!-- highlightjs for code highlighting -->
+    <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/xcode.min.css">
+    <script src="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- end highlightjs -->
+    <meta name="google-site-verification" content="qSnbeMPNVgZ3kIpGVsPIAPIvEdwYSg583kPdwgJtFO8" />
+    <meta name="yandex-verification" content="315535a6d9f1c0bd" />
+</head>
+<body>
+<div id="container">
+    <div id="navbar">
+        <span id="title">
+            <a href="../index-2.html">CP-Algorithms</a>
+        </span>
+        <span id="menu">
+            <a href="../../external.html?link=https://github.com/e-maxx-eng/e-maxx-eng/commits/master/src/graph/01_bfs.md" title="Changes History">Page Authors</a>
+        </span>
+        <span id="search" style="display:inline-block;width:200px;float:right;margin-top:7px;margin-right:20px;">
+            <div class="ya-site-form ya-site-form_inited_no" data-bem="{&quot;action&quot;:&quot;https://cp-algorithms.com/search-results.html&quot;,&quot;arrow&quot;:false,&quot;bg&quot;:&quot;transparent&quot;,&quot;fontsize&quot;:12,&quot;fg&quot;:&quot;#000000&quot;,&quot;language&quot;:&quot;en&quot;,&quot;logo&quot;:&quot;rb&quot;,&quot;publicname&quot;:&quot;Yandex Site Search #2490798&quot;,&quot;suggest&quot;:true,&quot;target&quot;:&quot;_self&quot;,&quot;tld&quot;:&quot;com&quot;,&quot;type&quot;:3,&quot;usebigdictionary&quot;:true,&quot;searchid&quot;:2490798,&quot;input_fg&quot;:&quot;#000000&quot;,&quot;input_bg&quot;:&quot;#ffffff&quot;,&quot;input_fontStyle&quot;:&quot;normal&quot;,&quot;input_fontWeight&quot;:&quot;normal&quot;,&quot;input_placeholder&quot;:null,&quot;input_placeholderColor&quot;:&quot;#000000&quot;,&quot;input_borderColor&quot;:&quot;#7f9db9&quot;}"><form action="../../external.html?link=https://yandex.com/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2490798"/><input type="hidden" name="l10n" value="en"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value=""/><input type="submit" value="Search"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+        </span>
+    </div>
+
+<h1>0-1 BFS</h1>
+<p>It is well-known, that you can find the shortest paths between a single source and all other vertices in \(O(|E|)\) using <a href="breadth-first-search.html" rel="nofollow">Breadth First Search</a> in an <strong>unweighted graph</strong>, i.e. the distance is the minimal number of edges that you need to traverse from the source to another vertex.
+We can interpret such a graph also as a weighted graph, where every edge has the weight \(1\).
+If not all edges in graph have the same weight, that we need a more general algorithm, like <a href="dijkstra.html" rel="nofollow">Dijkstra</a> which runs in \(O(|V|^2 + |E|)\) or \(O(|E| \log |V|)\) time.</p>
+<p>However if the weights are more constrained, we can often do better.
+In this article we demonstrate how we can use BFS to solve the SSSP (single-source shortest path) problem in \(O(|E|)\), if the weight of each edge is either \(0\) or \(1\).</p>
+<h2>Algorithm</h2>
+<p>We can develop the algorithm by closely study Dijkstra's algorithm and think about the consequences that our special graph implies.
+The general form of Dijkstra's algorithm is (here a <code>set</code> is used for the priority queue):</p>
+<pre><code class="language-cpp">d.assign(n, INF);
+d[s] = 0;
+set&lt;pair&lt;int, int&gt;&gt; q;
+q.insert({0, s});
+while (!q.empty()) {
+    int v = q.begin()-&gt;second;
+    q.erase(q.begin());
+
+    for (auto edge : adj[v]) {
+        int u = edge.first;
+        int w = edge.second;
+
+        if (d[v] + w &lt; d[u]) {
+            q.erase({d[u], u});
+            d[u] = d[v] + w;
+            q.insert({d[u], u});
+        }
+    }
+}
+</code></pre>
+<p>We can notice that the difference between the distances between the source <code>s</code> and two other vertices in the queue differs by at most one.
+Especially, we know that \(d[v] \le d[u] \le d[v] + 1\) for each \(u \in Q\).
+The reason for this is, that we only add vertices with equal distance or with distance plus one to the queue during each iteration.
+Assuming there exists a \(u\) in the queue with \(d[u] - d[v] &gt; 1\), then \(u\) must have been insert in the queue via a different vertex \(t\) with \(d[t] \ge d[u] - 1 &gt; d[v]\).
+However this is impossible, since Dijkstra's algorithm iterates over the vertices in increasing order.</p>
+<p>This means, that the order of the queue looks like this:</p>
+\[
+Q = \underbrace{v}\_{d[v]}, \dots, \underbrace{u}\_{d[v]}, \underbrace{m}\_{d[v]+1} \dots \underbrace{n}\_{d[v]+1}
+\]
+
+<p>This structure is so simple, that we don't need an actual priority queue, i.e. using a balanced binary tree would be an overkill.
+We can simply use a normal queue, and append new vertices at the beginning if the corresponding edge has weight \(0\), i.e. if \(d[u] = d[v]\), or at the end if the edge has weight \(1\), i.e. if \(d[u] = d[v] + 1\).
+This way the queue still remains sorted at all time.</p>
+<pre><code class="language-cpp">vector&lt;int&gt; d(n, INF);
+d[s] = 0;
+deque&lt;int&gt; q;
+q.push_front(s);
+while (!q.empty()) {
+    int v = q.front();
+    q.pop_front();
+    for (auto edge : adj[v]) {
+        int u = edge.first;
+        int w = edge.second;
+        if (d[v] + w &lt; d[u]) {
+            d[u] = d[v] + w;
+            if (w == 1)
+                q.push_back(u);
+            else
+                q.push_front(u);
+        }
+    }
+}
+</code></pre>
+<h2>Dial's algorithm</h2>
+<p>We can extend this even further if we allow the weights of the edges to be even bigger.
+If every edge in the graph has a weight \(\le k\), then the distances of vertices in the queue will differ by at most \(k\) from the distance of \(v\) to the source.
+So we can keep \(k + 1\) buckets for the vertices in the queue, and whenever the bucket corresponding to the smallest distance gets empty, we make a cyclic shift to get the bucket with the next higher distance.
+This extension is called <strong>Dial's algorithm</strong>.</p>
+<h2>Practice problems</h2>
+<ul>
+<li><a href="../../external.html?link=https://www.codechef.com/problems/REVERSE" rel="nofollow">CodeChef - Chef and Reversing</a></li>
+<li><a href="../../external.html?link=https://codeforces.com/contest/1063/problem/B" rel="nofollow">Labyrinth</a></li>
+<li><a href="../../external.html?link=http://www.spoj.com/problems/KATHTHI/" rel="nofollow">KATHTHI</a></li>
+<li><a href="../../external.html?link=https://community.topcoder.com/stat?c=problem_statement&amp;pm=10337" rel="nofollow">DoNotTurn</a></li>
+<li><a href="../../external.html?link=https://onlinejudge.org/index.php?option=onlinejudge&amp;page=show_problem&amp;problem=2620" rel="nofollow">Ocean Currents</a></li>
+<li><a href="../../external.html?link=https://codeforces.com/problemset/problem/877/D" rel="nofollow">Olya and Energy Drinks</a></li>
+<li><a href="../../external.html?link=https://codeforces.com/problemset/problem/590/C" rel="nofollow">Three States</a></li>
+<li><a href="../../external.html?link=https://onlinejudge.org/index.php?option=com_onlinejudge&amp;Itemid=8&amp;page=show_problem&amp;problem=2621" rel="nofollow">Colliding Traffic</a></li>
+<li><a href="../../external.html?link=https://codeforces.com/problemset/problem/173/B" rel="nofollow">CHamber of Secrets</a></li>
+<li><a href="../../external.html?link=https://codeforces.com/problemset/problem/173/C" rel="nofollow">Spiral Maximum</a></li>
+<li><a href="../../external.html?link=https://leetcode.com/problems/minimum-cost-to-make-at-least-one-valid-path-in-a-grid" rel="nofollow">Minimum Cost to Make at Least One Valid Path in a Grid</a></li>
+</ul>
+
+    <div id="footer">
+    (c) 2014-2021 translation by <a href="../../external.html?link=http://github.com/e-maxx-eng">http://github.com/e-maxx-eng</a>
+    </div>
+</div>
+
+<script>
+if (/e\-maxx\-eng|cp\-algorithms/.test(location.href)) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85220282-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+</body>
+
+<!-- Mirrored from cp-algorithms.com/graph/01_bfs.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 19 Aug 2021 18:44:21 GMT -->
+</html>

@@ -1,0 +1,189 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from cp-algorithms.com/others/josephus_problem.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 19 Aug 2021 18:44:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <base />
+    <title>Josephus Problem - Competitive Programming Algorithms</title>
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJaxdda6.js"></script>
+    <link rel="stylesheet" href="../css/common.css"/>
+
+    <!-- highlightjs for code highlighting -->
+    <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/xcode.min.css">
+    <script src="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- end highlightjs -->
+    <meta name="google-site-verification" content="qSnbeMPNVgZ3kIpGVsPIAPIvEdwYSg583kPdwgJtFO8" />
+    <meta name="yandex-verification" content="315535a6d9f1c0bd" />
+</head>
+<body>
+<div id="container">
+    <div id="navbar">
+        <span id="title">
+            <a href="../index-2.html">CP-Algorithms</a>
+        </span>
+        <span id="menu">
+            <a href="../../external.html?link=https://github.com/e-maxx-eng/e-maxx-eng/commits/master/src/others/josephus_problem.md" title="Changes History">Page Authors</a>
+        </span>
+        <span id="search" style="display:inline-block;width:200px;float:right;margin-top:7px;margin-right:20px;">
+            <div class="ya-site-form ya-site-form_inited_no" data-bem="{&quot;action&quot;:&quot;https://cp-algorithms.com/search-results.html&quot;,&quot;arrow&quot;:false,&quot;bg&quot;:&quot;transparent&quot;,&quot;fontsize&quot;:12,&quot;fg&quot;:&quot;#000000&quot;,&quot;language&quot;:&quot;en&quot;,&quot;logo&quot;:&quot;rb&quot;,&quot;publicname&quot;:&quot;Yandex Site Search #2490798&quot;,&quot;suggest&quot;:true,&quot;target&quot;:&quot;_self&quot;,&quot;tld&quot;:&quot;com&quot;,&quot;type&quot;:3,&quot;usebigdictionary&quot;:true,&quot;searchid&quot;:2490798,&quot;input_fg&quot;:&quot;#000000&quot;,&quot;input_bg&quot;:&quot;#ffffff&quot;,&quot;input_fontStyle&quot;:&quot;normal&quot;,&quot;input_fontWeight&quot;:&quot;normal&quot;,&quot;input_placeholder&quot;:null,&quot;input_placeholderColor&quot;:&quot;#000000&quot;,&quot;input_borderColor&quot;:&quot;#7f9db9&quot;}"><form action="../../external.html?link=https://yandex.com/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2490798"/><input type="hidden" name="l10n" value="en"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value=""/><input type="submit" value="Search"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+        </span>
+    </div>
+
+<h1>Josephus Problem</h1>
+<h2>Statement</h2>
+<p>We are given the natural numbers \(n\) and \(k\).
+All natural numbers from \(1\) to \(n\) are written in a circle. 
+First, count the \(k\)-th number starting from the first one and delete it.
+Then \(k\) numbers are counted starting from the next one and the \(k\)-th one is removed again, and so on.
+The process stops when one number remains.
+It is required to find the last number.</p>
+<p>This task was set by <strong>Flavius Josephus</strong> in the 1st century (though in a somewhat narrower formulation: for \(k = 2\)).</p>
+<p>This problem can be solved by modeling the procedure.
+Brute force modeling will work \(O(n^{2})\). Using a <a href="../data_structures/segment_tree.html" rel="nofollow">Segment Tree</a>, we can improve it to \(O(n \log n)\).
+We want something better though.</p>
+<h2>Modeling a \(O(n)\) solution</h2>
+<p>We will try to find a pattern expressing the answer for the problem \(J_{n, k}\) through the solution of the previous problems.</p>
+<p>Using brute force modeling we can construct a table of values, for example, the following:</p>
+\[
+\begin{array}{ccccccccccc}
+n\setminus k &amp; 1 &amp; 2 &amp; 3 &amp; 4 &amp; 5 &amp; 6 &amp; 7 &amp; 8 &amp; 9 &amp; 10 \\
+1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 1 \\
+2 &amp; 2 &amp; 1 &amp; 2 &amp; 1 &amp; 2 &amp; 1 &amp; 2 &amp; 1 &amp; 2 &amp; 1 \\
+3 &amp; 3 &amp; 3 &amp; 2 &amp; 2 &amp; 1 &amp; 1 &amp; 3 &amp; 3 &amp; 2 &amp; 2 \\
+4 &amp; 4 &amp; 1 &amp; 1 &amp; 2 &amp; 2 &amp; 3 &amp; 2 &amp; 3 &amp; 3 &amp; 4 \\
+5 &amp; 5 &amp; 3 &amp; 4 &amp; 1 &amp; 2 &amp; 4 &amp; 4 &amp; 1 &amp; 2 &amp; 4 \\
+6 &amp; 6 &amp; 5 &amp; 1 &amp; 5 &amp; 1 &amp; 4 &amp; 5 &amp; 3 &amp; 5 &amp; 2 \\
+7 &amp; 7 &amp; 7 &amp; 4 &amp; 2 &amp; 6 &amp; 3 &amp; 5 &amp; 4 &amp; 7 &amp; 5 \\
+8 &amp; 8 &amp; 1 &amp; 7 &amp; 6 &amp; 3 &amp; 1 &amp; 4 &amp; 4 &amp; 8 &amp; 7 \\
+9 &amp; 9 &amp; 3 &amp; 1 &amp; 1 &amp; 8 &amp; 7 &amp; 2 &amp; 3 &amp; 8 &amp; 8 \\
+10 &amp; 10 &amp; 5 &amp; 4 &amp; 5 &amp; 3 &amp; 3 &amp; 9 &amp; 1 &amp; 7 &amp; 8 \\
+\end{array}
+\]
+
+<p>And here we can clearly see the following <strong>pattern</strong>:</p>
+\[
+J_{n,k} = \left( (J_{n-1,k} + k - 1) \bmod n \right) + 1
+\]
+
+\[
+J_{1,k} = 1
+\]
+
+<p>Here, 1-indexing makes for a somewhat messy formula; if you instead number the positions from 0, you get a very elegant formula:</p>
+\[
+J_{n,k} = (J_{n-1,k} + k) \bmod n
+\]
+
+<p>So, we found a solution to the problem of Josephus, working in \(O(n)\) operations.</p>
+<h2>Implementation</h2>
+<p>Simple <strong>recursive implementation</strong> (in 1-indexing)</p>
+<pre><code class="language-cpp">int josephus(int n, int k) {
+    return n &gt; 1 ? (josephus(n-1, k) + k - 1) % n + 1 : 1;
+}
+</code></pre>
+<p><strong>Non-recursive form</strong> :</p>
+<pre><code class="language-cpp">int josephus(int n, int k) {
+    int res = 0;
+    for (int i = 1; i &lt;= n; ++i)
+      res = (res + k) % i;
+    return res + 1;
+}
+</code></pre>
+<p>This formula can also be found analytically.
+Again here we assume 0-indexing.
+After we delete the first number, we have \(n-1\) numbers left.
+When we repeat the procedure, we will start with the number that had originally the index \(k \bmod m\).
+\(J_{n-1, k}\) would be the answer for the remaining circle, if we start counting at \(0\), but because we actually start with \(k\) we have \(J_{n, k} = (J_{n-1,k} + k) \ \bmod n\).</p>
+<h2>Modeling a \(O(k \log n)\) solution</h2>
+<p>For relatively small \(k\) we can come up with a better solution than the above recursive solution in \(O(n)\).
+If \(k\) is a lot smaller than \(n\), then we can delete multiple numbers (\(\lfloor \frac{n}{k} \rfloor\)) in one run without looping over.
+Afterwards we have \(n - \lfloor \frac{n}{k} \rfloor\) numbers left, and we start with the \((\lfloor \frac{n}{k} \rfloor \cdot k)\)-th number.
+So we have to shift by that many.
+We can notice that \(\lfloor \frac{n}{k} \rfloor \cdot k\) is simply \(-n \bmod k\).
+And because we removed every \(k\)-th number, we have to add the number of numbers that we removed before the result index.
+Which we can compute by dividing the result index by \(k - 1\).</p>
+<p>Also, we need to handle the case when \(n\) becomes less than \(k\). In this case, the above optimization would cause an infinite loop.</p>
+<p><strong>Implementation</strong> (for convenience in 0-indexing):</p>
+<pre><code class="language-cpp">int josephus(int n, int k) {
+    if (n == 1)
+        return 0;
+    if (k == 1)
+        return n-1;
+    if (k &gt; n)
+        return (josephus(n-1, k) + k) % n;
+    int cnt = n / k;
+    int res = josephus(n - cnt, k);
+    res -= n % k;
+    if (res &lt; 0)
+        res += n;
+    else
+        res += res / (k - 1);
+    return res;
+}
+</code></pre>
+<p>Let us estimate the <strong>complexity</strong> of this algorithm. Immediately note that the case \(n &lt; k\) is analyzed by the old solution, which will work in this case for \(O(k)\). Now consider the algorithm itself. In fact, after every iteration, instead of \(n\) numbers, we are left with \(n \left( 1 - \frac{1}{k} \right)\) numbers, so the total number of iterations \(x\) of the algorithm can be found roughly from the following equation:</p>
+\[
+ n \left(1 - \frac{1}{k} \right) ^ x = 1, 
+\]
+
+<p>on taking logarithm on both sides, we obtain:</p>
+\[
+\ln n + x \ln \left(1 - \frac{1}{k} \right) = 0,
+\]
+
+\[
+x = - \frac{\ln n}{\ln \left(1 - \frac{1}{k} \right)},
+\]
+
+<p>using the decomposition of the logarithm into Taylor series, we obtain an approximate estimate:</p>
+\[
+x \approx k \ln n
+\]
+
+<p>Thus, the complexity of the algorithm is actually \(O (k \log n)\).</p>
+<h2>Analytical solution for \(k = 2\)</h2>
+<p>In this particular case (in which this task was set by Josephus Flavius) the problem is solved much easier.</p>
+<p>In the case of even \(n\) we get that all even numbers will be crossed out, and then there will be a problem remaining for \(\frac{n}{2}\), then the answer for \(n\) will be obtained from the answer for \(\frac{n}{2}\) by multiplying by two and subtracting one (by shifting positions):</p>
+\[
+ J_{2n, 2} = 2 J_{n, 2} - 1 
+\]
+
+<p>Similarly, in the case of an odd \(n\), all even numbers will be crossed out, then the first number, and the problem for \(\frac{n-1}{2}\) will remain, and taking into account the shift of positions, we obtain the second formula:</p>
+\[
+J_{2n+1,2} = 2 J_{n, 2} + 1 
+\]
+
+<p>We can use this recurrent dependency directly in our implementation. This pattern can be translated into another form: \(J_{n, 2}\) represents a sequence of all odd numbers, "restarting" from one whenever \(n\) turns out to be a power of two. This can be written as a single formula:</p>
+\[
+J_{n, 2} = 1 + 2 \left(n-2^{\lfloor \log_2 n \rfloor} \right)
+\]
+
+<h2>Analytical solution for \(k &gt; 2\)</h2>
+<p>Despite the simple form of the problem and a large number of articles on this and related problems, a simple analytical representation of the solution of Josephus' problem has not yet been found. For small \(k\), some formulas are derived, but apparently they are all difficult to apply in practice (for example, see Halbeisen, Hungerbuhler "The Josephus Problem" and Odlyzko, Wilf "Functional iteration and the Josephus problem").</p>
+
+    <div id="footer">
+    (c) 2014-2021 translation by <a href="../../external.html?link=http://github.com/e-maxx-eng">http://github.com/e-maxx-eng</a>
+    </div>
+</div>
+
+<script>
+if (/e\-maxx\-eng|cp\-algorithms/.test(location.href)) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85220282-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+</body>
+
+<!-- Mirrored from cp-algorithms.com/others/josephus_problem.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 19 Aug 2021 18:44:53 GMT -->
+</html>

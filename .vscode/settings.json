@@ -13,6 +13,9 @@
         "valarray": "cpp",
         "ostream": "cpp",
         "algorithm": "cpp",
-        "cmath": "cpp"
-    }
+        "cmath": "cpp",
+        "complex": "cpp",
+        "iosfwd": "cpp"
+    },
+    "git.ignoreLimitWarning": true
 }

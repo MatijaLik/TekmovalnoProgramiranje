@@ -1,0 +1,36 @@
+HTTrack3.49-2 launched on Fri, 13 Aug 2021 14:54:21 at https://oj.uz/ -https://oj.uz/submission/* -https://oj.uz/profile/* -https://oj.uz/login -https://oj.uz/submissions
+(httrack https://oj.uz/ -https://oj.uz/submission/* -https://oj.uz/profile/* -https://oj.uz/login -https://oj.uz/submissions )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+15:28:51	Error: 	"Not Found" (404) at link https://oj.uz/contest/sync/scoreboard/spotboard/71/ (from https://oj.uz/contest/scoreboard/FUNCTIONCUP2PRACTICETEST)
+15:28:51	Error: 	"Not Found" (404) at link https://oj.uz/contest/sync/scoreboard/spotboard/68/ (from https://oj.uz/contest/scoreboard/FUNCTIONCUP2)
+15:28:51	Error: 	"Not Found" (404) at link https://oj.uz/contest/sync/scoreboard/spotboard/42/ (from https://oj.uz/contest/scoreboard/KRIII5PRACTICE)
+15:28:51	Error: 	"Not Found" (404) at link https://oj.uz/contest/sync/scoreboard/spotboard/40/ (from https://oj.uz/contest/scoreboard/KRIII5)
+15:28:51	Error: 	"Not Found" (404) at link https://oj.uz/contest/KRIII4/register (from https://oj.uz/contest/view/KRIII4PRACTICE?locale=ko)
+15:28:51	Error: 	"Not Found" (404) at link https://oj.uz/contest/sync/scoreboard/spotboard/34/ (from https://oj.uz/contest/scoreboard/KRIII4PRACTICE)
+15:28:51	Error: 	"Not Found" (404) at link https://oj.uz/contest/sync/scoreboard/spotboard/33/ (from https://oj.uz/contest/scoreboard/KRIII4)
+15:28:51	Error: 	"Not Found" (404) at link https://oj.uz/contest/KRIII3/register (from https://oj.uz/contest/view/KRIII3PRACTICE?locale=ko)
+15:28:51	Error: 	"Not Found" (404) at link https://oj.uz/contest/sync/scoreboard/spotboard/30/ (from https://oj.uz/contest/scoreboard/KRIII3PRACTICE)
+15:28:51	Error: 	"Not Found" (404) at link https://oj.uz/contest/sync/scoreboard/spotboard/29/ (from https://oj.uz/contest/scoreboard/KRIII3)
+15:28:51	Error: 	"Not Found" (404) at link https://oj.uz/contest/sync/scoreboard/spotboard/23/ (from https://oj.uz/contest/scoreboard/KRIII2PRACTICE)
+15:46:35	Error: 	"Not Found" (404) at link https://oj.uz/problem/view/tutorial1 (from https://oj.uz/problems/source/1)
+15:54:45	Error: 	"Not Found" (404) at link https://oj.uz/problem/view/APIO13_tasksauthor (from https://oj.uz/problems/source/9)
+16:18:33	Error: 	"Not Found" (404) at link https://oj.uz/problems/source/44 (from https://oj.uz/problem/view/BOI14_network)
+17:02:20	Error: 	Exit requested by shell or user
+17:02:21	Warning: 	File not added due to mirror cancel: https://oj.uz/problem/statistics/JOI18_commuter_pass?page=7
+17:02:21	Warning: 	File not added due to mirror cancel: https://oj.uz/problem/statistics/JOI18_commuter_pass?locale=en&page=17
+17:02:21	Warning: 	File not added due to mirror cancel: https://oj.uz/problem/statistics/JOI18_commuter_pass?locale=ko&page=17
+17:02:21	Warning: 	File not added due to mirror cancel: https://oj.uz/problem/submit/JOI18_commuter_pass
+17:02:21	Warning: 	File not added due to mirror cancel: https://oj.uz/problem/submissions/JOI18_commuter_pass
+17:02:21	Warning: 	File not added due to mirror cancel: https://oj.uz/problem/statistics/JOI18_commuter_pass?page=14
+17:02:21	Warning: 	File not added due to mirror cancel: https://oj.uz/problem/statistics/JOI18_commuter_pass?page=15
+17:02:21	Warning: 	File not added due to mirror cancel: https://oj.uz/problem/statistics/JOI18_commuter_pass?page=16
+17:02:21	Warning: 	File not added due to mirror cancel: https://oj.uz/problem/submit/IOI11_ricehub
+17:02:21	Warning: 	File not added due to mirror cancel: https://oj.uz/problem/submissions/IOI11_ricehub
+17:02:21	Warning: 	File not added due to mirror cancel: https://oj.uz/problem/statistics/IOI11_ricehub?locale=en&order_by=time
+17:02:21	Warning: 	File not added due to mirror cancel: https://oj.uz/problem/statistics/IOI11_ricehub?locale=ko&order_by=time
+17:02:21	Warning: 	File not added due to mirror cancel: https:/

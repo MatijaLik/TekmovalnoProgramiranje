@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from oj.uz/contest/view/FUNCTIONCUP4?locale=en by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 13:02:24 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <!-- Basic -->
+    <title>  2019 FunctionCup
+ :: oj.uz</title>
+
+    <!-- Define Charset -->
+    <meta charset="utf-8"/>
+
+    <!-- Responsive Metatag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <!-- Page Description and Author -->
+    <meta name="description" content="oj.uz"/>
+    <meta name="author" content="박수찬"/>
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91767657-1', 'auto');
+  ga('send', 'pageview');
+</script>
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/css/bootstrap.min.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/polygon_statement.css" type="text/css"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/codeforces-community.css" type="text/css"/>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/font-awesome.min.css" type="text/css" media="screen"/>
+    <!-- slicknav -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/slicknav.css" media="screen"/>
+    <!-- Margo CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/style.css" media="screen"/>
+
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/custom_style.css" media="screen"/>
+
+    <!-- Responsive CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/responsive.css" media="screen"/>
+
+    <!-- Css3 Transitions Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/animate.css" media="screen"/>
+
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/colors/green.css" title="green" media="screen" />
+
+    <!-- Margo JS  -->
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.migrate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/modernizrr.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.appear.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.textillate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.lettering.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.slicknav.js"></script>
+
+<script data-ad-client="ca-pub-9767392980647759" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/humanize-duration.js"></script>
+
+<script type="text/javascript">
+  moment.locale("en");
+  var my_humanizer = humanizeDuration.humanizer({language: 'en'});
+
+  $(document).ready(function(){
+    user_timezone_utc_offset = moment().utcOffset() / 60;
+    if(user_timezone_utc_offset > 0) user_timezone_utc_offset = "+" + user_timezone_utc_offset;
+    else if(user_timezone_utc_offset == 0) user_timezone_utc_offset = "";
+    var offsets = document.getElementsByClassName("render-offset");
+    for(var i = 0; i < offsets.length; i++) {
+      offsets[i].innerHTML = "UTC" + user_timezone_utc_offset;
+    }
+
+    var datetimes = document.getElementsByClassName('render-datetime');
+    for(var i = 0; i < datetimes.length; i++) {
+      var obj = datetimes[i];
+      obj.innerHTML = moment(obj.innerHTML).format(obj.attributes['format'].value);
+    }
+
+    var datetimes_fromnow = document.getElementsByClassName('render-datetime-fromnow');
+    for(var i = 0; i < datetimes_fromnow.length; i++) {
+      var obj = datetimes_fromnow[i];
+      obj.innerHTML = moment(obj.innerHTML).fromNow();
+    }
+
+    var durations = document.getElementsByClassName("render-duration");
+    for(var i = 0; i < durations.length; i++) {
+      var obj = durations[i];
+      obj.innerHTML = my_humanizer(Number(obj.innerHTML));
+    }
+
+    var setoffsets = document.getElementsByName('set-offset');
+    for(var i = 0; i < setoffsets.length; i++) {
+      setoffsets[i].value = moment().utcOffset() * 60; // 초
+    }
+
+    var offsetfields = document.getElementsByClassName('offset-field');
+    for(var i = 0; i < offsetfields.length; i++) {
+      var obj = offsetfields[i];
+      if (obj.attributes['data'].value != "None")
+        obj.value = moment.unix(Number(obj.attributes['data'].value)).format("YYYY-MM-DD HH:mm:ss");
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/progressbar.css" type="text/css">
+    <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/favicon/ver_20161112174211.ico">
+
+</head>
+
+<body>
+
+    <!-- Full Body Container -->
+    <div id="container">
+
+        <!-- Start Header Section -->
+        <div class="hidden-header"></div>
+        <header class="clearfix">
+
+            <!-- Start Top Bar -->
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <!-- Start Contact Info -->
+                            <!-- End Contact Info -->
+                        </div><!-- .col-md-6 -->
+                        <div class="col-md-5 ">
+                            <ul class="login-bar">
+                                <li>
+                                    <a href="https://oj.uz/login?next=%2Fcontest%2Fview%2FFUNCTIONCUP4%3Flocale%3Den">Sign in</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="../../register.html">Register</a>
+                                </li>
+                            </ul>
+                        </div><!-- .col-md-6 -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- .top-bar -->
+            <!-- End Top Bar -->
+
+
+            <!-- Start  Logo & Naviagtion  -->
+            <div class="navbar navbar-default navbar-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <!-- Stat Toggle Nav Link For Mobiles -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- End Toggle Nav Link For Mobiles -->
+                        <a class="navbar-brand" href="../../index.html">
+                            <img alt="oj.uz" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/logo/ver_20170205.png" style="height: 30px;">
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <div class="search-side">
+                          <a class="show-search dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-language" aria-hidden="true"></i>
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><a href="FUNCTIONCUP47038.html?locale=en">English</a></li>
+                            <li><a href="FUNCTIONCUP4d6dc.html?locale=ko">한국어</a></li>
+                          </ul>
+                        </div>
+                        <!-- End Search -->
+                        <!-- Start Navigation List -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+				    <a href="../../contests.html">Contests</a>
+                            </li>
+                            <li>
+                                <a href="../../problems.html">Problems</a>
+                            </li>
+                            <li>
+                                <a href="https://oj.uz/submissions">Submissions</a>
+                            </li>
+			    <li>
+				    <a href="https://github.com/ojuz/ojuz-contribute">Contribute</a>
+			    </li>
+                        </ul>
+                        <!-- End Navigation List -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Logo & Naviagtion -->
+
+            <!-- Mobile Menu Start -->
+                <ul class="wpb-mobile-menu">
+                    <li>
+			    <a href="../../contests.html">Contests </a>
+                    </li>
+                    <li>
+                        <a href="../../problems.html">Problems</a>
+                    </li>
+                    <li>
+                        <a href="https://oj.uz/submissions">Submissions</a>
+                    </li>
+		    <li>
+			    <a href="https://github.com/ojuz/ojuz-contribute">Contribute</a>
+		    </li>
+                    <li>
+                      <a><i class="fa fa-language" aria-hidden="true"></i> Change language</a>
+                      <ul class="dropdown">
+                        <li><a href="FUNCTIONCUP47038.html?locale=en">English</a></li>
+                        <li><a href="FUNCTIONCUP4d6dc.html?locale=ko">한국어</a></li>
+                      </ul>
+                    </li>
+                </ul>
+                <!-- Mobile Menu End -->
+        </header>
+        <!-- End Header Section -->
+
+            <!-- Start Page Banner -->
+            <div class="page-banner no-subtitle">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h2 class="page-banner-title">  2019 FunctionCup
+</h2>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="breadcrumbs">
+                     </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Page Banner -->
+
+
+
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <ul class="nav nav-tabs" style="margin-bottom: 10px;">
+            <li role="presentation" class="active">
+    <a href="FUNCTIONCUP4.html">Main page</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="../participants/FUNCTIONCUP4.html">Participants</a>
+  </li>
+
+              <li role="presentation" >
+    <a href="../scoreboard/FUNCTIONCUP4.html">Scoreboard</a>
+  </li>
+
+          <li role="presentation">
+            <a href="https://fxcup4.cms.oj.uz/" target="_blank">Go to contest page</a>
+          </li>
+        </ul>
+  <h2>2019 FunctionCup</h2>
+
+<h3>Contest page: <a href="https://fxcup4.cms.oj.uz/">https://fxcup4.cms.oj.uz/</a></h3>
+
+<h3>Live Scoreboard: <a href="https://ranking.fxcup4.cms.oj.uz/">Scoreboard</a></h3>
+
+<h3>Solution Sketch: <a href="https://drive.google.com/file/d/1oxaT5vOH5gzUJMS3lLvDZrjpOb0rG2vm/view?usp=sharing">Solution Sketch</a></h3>
+
+<ul>
+<li>Some of 0-point Bulb submissions are revised to 11-point. Sorry for imperfect contest.</li>
+</ul>
+
+<h3>Rules Summary</h3>
+
+<ul>
+<li>Statement Language: English, Korean</li>
+<li>Programming language: C++17 (GCC 7.3)</li>
+<li>Number of tasks: 12</li>
+<li>Contest System: <a href="../../index.html">oj.uz</a> wrapped with <a href="https://cms-dev.github.io/">CMS</a> template</li>
+<li>Scoring system: Subtasks for each task, ties broken with time penalty (Atcoder format with no penalty for wrong submissions)</li>
+<li>Duration: 5 hours</li>
+<li>Scoreboard: Public, not frozen during the whole contest</li>
+<li>Time: <a href="https://www.timeanddate.com/worldclock/fixedtime.html?msg=4th+FunctionCup&amp;iso=20190901T04&amp;p1=%3A&amp;ah=5">September 1st 13:00-18:00 (KST)</a></li>
+<li>Max team size: 3, each member can use their own computers</li>
+<li>How to register?: <a href="https://github.com/ojuz/guide.oj.uz/blob/master/docs/en/How to register in a contest.rst">check here</a></li>
+</ul>
+
+<h3>Tasks</h3>
+
+<p>There are 12 tasks. Among them, 11 tasks are IOI-style, which means we provide a library, and you have to write a function, just like in recent IOIs. Another 1 task is Output-only, which means you have to write a whole text file(s).</p>
+
+<h3>Languages</h3>
+
+<p>We will provide English and Korean statements.</p>
+
+<p>You are only allowed to use C++17.</p>
+
+<h3>Grading</h3>
+
+
+
+<p>Each task will be divided into several subtasks, each worth a portion of the total points. </p>
+
+<p>The scores will be calculated as follows:</p>
+
+<ul>
+<li>For each submission, the score for each test case is calculated according to your program or output.</li>
+<li>For each submission, the score for each subtask is the minimum of the scores for the test cases in the subtask.</li>
+<li>The final score for each subtask is the maximum of the scores for this subtask across all submissions.</li>
+<li>The final score for each task is the sum of the scores for its subtasks. This sum is rounded to the nearest 2 decimal places.</li>
+</ul>
+
+<p>For example, consider a contestant who made two submissions on a task that contains two subtasks. If the first submitted solution got 30 points for the first subtask and 10 points for the second subtask, and the second solution got 0 points for the first subtask and 40 points for the second subtask, then the final score for this task will be 70.</p>
+
+<h3>Submitting</h3>
+
+<p>Contestants must submit their solutions for tasks by using the grading system. To avoid overloading the grading system, there are two restrictions on the number of submissions:</p>
+
+<ul>
+<li>Contestants may submit a solution to each task at most once per minute. Even in the last 15 minutes.</li>
+<li>There is no limit on the number of total submissions.</li>
+</ul>
+
+<h3>Ranking</h3>
+
+<p>Team X gets a higher rank than Team Y if and only if one of the conditions below holds:</p>
+
+<ul>
+<li>The score of team X is larger than the score of team Y.</li>
+<li>Both teams got the same score, and team X achieved that score faster than team Y.</li>
+</ul>
+
+<p>Note that the number of submissions doesn't matter.</p>
+
+<h3>Champions for each task</h3>
+
+<p>The <em>champion</em> of task Z is determined as follows:</p>
+
+<ul>
+<li>If there is a unique team X that got the maximum score of task Z among all competitors, team X is the champion.</li>
+<li>If 2 teams got the maximum score of task Z among all competitors, the fastest team that managed to get that score is the champion.</li>
+<li>However, if no team got positive score on task Z, there is no champion.</li>
+</ul>
+
+<p>In the paragraph above, 'competitors' or 'teams' mean teams that are able to receive T-shirt prizes.</p>
+
+<h3>Prizes</h3>
+
+<p>IMPORTANT: To be eligible to get a prize, you should be able to receive a parcel in South Korea. We don't afford to send T-shirts outside South Korea.</p>
+
+<p>Four types of functionCup T-shirts will be given by the criteria below.</p>
+
+<ul>
+<li><em>First prize</em>: The winner will receive a pizza gifticon (one per team). </li>
+<li><em>Champion</em>: Champions of each task will receive T-shirts. 
+<ul>
+<li>Colors differ by task: White for task no. 1-3, Navy for task no. 4-6, Gray for task no. 7-9, and Black for task no. 10-12. (one per each person)</li>
+<li>If some team is a champion of multiple tasks, each member will be able to receive multiple T-shirts. However, they are not able to receive multiple T-shirts of the same color.</li>
+</ul></li>
+<li><em>Special prize</em>: If a team is not a champion of a certain task and satisfies some pre-defined condition during the competition, they can receive T-shirts. (one per each person) The condition will be revealed at the beginning of the contest. Four teams will be able to receive the special prize.</li>
+</ul>
+
+<p>After the competition, if you are to receive a T-shirt, you should fill out a Google form with necessary information. We will order T-shirts on September 8th, and you should complete it before we order them. If you don't manage to fill out the form within the due date, you are not able to receive your prize.</p>
+
+<h3>Scoreboard</h3>
+
+<p>There will be a live scoreboard. We will announce the URL of the scoreboard at the beginning of the contest.</p>
+
+<p>We will not freeze the scoreboard. At the last moment of the contest, you could predict who would get the prizes.</p>
+
+<h3>Participation</h3>
+
+<p>Each team should consist of at most three people. The contest is open for everybody, regardless of nationality, age, and education. (this part is copied from IPSC 2018 rules)</p>
+
+<p>Click the 'Register' tab to register. <a href="https://github.com/ojuz/guide.oj.uz/blob/master/docs/en/How to register in a contest.rst">Read here</a> to know how to register in teams.</p>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+    </div>
+    <!-- End Full Body Container -->
+
+    <!-- Start Footer Section -->
+    <footer>
+      <div class="container">
+        <!-- Start Copyright -->
+        <div class="copyright-section">
+          <div class="row">
+            <div class="col-md-6">
+              <p>&copy; 2013-2021 박수찬</p>
+            </div>
+            <!-- .col-md-6 -->
+            <div class="col-md-6">
+              <ul class="footer-nav">
+                <li><a href="https://facebook.com/oj.uz.official" target="_blank"><i class="fa fa-facebook"></i> Facebook</a>
+                </li>
+                <li><a href="https://twitter.com/ojuz_official" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                <li><a href="https://github.com/ojuz" target="_blank"><i class="fa fa-github"></i> Github</a>
+                </li>
+              </ul>
+            </div>
+            <!-- .col-md-6 -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- End Copyright -->
+
+      </div>
+    </footer>
+
+
+    <!-- Go To Top Link -->
+  <!-- LOADER and BACK TO TOP
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  -->
+
+  <div id="loader" style="display: none;">
+      <div class="spinner">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+      </div>
+  </div>
+
+
+
+    <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/script.js"></script>
+
+    <!-- Start of Async Drift Code -->
+    <script>
+    !function() {
+      var t;
+      if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0,
+      t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+      t.factory = function(e) {
+        return function() {
+          var n;
+          return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+        };
+      }, t.methods.forEach(function(e) {
+        t[e] = t.factory(e);
+      }), t.load = function(t) {
+        var e, n, o, i;
+        e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"),
+        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js",
+        n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+      });
+    }();
+    drift.SNIPPET_VERSION = '0.3.1';
+    drift.load('dvpnv4hgnhsg');
+    drift.config({
+     locale: "en"
+    });
+    drift.on('ready',function(api){
+      api.hideWelcomeMessage();
+    });
+    </script>
+    <!-- End of Async Drift Code -->
+
+</body>
+
+
+<!-- Mirrored from oj.uz/contest/view/FUNCTIONCUP4?locale=en by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 13:02:24 GMT -->
+</html>

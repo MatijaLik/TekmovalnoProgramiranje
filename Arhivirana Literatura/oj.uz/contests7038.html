@@ -1,0 +1,693 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from oj.uz/contests?locale=en by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 12:54:54 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <!-- Basic -->
+    <title>Contests :: oj.uz</title>
+
+    <!-- Define Charset -->
+    <meta charset="utf-8"/>
+
+    <!-- Responsive Metatag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <!-- Page Description and Author -->
+    <meta name="description" content="oj.uz"/>
+    <meta name="author" content="박수찬"/>
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91767657-1', 'auto');
+  ga('send', 'pageview');
+</script>
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/css/bootstrap.min.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/polygon_statement.css" type="text/css"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/codeforces-community.css" type="text/css"/>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/font-awesome.min.css" type="text/css" media="screen"/>
+    <!-- slicknav -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/slicknav.css" media="screen"/>
+    <!-- Margo CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/style.css" media="screen"/>
+
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/custom_style.css" media="screen"/>
+
+    <!-- Responsive CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/responsive.css" media="screen"/>
+
+    <!-- Css3 Transitions Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/animate.css" media="screen"/>
+
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/colors/green.css" title="green" media="screen" />
+
+    <!-- Margo JS  -->
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.migrate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/modernizrr.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.appear.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.textillate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.lettering.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.slicknav.js"></script>
+
+<script data-ad-client="ca-pub-9767392980647759" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/humanize-duration.js"></script>
+
+<script type="text/javascript">
+  moment.locale("en");
+  var my_humanizer = humanizeDuration.humanizer({language: 'en'});
+
+  $(document).ready(function(){
+    user_timezone_utc_offset = moment().utcOffset() / 60;
+    if(user_timezone_utc_offset > 0) user_timezone_utc_offset = "+" + user_timezone_utc_offset;
+    else if(user_timezone_utc_offset == 0) user_timezone_utc_offset = "";
+    var offsets = document.getElementsByClassName("render-offset");
+    for(var i = 0; i < offsets.length; i++) {
+      offsets[i].innerHTML = "UTC" + user_timezone_utc_offset;
+    }
+
+    var datetimes = document.getElementsByClassName('render-datetime');
+    for(var i = 0; i < datetimes.length; i++) {
+      var obj = datetimes[i];
+      obj.innerHTML = moment(obj.innerHTML).format(obj.attributes['format'].value);
+    }
+
+    var datetimes_fromnow = document.getElementsByClassName('render-datetime-fromnow');
+    for(var i = 0; i < datetimes_fromnow.length; i++) {
+      var obj = datetimes_fromnow[i];
+      obj.innerHTML = moment(obj.innerHTML).fromNow();
+    }
+
+    var durations = document.getElementsByClassName("render-duration");
+    for(var i = 0; i < durations.length; i++) {
+      var obj = durations[i];
+      obj.innerHTML = my_humanizer(Number(obj.innerHTML));
+    }
+
+    var setoffsets = document.getElementsByName('set-offset');
+    for(var i = 0; i < setoffsets.length; i++) {
+      setoffsets[i].value = moment().utcOffset() * 60; // 초
+    }
+
+    var offsetfields = document.getElementsByClassName('offset-field');
+    for(var i = 0; i < offsetfields.length; i++) {
+      var obj = offsetfields[i];
+      if (obj.attributes['data'].value != "None")
+        obj.value = moment.unix(Number(obj.attributes['data'].value)).format("YYYY-MM-DD HH:mm:ss");
+    }
+  });
+</script>
+    <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/favicon/ver_20161112174211.ico">
+
+</head>
+
+<body>
+
+    <!-- Full Body Container -->
+    <div id="container">
+
+        <!-- Start Header Section -->
+        <div class="hidden-header"></div>
+        <header class="clearfix">
+
+            <!-- Start Top Bar -->
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <!-- Start Contact Info -->
+                            <!-- End Contact Info -->
+                        </div><!-- .col-md-6 -->
+                        <div class="col-md-5 ">
+                            <ul class="login-bar">
+                                <li>
+                                    <a href="https://oj.uz/login?next=%2Fcontests%3Flocale%3Den">Sign in</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="register.html">Register</a>
+                                </li>
+                            </ul>
+                        </div><!-- .col-md-6 -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- .top-bar -->
+            <!-- End Top Bar -->
+
+
+            <!-- Start  Logo & Naviagtion  -->
+            <div class="navbar navbar-default navbar-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <!-- Stat Toggle Nav Link For Mobiles -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- End Toggle Nav Link For Mobiles -->
+                        <a class="navbar-brand" href="index.html">
+                            <img alt="oj.uz" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/logo/ver_20170205.png" style="height: 30px;">
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <div class="search-side">
+                          <a class="show-search dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-language" aria-hidden="true"></i>
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><a href="contests7038.html?locale=en">English</a></li>
+                            <li><a href="contestsd6dc.html?locale=ko">한국어</a></li>
+                          </ul>
+                        </div>
+                        <!-- End Search -->
+                        <!-- Start Navigation List -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+				    <a href="contests.html">Contests</a>
+                            </li>
+                            <li>
+                                <a href="problems.html">Problems</a>
+                            </li>
+                            <li>
+                                <a href="https://oj.uz/submissions">Submissions</a>
+                            </li>
+			    <li>
+				    <a href="https://github.com/ojuz/ojuz-contribute">Contribute</a>
+			    </li>
+                        </ul>
+                        <!-- End Navigation List -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Logo & Naviagtion -->
+
+            <!-- Mobile Menu Start -->
+                <ul class="wpb-mobile-menu">
+                    <li>
+			    <a href="contests.html">Contests </a>
+                    </li>
+                    <li>
+                        <a href="problems.html">Problems</a>
+                    </li>
+                    <li>
+                        <a href="https://oj.uz/submissions">Submissions</a>
+                    </li>
+		    <li>
+			    <a href="https://github.com/ojuz/ojuz-contribute">Contribute</a>
+		    </li>
+                    <li>
+                      <a><i class="fa fa-language" aria-hidden="true"></i> Change language</a>
+                      <ul class="dropdown">
+                        <li><a href="contests7038.html?locale=en">English</a></li>
+                        <li><a href="contestsd6dc.html?locale=ko">한국어</a></li>
+                      </ul>
+                    </li>
+                </ul>
+                <!-- Mobile Menu End -->
+        </header>
+        <!-- End Header Section -->
+
+            <!-- Start Page Banner -->
+            <div class="page-banner no-subtitle">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h2 class="page-banner-title">Contests</h2>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="breadcrumbs">
+                     </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Page Banner -->
+
+
+<div id="content">
+  <div class="container">
+    <div class="table-responsive">
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+          	<th>Contest</th>
+          	<th>Duration</th>
+          	<th>Template</th>
+          	<th>Participants</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/IOI2021DAY2.html">IOI 2021 Day 2 Unofficial Mirror</a>
+                      <small><span class="label label-primary">Time frame</span></small>
+                </h3>
+                <span format="lll" class="render-datetime">2021-06-25T15:00:00 Z</span> - <span format="lll" class="render-datetime">2021-06-30T20:00:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2021-06-25T15:00:00 Z</span> - <span format="lll" class="render-datetime">2021-06-30T14:59:59 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">18000000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/IOI2021DAY2.html"><i class="fa fa-user"></i> 46</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/IOI2021DAY1.html">IOI 2021 Day 1 Unofficial Mirror</a>
+                      <small><span class="label label-primary">Time frame</span></small>
+                </h3>
+                <span format="lll" class="render-datetime">2021-06-22T17:00:00 Z</span> - <span format="lll" class="render-datetime">2021-06-30T14:59:59 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2021-06-22T15:00:00 Z</span> - <span format="lll" class="render-datetime">2021-06-30T14:59:59 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">18000000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/IOI2021DAY1.html"><i class="fa fa-user"></i> 95</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/FUNCTIONCUP4PRACTICE.html">2019 FunctionCup Practice Contest</a>
+                </h3>
+                <span format="lll" class="render-datetime">2019-08-30T10:00:00 Z</span> - <span format="lll" class="render-datetime">2019-09-01T03:55:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2019-08-30T10:00:00 Z</span> - <span format="lll" class="render-datetime">2019-09-01T03:55:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">150900000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/FUNCTIONCUP4PRACTICE.html"><i class="fa fa-user"></i> 100</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/FUNCTIONCUP4.html">2019 FunctionCup</a>
+                </h3>
+                <span format="lll" class="render-datetime">2019-09-01T04:00:00 Z</span> - <span format="lll" class="render-datetime">2019-09-01T09:00:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2019-08-17T15:00:00 Z</span> - <span format="lll" class="render-datetime">2019-09-01T03:55:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">18000000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/FUNCTIONCUP4.html"><i class="fa fa-user"></i> 119</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/FUNCTIONCUP3PRACTICE.html">2018 FunctionCup Preliminary Contest</a>
+                </h3>
+                <span format="lll" class="render-datetime">2018-08-25T09:00:00 Z</span> - <span format="lll" class="render-datetime">2018-08-26T03:55:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2018-08-25T03:00:00 Z</span> - <span format="lll" class="render-datetime">2018-08-26T03:55:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">68100000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/FUNCTIONCUP3PRACTICE.html"><i class="fa fa-user"></i> 26</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/FUNCTIONCUP3.html">2018 FunctionCup</a>
+                </h3>
+                <span format="lll" class="render-datetime">2018-08-26T04:00:00 Z</span> - <span format="lll" class="render-datetime">2018-08-26T09:00:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2018-08-10T15:00:00 Z</span> - <span format="lll" class="render-datetime">2018-08-26T03:59:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">18000000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/FUNCTIONCUP3.html"><i class="fa fa-user"></i> 44</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/FUNCTIONCUP2PRACTICETEST.html">2017 FunctionCup Preliminary Contest</a>
+                </h3>
+                <span format="lll" class="render-datetime">2017-07-15T10:00:00 Z</span> - <span format="lll" class="render-datetime">2017-07-15T15:00:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2017-07-15T07:00:00 Z</span> - <span format="lll" class="render-datetime">2017-07-15T15:00:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">18000000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/FUNCTIONCUP2PRACTICETEST.html"><i class="fa fa-user"></i> 24</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/FUNCTIONCUP2.html">2017 FunctionCup</a>
+                </h3>
+                <span format="lll" class="render-datetime">2017-07-16T04:00:00 Z</span> - <span format="lll" class="render-datetime">2017-07-16T09:00:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2017-06-30T15:00:00 Z</span> - <span format="lll" class="render-datetime">2017-07-15T14:59:59 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">18000000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/FUNCTIONCUP2.html"><i class="fa fa-user"></i> 41</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/KRIII5PRACTICE.html">5th kriiicon Practice Contest</a>
+                </h3>
+                <span format="lll" class="render-datetime">2017-04-29T03:00:00 Z</span> - <span format="lll" class="render-datetime">2017-04-30T02:55:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2017-04-29T00:00:00 Z</span> - <span format="lll" class="render-datetime">2017-04-30T02:54:59 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">86100000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/KRIII5PRACTICE.html"><i class="fa fa-user"></i> 34</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/KRIII5.html">5th kriiicon</a>
+                </h3>
+                <span format="lll" class="render-datetime">2017-04-30T03:00:00 Z</span> - <span format="lll" class="render-datetime">2017-04-30T08:00:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2017-04-09T15:00:00 Z</span> - <span format="lll" class="render-datetime">2017-04-30T07:59:59 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">18000000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/KRIII5.html"><i class="fa fa-user"></i> 63</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/OJUZ11.html">oj.uz 재개장 기념 대회</a>
+                      <small><span class="label label-primary">Time frame</span></small>
+                </h3>
+                <span format="lll" class="render-datetime">2017-02-11T00:00:00 Z</span> - <span format="lll" class="render-datetime">2017-02-13T19:00:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2017-02-10T18:00:00 Z</span> - <span format="lll" class="render-datetime">2017-02-13T15:00:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">14400000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/OJUZ11.html"><i class="fa fa-user"></i> 41</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/KRIII4PRACTICE.html">제4회 kriiicon 연습 세션</a>
+                </h3>
+                <span format="lll" class="render-datetime">2016-02-24T09:00:00 Z</span> - <span format="lll" class="render-datetime">2016-02-25T03:55:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2016-02-21T09:00:00 Z</span> - <span format="lll" class="render-datetime">2016-02-24T08:55:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">68100000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/KRIII4PRACTICE.html"><i class="fa fa-user"></i> 96</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/KRIII4.html">제4회 kriiicon</a>
+                </h3>
+                <span format="lll" class="render-datetime">2016-02-25T04:00:00 Z</span> - <span format="lll" class="render-datetime">2016-02-25T09:00:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2016-02-22T04:00:00 Z</span> - <span format="lll" class="render-datetime">2016-02-25T03:55:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">18000000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/KRIII4.html"><i class="fa fa-user"></i> 80</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/KRIII3PRACTICE.html">제3회 kriiicon 연습 세션</a>
+                </h3>
+                <span format="lll" class="render-datetime">2015-07-11T03:00:00 Z</span> - <span format="lll" class="render-datetime">2015-07-12T02:45:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2015-07-08T03:00:00 Z</span> - <span format="lll" class="render-datetime">2015-07-11T02:55:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">85500000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/KRIII3PRACTICE.html"><i class="fa fa-user"></i> 37</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/KRIII3.html">제3회 kriiicon</a>
+                </h3>
+                <span format="lll" class="render-datetime">2015-07-12T03:00:00 Z</span> - <span format="lll" class="render-datetime">2015-07-12T09:00:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2015-07-09T03:00:00 Z</span> - <span format="lll" class="render-datetime">2015-07-12T02:55:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">21600000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/KRIII3.html"><i class="fa fa-user"></i> 66</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/OJUZ10.html">제10회 모의고사</a>
+                      <small><span class="label label-primary">Time frame</span></small>
+                </h3>
+                <span format="lll" class="render-datetime">2015-04-25T00:00:00 Z</span> - <span format="lll" class="render-datetime">2015-05-10T14:59:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2015-04-25T09:00:00 Z</span> - <span format="lll" class="render-datetime">2015-05-10T23:59:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">14400000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/OJUZ10.html"><i class="fa fa-user"></i> 41</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/GA9.html">제9회 모의고사</a>
+                      <small><span class="label label-primary">Time frame</span></small>
+                </h3>
+                <span format="lll" class="render-datetime">2014-12-20T15:00:00 Z</span> - <span format="lll" class="render-datetime">2015-01-04T15:00:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2014-12-21T00:00:00 Z</span> - <span format="lll" class="render-datetime">2015-01-05T00:00:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">14400000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/GA9.html"><i class="fa fa-user"></i> 19</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/NANA2.html">제2회 나나컵</a>
+                </h3>
+                <span format="lll" class="render-datetime">2014-12-27T01:20:00 Z</span> - <span format="lll" class="render-datetime">2014-12-27T07:20:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2014-12-24T01:20:00 Z</span> - <span format="lll" class="render-datetime">2014-12-27T01:15:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">21600000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/NANA2.html"><i class="fa fa-user"></i> 36</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/NANA2PRACTICE.html">제2회 나나컵 예비소집</a>
+                </h3>
+                <span format="lll" class="render-datetime">2014-12-26T10:00:00 Z</span> - <span format="lll" class="render-datetime">2014-12-26T12:46:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2014-12-23T10:00:00 Z</span> - <span format="lll" class="render-datetime">2014-12-26T09:55:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">9960000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/NANA2PRACTICE.html"><i class="fa fa-user"></i> 25</a></td>
+            </tr>
+            <tr class="">
+              <td>
+                <h3 style="margin-top: 10px;">
+                    <a href="contest/view/KRIII2PRACTICE.html">제2회 kriiICPC 연습 세션</a>
+                </h3>
+                <span format="lll" class="render-datetime">2014-09-27T10:00:00 Z</span> - <span format="lll" class="render-datetime">2014-09-27T13:00:00 Z</span> (<span class="render-offset"></span>)
+                <br>
+                등록: <span format="lll" class="render-datetime">2014-09-24T10:00:00 Z</span> - <span format="lll" class="render-datetime">2014-09-27T09:55:00 Z</span> (<span class="render-offset"></span>)
+              </td>
+              <td>
+                  <span class="render-duration">10800000.0</span>
+              </td>
+              <td>
+                cms
+              </td>
+              <td><a href="contest/participants/KRIII2PRACTICE.html"><i class="fa fa-user"></i> 29</a></td>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+    </div>
+    <!-- End Full Body Container -->
+
+    <!-- Start Footer Section -->
+    <footer>
+      <div class="container">
+        <!-- Start Copyright -->
+        <div class="copyright-section">
+          <div class="row">
+            <div class="col-md-6">
+              <p>&copy; 2013-2021 박수찬</p>
+            </div>
+            <!-- .col-md-6 -->
+            <div class="col-md-6">
+              <ul class="footer-nav">
+                <li><a href="https://facebook.com/oj.uz.official" target="_blank"><i class="fa fa-facebook"></i> Facebook</a>
+                </li>
+                <li><a href="https://twitter.com/ojuz_official" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                <li><a href="https://github.com/ojuz" target="_blank"><i class="fa fa-github"></i> Github</a>
+                </li>
+              </ul>
+            </div>
+            <!-- .col-md-6 -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- End Copyright -->
+
+      </div>
+    </footer>
+
+
+    <!-- Go To Top Link -->
+  <!-- LOADER and BACK TO TOP
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  -->
+
+  <div id="loader" style="display: none;">
+      <div class="spinner">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+      </div>
+  </div>
+
+
+
+    <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/script.js"></script>
+
+    <!-- Start of Async Drift Code -->
+    <script>
+    !function() {
+      var t;
+      if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0,
+      t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+      t.factory = function(e) {
+        return function() {
+          var n;
+          return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+        };
+      }, t.methods.forEach(function(e) {
+        t[e] = t.factory(e);
+      }), t.load = function(t) {
+        var e, n, o, i;
+        e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"),
+        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js",
+        n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+      });
+    }();
+    drift.SNIPPET_VERSION = '0.3.1';
+    drift.load('dvpnv4hgnhsg');
+    drift.config({
+     locale: "en"
+    });
+    drift.on('ready',function(api){
+      api.hideWelcomeMessage();
+    });
+    </script>
+    <!-- End of Async Drift Code -->
+
+</body>
+
+
+<!-- Mirrored from oj.uz/contests?locale=en by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 12:54:54 GMT -->
+</html>

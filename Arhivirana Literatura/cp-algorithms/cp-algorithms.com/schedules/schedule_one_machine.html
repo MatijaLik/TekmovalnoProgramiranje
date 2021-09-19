@@ -1,0 +1,125 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from cp-algorithms.com/schedules/schedule_one_machine.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 19 Aug 2021 18:44:52 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <base />
+    <title>Scheduling jobs on one machine - Competitive Programming Algorithms</title>
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJaxdda6.js"></script>
+    <link rel="stylesheet" href="../css/common.css"/>
+
+    <!-- highlightjs for code highlighting -->
+    <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/xcode.min.css">
+    <script src="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- end highlightjs -->
+    <meta name="google-site-verification" content="qSnbeMPNVgZ3kIpGVsPIAPIvEdwYSg583kPdwgJtFO8" />
+    <meta name="yandex-verification" content="315535a6d9f1c0bd" />
+</head>
+<body>
+<div id="container">
+    <div id="navbar">
+        <span id="title">
+            <a href="../index-2.html">CP-Algorithms</a>
+        </span>
+        <span id="menu">
+            <a href="../../external.html?link=https://github.com/e-maxx-eng/e-maxx-eng/commits/master/src/schedules/schedule_one_machine.md" title="Changes History">Page Authors</a>
+        </span>
+        <span id="search" style="display:inline-block;width:200px;float:right;margin-top:7px;margin-right:20px;">
+            <div class="ya-site-form ya-site-form_inited_no" data-bem="{&quot;action&quot;:&quot;https://cp-algorithms.com/search-results.html&quot;,&quot;arrow&quot;:false,&quot;bg&quot;:&quot;transparent&quot;,&quot;fontsize&quot;:12,&quot;fg&quot;:&quot;#000000&quot;,&quot;language&quot;:&quot;en&quot;,&quot;logo&quot;:&quot;rb&quot;,&quot;publicname&quot;:&quot;Yandex Site Search #2490798&quot;,&quot;suggest&quot;:true,&quot;target&quot;:&quot;_self&quot;,&quot;tld&quot;:&quot;com&quot;,&quot;type&quot;:3,&quot;usebigdictionary&quot;:true,&quot;searchid&quot;:2490798,&quot;input_fg&quot;:&quot;#000000&quot;,&quot;input_bg&quot;:&quot;#ffffff&quot;,&quot;input_fontStyle&quot;:&quot;normal&quot;,&quot;input_fontWeight&quot;:&quot;normal&quot;,&quot;input_placeholder&quot;:null,&quot;input_placeholderColor&quot;:&quot;#000000&quot;,&quot;input_borderColor&quot;:&quot;#7f9db9&quot;}"><form action="../../external.html?link=https://yandex.com/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2490798"/><input type="hidden" name="l10n" value="en"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value=""/><input type="submit" value="Search"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+        </span>
+    </div>
+
+<h1>Scheduling jobs on one machine</h1>
+<p>This task is about finding an optimal schedule for \(n\) jobs on a single machine, if the job \(i\) can be processed in \(t_i\) time, but for the \(t\) seconds waiting before processing the job a penalty of \(f_i(t)\) has to be paid.</p>
+<p>Thus the task asks to find such an permutation of the jobs, so that the total penalty is minimal.
+If we denote by \(\pi\) the permutation of the jobs (\(\pi_1\) is the first processed item, \(\pi_2\) the second, etc.), then the total penalty is equal to:</p>
+\[
+F(\pi) = f_{\pi_1}(0) + f_{\pi_2}(t_{\pi_1}) + f_{\pi_3}(t_{\pi_1} + t_{\pi_2}) + \dots + f_{\pi_n}\left(\sum_{i=1}^{n-1} t_{\pi_i}\right)
+\]
+
+<h2>Solutions for special cases</h2>
+<h3>Linear penalty functions</h3>
+<p>First we will solve the problem in the case that all penalty functions \(f_i(t)\) are linear, i.e. they have the form \(f_i(t) = c_i \cdot t\), where \(c_i\) is a non-negative number.
+Note that these functions don't have a constant term.
+Otherwise we can sum up all constant term, and resolve the problem without them.</p>
+<p>Let us fixate some permutation \(\pi\), and take an index \(i = 1 \dots n-1\).
+Let the permutation \(\pi'\) be equal to the permutation \(\pi\) with the elements \(i\) and \(i+1\) switched.
+Let's see how much the penalty changed.</p>
+\[
+F(\pi') - F(\pi) =
+\]
+
+<p>It is easy to see that the changes only occur in the \(i\)-th and \((i+1)\)-th summands:</p>
+\[
+\begin{align}
+&amp;= c_{\pi_i'} \cdot \sum_{k = 1}^{i-1} t_{\pi_k'} + c_{\pi_{i+1}'} \cdot \sum_{k = 1}^i t_{\pi_k'} - c_{\pi_i} \cdot \sum_{k = 1}^{i-1} t_{\pi_k} - c_{\pi_{i+1}} \cdot \sum_{k = 1}^i t_{\pi_k} \\
+&amp;= c_{\pi_{i+1}} \cdot \sum_{k = 1}^{i-1} t_{\pi_k'} + c_{\pi_i} \cdot \sum_{k = 1}^i t_{\pi_k'} - c_{\pi_i} \cdot \sum_{k = 1}^{i-1} t_{\pi_k} - c_{\pi_{i+1}} \cdot \sum_{k = 1}^i t_{\pi_k} \\
+&amp;= c_{\pi_i} \cdot t_{\pi_{i+1}} - c_{\pi_{i+1}} \cdot t_{\pi_i}
+\end{align}
+\]
+
+<p>It is easy to see, that if the schedule \(\pi\) is optimal, than any change in it leads to an increased penalty (or to the identical penalty), therefore for the optimal schedule we can write down the following condition:</p>
+\[
+c \cdot t_{\pi_{i+1}} - c_{\pi_{i+1}} \cdot t_{\pi_i} \ge 0 \quad \forall i = 1 \dots n-1
+\]
+
+<p>And after rearranging we get:</p>
+\[
+\frac{c_{\pi_i}}{t_{\pi_i}} \ge \frac{c_{\pi_{i+1}}}{t_{\pi_{i+1}}} \quad \forall i = 1 \dots n-1
+\]
+
+<p>Thus we obtain the <strong>optimal schedule</strong> by simply <strong>sorting</strong> the jobs by the fraction \(\frac{c_i}{t_i}\) in non-ascending order.</p>
+<p>It should be noted, that we constructed this algorithm by the so-called <strong>permutation method</strong>:
+we tried to swap two adjacent elements, calculated how much the penalty changed, and then derived the algorithm for finding the optimal method.</p>
+<h3>Exponential penalty function</h3>
+<p>Let the penalty function look like this:</p>
+\[
+f_i(t) = c_i \cdot e^{\alpha \cdot t},
+\]
+
+<p>where all numbers \(c_i\) are non-negative and the constant \(\alpha\) is positive.</p>
+<p>By applying the permutation method, it is easy to determine that the jobs must be sorted in non-ascending order of the value:</p>
+\[
+v_i = \frac{1 - e^{\alpha \cdot t_i}}{c_i}
+\]
+
+<h3>Identical monotone penalty function</h3>
+<p>In this case we consider the case that all \(f_i(t)\) are equal, and this function is monotone increasing.</p>
+<p>It is obvious that in this case the optimal permutation is to arrange the jobs by non-ascending processing time \(t_i\).</p>
+<h2>The Livshits-Kladov theorem</h2>
+<p>The Livshits-Kladov theorem establishes that the permutation method is only applicable for the above mentioned three cases, i.e.:</p>
+<ul>
+<li>Linear case: \(f_i(t) = c_i(t) + d_i\), where \(c_i\) are non-negative constants,</li>
+<li>Exponential case: \(f_i(t) = c_i \cdot e_{\alpha \cdot t} + d_i\), where \(c_i\) and \(\alpha\) are positive constants,</li>
+<li>Identical case: \(f_i(t) = \phi(t)\), where \(\phi\) is a monotone increasing function.</li>
+</ul>
+<p>In all other cases the method cannot be applied.</p>
+<p>The theorem is proven under the assumption that the penalty functions are sufficiently smooth (the third derivatives exists).</p>
+<p>In all three case we apply the permutation method, through which the desired optimal schedule can be found by sorting, hence in \(O(n \log n)\) time.</p>
+
+    <div id="footer">
+    (c) 2014-2021 translation by <a href="../../external.html?link=http://github.com/e-maxx-eng">http://github.com/e-maxx-eng</a>
+    </div>
+</div>
+
+<script>
+if (/e\-maxx\-eng|cp\-algorithms/.test(location.href)) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85220282-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+</body>
+
+<!-- Mirrored from cp-algorithms.com/schedules/schedule_one_machine.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 19 Aug 2021 18:44:52 GMT -->
+</html>

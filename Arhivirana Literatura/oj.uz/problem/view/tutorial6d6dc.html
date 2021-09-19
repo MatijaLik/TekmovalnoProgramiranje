@@ -1,0 +1,674 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from oj.uz/problem/view/tutorial6?locale=ko by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 14:41:10 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <!-- Basic -->
+    <title>문제 보기 - 카드 (tutorial6) :: oj.uz</title>
+
+    <!-- Define Charset -->
+    <meta charset="utf-8"/>
+
+    <!-- Responsive Metatag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <!-- Page Description and Author -->
+    <meta name="description" content="oj.uz"/>
+    <meta name="author" content="박수찬"/>
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91767657-1', 'auto');
+  ga('send', 'pageview');
+</script>
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/css/bootstrap.min.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/polygon_statement.css" type="text/css"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/codeforces-community.css" type="text/css"/>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/font-awesome.min.css" type="text/css" media="screen"/>
+    <!-- slicknav -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/slicknav.css" media="screen"/>
+    <!-- Margo CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/style.css" media="screen"/>
+
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/custom_style.css" media="screen"/>
+
+    <!-- Responsive CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/responsive.css" media="screen"/>
+
+    <!-- Css3 Transitions Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/animate.css" media="screen"/>
+
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/colors/green.css" title="green" media="screen" />
+
+    <!-- Margo JS  -->
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.migrate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/modernizrr.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.appear.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.textillate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.lettering.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.slicknav.js"></script>
+
+<script data-ad-client="ca-pub-9767392980647759" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/humanize-duration.js"></script>
+
+<script type="text/javascript">
+  moment.locale("ko");
+  var my_humanizer = humanizeDuration.humanizer({language: 'ko'});
+
+  $(document).ready(function(){
+    user_timezone_utc_offset = moment().utcOffset() / 60;
+    if(user_timezone_utc_offset > 0) user_timezone_utc_offset = "+" + user_timezone_utc_offset;
+    else if(user_timezone_utc_offset == 0) user_timezone_utc_offset = "";
+    var offsets = document.getElementsByClassName("render-offset");
+    for(var i = 0; i < offsets.length; i++) {
+      offsets[i].innerHTML = "UTC" + user_timezone_utc_offset;
+    }
+
+    var datetimes = document.getElementsByClassName('render-datetime');
+    for(var i = 0; i < datetimes.length; i++) {
+      var obj = datetimes[i];
+      obj.innerHTML = moment(obj.innerHTML).format(obj.attributes['format'].value);
+    }
+
+    var datetimes_fromnow = document.getElementsByClassName('render-datetime-fromnow');
+    for(var i = 0; i < datetimes_fromnow.length; i++) {
+      var obj = datetimes_fromnow[i];
+      obj.innerHTML = moment(obj.innerHTML).fromNow();
+    }
+
+    var durations = document.getElementsByClassName("render-duration");
+    for(var i = 0; i < durations.length; i++) {
+      var obj = durations[i];
+      obj.innerHTML = my_humanizer(Number(obj.innerHTML));
+    }
+
+    var setoffsets = document.getElementsByName('set-offset');
+    for(var i = 0; i < setoffsets.length; i++) {
+      setoffsets[i].value = moment().utcOffset() * 60; // 초
+    }
+
+    var offsetfields = document.getElementsByClassName('offset-field');
+    for(var i = 0; i < offsetfields.length; i++) {
+      var obj = offsetfields[i];
+      if (obj.attributes['data'].value != "None")
+        obj.value = moment.unix(Number(obj.attributes['data'].value)).format("YYYY-MM-DD HH:mm:ss");
+    }
+  });
+</script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/circle-progressbar.js"></script>
+<link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/progressbar.css" type="text/css">
+
+
+
+<script type="text/javascript">
+$(document).ready(() => {
+  const goodBrowser = !!window.Worker;
+  const hasBuiltInPdf = !("ActiveXObject" in window) && !/iPhone|iPod|Android|BlackBerry|Opera Mini|Phone|Mobile/i.test(navigator.userAgent);
+  if(goodBrowser && hasBuiltInPdf){
+    for(iii = 0; iii < pdf_file_list.length; iii++) {
+      $(pdf_file_list[iii][1]).html('<object data="' + pdf_file_list[iii][0] + '" type="application/pdf" style="width: 100%; height: 600px;">Your browser is outdated, or your PDF plugin is deactivated</object>');
+    }
+  }else if(goodBrowser){
+    for(iii = 0; iii < pdf_file_list.length; iii++) {
+      $(pdf_file_list[iii][1]).html('<iframe seamless src="https://s3-ap-northeast-1.amazonaws.com/ojuz-attach/pdfjs/pdfjs-2.5.207-dist/web/viewer_with_ojuz.html?file=' + pdf_file_list[iii][0] + '" style="width: 100%; height: 600px;"></iframe>');
+    }
+  }else {
+    for(iii = 0; iii < pdf_file_list.length; iii++) {
+      PDFObject.embed(pdf_file_list[iii][0], pdf_file_list[iii][1], pdf_file_list[iii][2]);
+    }
+  }
+});
+</script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$']]}
+    });
+    </script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/pygments.css">
+    <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/favicon/ver_20161112174211.ico">
+
+</head>
+
+<body>
+
+    <!-- Full Body Container -->
+    <div id="container">
+
+        <!-- Start Header Section -->
+        <div class="hidden-header"></div>
+        <header class="clearfix">
+
+            <!-- Start Top Bar -->
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <!-- Start Contact Info -->
+                            <!-- End Contact Info -->
+                        </div><!-- .col-md-6 -->
+                        <div class="col-md-5 ">
+                            <ul class="login-bar">
+                                <li>
+                                    <a href="https://oj.uz/login?next=%2Fproblem%2Fview%2Ftutorial6%3Flocale%3Dko">로그인</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="../../register.html">회원가입</a>
+                                </li>
+                            </ul>
+                        </div><!-- .col-md-6 -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- .top-bar -->
+            <!-- End Top Bar -->
+
+
+            <!-- Start  Logo & Naviagtion  -->
+            <div class="navbar navbar-default navbar-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <!-- Stat Toggle Nav Link For Mobiles -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- End Toggle Nav Link For Mobiles -->
+                        <a class="navbar-brand" href="../../index.html">
+                            <img alt="oj.uz" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/logo/ver_20170205.png" style="height: 30px;">
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <div class="search-side">
+                          <a class="show-search dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-language" aria-hidden="true"></i>
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><a href="tutorial67038.html?locale=en">English</a></li>
+                            <li><a href="tutorial6d6dc.html?locale=ko">한국어</a></li>
+                          </ul>
+                        </div>
+                        <!-- End Search -->
+                        <!-- Start Navigation List -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+				    <a href="../../contests.html">대회</a>
+                            </li>
+                            <li>
+                                <a href="../../problems.html">문제</a>
+                            </li>
+                            <li>
+                                <a href="https://oj.uz/submissions">답안 목록</a>
+                            </li>
+			    <li>
+				    <a href="https://github.com/ojuz/ojuz-contribute">기여하기</a>
+			    </li>
+                        </ul>
+                        <!-- End Navigation List -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Logo & Naviagtion -->
+
+            <!-- Mobile Menu Start -->
+                <ul class="wpb-mobile-menu">
+                    <li>
+			    <a href="../../contests.html">대회 </a>
+                    </li>
+                    <li>
+                        <a href="../../problems.html">문제</a>
+                    </li>
+                    <li>
+                        <a href="https://oj.uz/submissions">답안 목록</a>
+                    </li>
+		    <li>
+			    <a href="https://github.com/ojuz/ojuz-contribute">기여하기</a>
+		    </li>
+                    <li>
+                      <a><i class="fa fa-language" aria-hidden="true"></i> 언어</a>
+                      <ul class="dropdown">
+                        <li><a href="tutorial67038.html?locale=en">English</a></li>
+                        <li><a href="tutorial6d6dc.html?locale=ko">한국어</a></li>
+                      </ul>
+                    </li>
+                </ul>
+                <!-- Mobile Menu End -->
+        </header>
+        <!-- End Header Section -->
+
+            <!-- Start Page Banner -->
+            <div class="page-banner no-subtitle">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h2 class="page-banner-title">문제 보기 - 카드 (tutorial6)</h2>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="breadcrumbs">
+                     </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Page Banner -->
+
+<script type="text/javascript">var pdf_file_list = [];</script>
+
+
+
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="page-header problem-title">
+          <h1>
+            카드
+            <small>
+              <span class="label label-info">Batch</span>
+<span class="label label-primary">제출 불가</span>              <a href="#" class="btn btn-default" data-toggle="modal" data-target="#view_compilation_commands"><i class="glyphicon glyphicon-list-alt"></i> 컴파일 명령</a>
+            </small>
+          </h1>
+        </div>
+        <ul class="nav nav-tabs" style="margin-bottom: 10px;">
+            <li role="presentation" class="active">
+    <a href="tutorial6.html">문제 내용</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="https://oj.uz/login?next=%2Fproblem%2Fsubmit%2Ftutorial6">제출</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="../statistics/tutorial6.html">통계</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="https://oj.uz/submissions?problem=tutorial6">답안들</a>
+  </li>
+
+        </ul>
+        
+  <div class="table-responsive">
+  <table class="table">
+      <thead>
+        <tr>
+          <th style="width: 20%">시간 제한</th>
+          <th style="width: 20%">메모리 제한</th>
+          <th style="width: 20%">제출 횟수</th>
+          <th style="width: 20%">통과한 사람 수</th>
+          <th style="width: 20%">비율</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>1500 ms</td>
+              <td>64 MiB</td>
+	      <td>41</td>
+              <td>15</td>
+              <td>36.59%</td>
+	  </tr>
+      </tbody>
+  </table>
+  </div>
+  <div id='statement'>
+    <p>지학이는 그의 친구들 5명과 함께 퀴즈쇼에 나갔습니다.</p>
+
+<p>퀴즈쇼의 사회자인 승현이는, 지학이가 매우 똑똑하다는 것을 알고 있어 굉장히 어려운 문제를 냈습니다.</p>
+
+<p>그 문제는 다음과 같습니다.</p>
+
+<p>먼저, 지학이의 친구들 5명에게 0 이상 9 이하의 정수가 적힌 모자를 씌워 방 안에 들어가도록 합니다.</p>
+
+<p>지학이의 친구들은 다른 친구들의 모자에 적힌 수를 볼 수는 있지만, 자신의 모자에 적힌 수를 볼 수는 없습니다.</p>
+
+<p>지학이는 외부에서 5명의 모자에 적힌 수를 보고, 5명 중 한 명을 지목하고 붉은색과 푸른색 카드 중 하나를 골라 승현이에게 전달하게 할 수 있습니다.</p>
+
+<p>어떤 색의 카드가 누구에게 전달되는지는 방 안에 있는 5명 모두가 볼 수 있습니다.</p>
+
+<p>카드를 50장 이하로 보내서 방 안에 있는 5명의 친구들에게 승현이가 랜덤한 순서로 질문을 해서, 모두 자신의 모자에 적힌 수를 맞힐 경우 지학이와 친구들 모두 상금을 받을 수 있습니다.</p>
+
+<p>단, 전달하는 카드의 수가 적을수록 더 많은 상금을 받기 때문에, 최대한 전달하는 카드의 수를 줄여야 합니다.</p>
+
+<h3>할 일</h3>
+
+<p>두 개의 함수 jeehak 과 friends 를 작성하세요. jeehak 은 외부에서 카드를 보내는 지학이를 대신하는 함수이고, friends 는 지학이가 보낸 카드와 다른 친구들의 모자에 적힌 수를 보고 자신의 모자에 적힌 수를 추측하는 친구를 대신하는 함수입니다.</p>
+
+<ul>
+<li><p>void jeehak(int A[])</p>
+
+<ul>
+<li><strong>A</strong> : 5개의 정수로 이루어진 1차원 배열입니다. 5명의 모자에 적힌 수가 순서대로 주어집니다. 인덱스는 1부터 5까지입니다.
+카드를 보낼 때는 send(int X,int Y) 함수를 호출하여 보냅니다. X는 카드를 받을 친구의 번호이고, Y는 카드의 색으로 0은 붉은색, 1은 푸른색을 뜻합니다. ( 1 ≤ X ≤ 5 , 0 ≤ Y ≤ 1 )</li>
+</ul></li>
+<li><p>void friends(int A[],int N,int X[],int Y[])</p>
+
+<ul>
+<li><strong>A</strong> : 5개의 정수로 이루어진 1차원 배열입니다. 5명의 모자에 적힌 수가 순서대로 주어집니다. 자신의 모자는 -1이 적힌 것으로 들어옵니다. 인덱스는 1부터 5까지입니다.</li>
+<li><strong>N</strong> : 지학이가 보낸 카드의 수를 뜻합니다.</li>
+<li><strong>X</strong>,<strong>Y</strong> : 지학이가 보낸 카드를 받은 친구의 번호와 색이 순서대로 주어집니다. 인덱스는 1부터 N까지입니다. ( 1 ≤ X[i] ≤ 5 , 0 ≤ Y[i] ≤ 1 )
+자신의 모자에 적힌 수를 guess(int A) 함수를 호출하여 추측합니다. A는 자신의 모자에 적힌 수를 뜻합니다. ( 0 ≤ A ≤ 9 )</li>
+</ul></li>
+</ul>
+
+<h3>서브태스크</h3>
+
+<h4>서브태스크 1 (20점)</h4>
+
+<ul>
+<li>지학이가 보낸 최대 카드는 50개 이하여야 합니다.</li>
+</ul>
+
+<h4>서브태스크 2 (최대 80점)</h4>
+
+<ul>
+<li>지학이가 보낸 최대 카드의 수를 $ N $ 이라고 할 때, 점수는 $ max ( 0 , 80 \times ( 1 - log_{50} N ) ) $ 점입니다.</li>
+</ul>
+
+<h3>구현 시 유의사항</h3>
+
+<h4>채점 환경</h4>
+
+<ul>
+<li>프로그램의 최대 실행 시간은 1초입니다. 채점 프로그램의 실행 시간이 0.3초를 넘지 않음이 보장되어 있습니다.</li>
+<li>메모리 제한은 64MB이며, 스택 메모리 역시 전체 메모리에 포함됩니다.</li>
+</ul>
+
+<h4>인터페이스</h4>
+
+<p><u><strong><a href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/old/tutorial6/grader.zip">여기</a></strong></u>를 클릭하시면 개발에 필요한 인터페이스가 제공됩니다. 이를 이용해서 이 문제를 좀 더 쉽게 해결할 수 있을 것입니다. 아래에 그 설명이 있습니다.</p>
+
+<ul>
+<li>작성해야 할 파일: jeehak.c 와 friends.c 또는 jeehak.cpp 와 friends.cpp</li>
+<li>채점 프로그램 인터페이스: jeehak.h 와 friends.h</li>
+<li>견본 채점 프로그램: grader.c 또는 grader.cpp</li>
+<li>입출력 예제: example.in 과 example.out</li>
+</ul>
+
+<p>여러분은 jeehak.c 와 friends.c 또는 jeehak.cpp 와 friends.cpp 를 작성하신 후 이 내용을 복사해서 제출하시면 됩니다. 단, jeehak.c 또는 jeehak.cpp 파일의 상단에 있는 #include"jeehak.h" 또는 friends.c 또는 friends.cpp 파일의 상단에 있는 #include"friends.h" 를 지우고 작성하시면 컴파일 에러가 발생하거나 프로그램이 올바른 답을 내지 못하여 점수를 받을 수 없습니다.</p>
+
+  </div>
+
+  <script type="text/javascript">
+    $('.problem-statement-pdf').css('width', $("#statement").width()+'px');
+  </script>
+      </div>
+      <div class="col-lg-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">출처</div>
+          <div class="panel-body">
+            <ul style="padding-left: 20px;">
+              <li>
+                <a href="../../problems/source/1.html">
+                  튜토리얼 6번
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="panel panel-default">
+          <div class="panel-heading"><i class="fa fa-download"></i> 첨부 파일</div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>파일명</th>
+                <th>파일 크기</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td><a href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/old/tutorial2/grader.zip">grader.zip</a></td>
+                  <td>1.6 KiB</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading"><i class="fa fa-github"></i> 문제 내용 수정하기</div>
+          <div class="panel-body">
+            <div class="btn-group" role="group" aria-label="...">
+              <a class="btn btn-default" target="_blank" href="https://github.com/ojuz/problem-statements/new/master?filename=problems/tutorial6/en.md">English</a>
+              <a class="btn btn-default" target="_blank" href="https://github.com/ojuz/problem-statements/edit/master/problems/tutorial6/ko.md">한국어</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="view_compilation_commands" tabindex="-1" role="dialog" aria-labelledby="compilation_commands_title" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="compilation_commands_title">컴파일 명령</h4>
+      </div>
+      <div class="modal-body">
+              <h2>Step #1</h2>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>언어</th>
+                  <th>명령
+                </tr>
+              </thead>
+              <tbody>
+ 
+                  <tr>
+                    <th>C++17 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o jeehak -O2 jeehak.cpp grader_jeehak.c -std=c++17</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C / gcc</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">gcc-10 -Wall -lm -static -DEVAL -o jeehak -O2 jeehak.c grader_jeehak.c </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++ / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o jeehak -O2 jeehak.cpp grader_jeehak.c </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++11 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o jeehak -O2 jeehak.cpp grader_jeehak.c -std=c++11</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++14 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o jeehak -O2 jeehak.cpp grader_jeehak.c -std=c++14</code>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+              <h2>Step #2</h2>
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>언어</th>
+                  <th>명령
+                </tr>
+              </thead>
+              <tbody>
+ 
+                  <tr>
+                    <th>C++17 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o friends -O2 friends.cpp grader_friends.c -std=c++17</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C / gcc</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">gcc-10 -Wall -lm -static -DEVAL -o friends -O2 friends.c grader_friends.c </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++ / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o friends -O2 friends.cpp grader_friends.c </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++11 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o friends -O2 friends.cpp grader_friends.c -std=c++11</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++14 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o friends -O2 friends.cpp grader_friends.c -std=c++14</code>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#my-score').circleProgress({
+      value: 0.0,
+      size: 100,
+      thickness: 50,
+      animationStartValue: 0.0,
+      fill: {
+          color: 'rgb(0, 140, 0)', // fallback color when image is not loaded
+      }
+  });
+});
+</script>
+<script src="https://s3-ap-northeast-1.amazonaws.com/ojuz-attach/pdfobject/pdfobject.min.js"></script>
+
+    </div>
+    <!-- End Full Body Container -->
+
+    <!-- Start Footer Section -->
+    <footer>
+      <div class="container">
+        <!-- Start Copyright -->
+        <div class="copyright-section">
+          <div class="row">
+            <div class="col-md-6">
+              <p>&copy; 2013-2021 박수찬</p>
+            </div>
+            <!-- .col-md-6 -->
+            <div class="col-md-6">
+              <ul class="footer-nav">
+                <li><a href="https://facebook.com/oj.uz.official" target="_blank"><i class="fa fa-facebook"></i> 페이스북</a>
+                </li>
+                <li><a href="https://twitter.com/ojuz_official" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                <li><a href="https://github.com/ojuz" target="_blank"><i class="fa fa-github"></i> Github</a>
+                </li>
+              </ul>
+            </div>
+            <!-- .col-md-6 -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- End Copyright -->
+
+      </div>
+    </footer>
+
+
+    <!-- Go To Top Link -->
+  <!-- LOADER and BACK TO TOP
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  -->
+
+  <div id="loader" style="display: none;">
+      <div class="spinner">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+      </div>
+  </div>
+
+
+
+    <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/script.js"></script>
+
+    <!-- Start of Async Drift Code -->
+    <script>
+    !function() {
+      var t;
+      if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0,
+      t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+      t.factory = function(e) {
+        return function() {
+          var n;
+          return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+        };
+      }, t.methods.forEach(function(e) {
+        t[e] = t.factory(e);
+      }), t.load = function(t) {
+        var e, n, o, i;
+        e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"),
+        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js",
+        n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+      });
+    }();
+    drift.SNIPPET_VERSION = '0.3.1';
+    drift.load('dvpnv4hgnhsg');
+    drift.config({
+     locale: "ko"
+    });
+    drift.on('ready',function(api){
+      api.hideWelcomeMessage();
+    });
+    </script>
+    <!-- End of Async Drift Code -->
+
+</body>
+
+
+<!-- Mirrored from oj.uz/problem/view/tutorial6?locale=ko by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 14:41:12 GMT -->
+</html>

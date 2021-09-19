@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from oj.uz/problem/statistics/APIO15_skyscraper?locale=en by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 13:58:50 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <!-- Basic -->
+    <title>View problem - Jakarta Skyscrapers (APIO15_skyscraper) :: oj.uz</title>
+
+    <!-- Define Charset -->
+    <meta charset="utf-8"/>
+
+    <!-- Responsive Metatag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <!-- Page Description and Author -->
+    <meta name="description" content="oj.uz"/>
+    <meta name="author" content="박수찬"/>
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91767657-1', 'auto');
+  ga('send', 'pageview');
+</script>
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/css/bootstrap.min.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/polygon_statement.css" type="text/css"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/codeforces-community.css" type="text/css"/>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/font-awesome.min.css" type="text/css" media="screen"/>
+    <!-- slicknav -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/slicknav.css" media="screen"/>
+    <!-- Margo CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/style.css" media="screen"/>
+
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/custom_style.css" media="screen"/>
+
+    <!-- Responsive CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/responsive.css" media="screen"/>
+
+    <!-- Css3 Transitions Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/animate.css" media="screen"/>
+
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/colors/green.css" title="green" media="screen" />
+
+    <!-- Margo JS  -->
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.migrate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/modernizrr.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.appear.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.textillate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.lettering.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.slicknav.js"></script>
+
+<script data-ad-client="ca-pub-9767392980647759" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/humanize-duration.js"></script>
+
+<script type="text/javascript">
+  moment.locale("en");
+  var my_humanizer = humanizeDuration.humanizer({language: 'en'});
+
+  $(document).ready(function(){
+    user_timezone_utc_offset = moment().utcOffset() / 60;
+    if(user_timezone_utc_offset > 0) user_timezone_utc_offset = "+" + user_timezone_utc_offset;
+    else if(user_timezone_utc_offset == 0) user_timezone_utc_offset = "";
+    var offsets = document.getElementsByClassName("render-offset");
+    for(var i = 0; i < offsets.length; i++) {
+      offsets[i].innerHTML = "UTC" + user_timezone_utc_offset;
+    }
+
+    var datetimes = document.getElementsByClassName('render-datetime');
+    for(var i = 0; i < datetimes.length; i++) {
+      var obj = datetimes[i];
+      obj.innerHTML = moment(obj.innerHTML).format(obj.attributes['format'].value);
+    }
+
+    var datetimes_fromnow = document.getElementsByClassName('render-datetime-fromnow');
+    for(var i = 0; i < datetimes_fromnow.length; i++) {
+      var obj = datetimes_fromnow[i];
+      obj.innerHTML = moment(obj.innerHTML).fromNow();
+    }
+
+    var durations = document.getElementsByClassName("render-duration");
+    for(var i = 0; i < durations.length; i++) {
+      var obj = durations[i];
+      obj.innerHTML = my_humanizer(Number(obj.innerHTML));
+    }
+
+    var setoffsets = document.getElementsByName('set-offset');
+    for(var i = 0; i < setoffsets.length; i++) {
+      setoffsets[i].value = moment().utcOffset() * 60; // 초
+    }
+
+    var offsetfields = document.getElementsByClassName('offset-field');
+    for(var i = 0; i < offsetfields.length; i++) {
+      var obj = offsetfields[i];
+      if (obj.attributes['data'].value != "None")
+        obj.value = moment.unix(Number(obj.attributes['data'].value)).format("YYYY-MM-DD HH:mm:ss");
+    }
+  });
+</script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/circle-progressbar.js"></script>
+<link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/progressbar.css" type="text/css">
+
+<link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/progressbar.css" type="text/css">
+    <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/favicon/ver_20161112174211.ico">
+
+</head>
+
+<body>
+
+    <!-- Full Body Container -->
+    <div id="container">
+
+        <!-- Start Header Section -->
+        <div class="hidden-header"></div>
+        <header class="clearfix">
+
+            <!-- Start Top Bar -->
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <!-- Start Contact Info -->
+                            <!-- End Contact Info -->
+                        </div><!-- .col-md-6 -->
+                        <div class="col-md-5 ">
+                            <ul class="login-bar">
+                                <li>
+                                    <a href="https://oj.uz/login?next=%2Fproblem%2Fstatistics%2FAPIO15_skyscraper%3Flocale%3Den">Sign in</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="../../register.html">Register</a>
+                                </li>
+                            </ul>
+                        </div><!-- .col-md-6 -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- .top-bar -->
+            <!-- End Top Bar -->
+
+
+            <!-- Start  Logo & Naviagtion  -->
+            <div class="navbar navbar-default navbar-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <!-- Stat Toggle Nav Link For Mobiles -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- End Toggle Nav Link For Mobiles -->
+                        <a class="navbar-brand" href="../../index.html">
+                            <img alt="oj.uz" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/logo/ver_20170205.png" style="height: 30px;">
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <div class="search-side">
+                          <a class="show-search dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-language" aria-hidden="true"></i>
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><a href="APIO15_skyscraper7038.html?locale=en">English</a></li>
+                            <li><a href="APIO15_skyscraperd6dc.html?locale=ko">한국어</a></li>
+                          </ul>
+                        </div>
+                        <!-- End Search -->
+                        <!-- Start Navigation List -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+				    <a href="../../contests.html">Contests</a>
+                            </li>
+                            <li>
+                                <a href="../../problems.html">Problems</a>
+                            </li>
+                            <li>
+                                <a href="https://oj.uz/submissions">Submissions</a>
+                            </li>
+			    <li>
+				    <a href="https://github.com/ojuz/ojuz-contribute">Contribute</a>
+			    </li>
+                        </ul>
+                        <!-- End Navigation List -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Logo & Naviagtion -->
+
+            <!-- Mobile Menu Start -->
+                <ul class="wpb-mobile-menu">
+                    <li>
+			    <a href="../../contests.html">Contests </a>
+                    </li>
+                    <li>
+                        <a href="../../problems.html">Problems</a>
+                    </li>
+                    <li>
+                        <a href="https://oj.uz/submissions">Submissions</a>
+                    </li>
+		    <li>
+			    <a href="https://github.com/ojuz/ojuz-contribute">Contribute</a>
+		    </li>
+                    <li>
+                      <a><i class="fa fa-language" aria-hidden="true"></i> Change language</a>
+                      <ul class="dropdown">
+                        <li><a href="APIO15_skyscraper7038.html?locale=en">English</a></li>
+                        <li><a href="APIO15_skyscraperd6dc.html?locale=ko">한국어</a></li>
+                      </ul>
+                    </li>
+                </ul>
+                <!-- Mobile Menu End -->
+        </header>
+        <!-- End Header Section -->
+
+            <!-- Start Page Banner -->
+            <div class="page-banner no-subtitle">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h2 class="page-banner-title">View problem - Jakarta Skyscrapers (APIO15_skyscraper)</h2>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="breadcrumbs">
+                     </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Page Banner -->
+
+<script type="text/javascript">var pdf_file_list = [];</script>
+
+
+
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="page-header problem-title">
+          <h1>
+            Jakarta Skyscrapers
+            <small>
+              <span class="label label-info">Batch</span>
+              <a href="#" class="btn btn-default" data-toggle="modal" data-target="#view_compilation_commands"><i class="glyphicon glyphicon-list-alt"></i> Compilation commands</a>
+            </small>
+          </h1>
+        </div>
+        <ul class="nav nav-tabs" style="margin-bottom: 10px;">
+            <li role="presentation" >
+    <a href="../view/APIO15_skyscraper.html">Statement</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="https://oj.uz/login?next=%2Fproblem%2Fsubmit%2FAPIO15_skyscraper">Submit</a>
+  </li>
+
+            <li role="presentation" class="active">
+    <a href="APIO15_skyscraper.html">Statistics</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="https://oj.uz/submissions?problem=APIO15_skyscraper">Submissions</a>
+  </li>
+
+        </ul>
+        
+
+<div class="row" style="margin-bottom: 10px;">
+  <div class=col-lg-12>
+    <div class="btn-group">
+          <a href="APIO15_skyscraper07d8.html?order_by=time" class="btn btn-default" role="button">
+        Sort by time</a>
+
+        <a href="APIO15_skyscraper39a8.html?order_by=size" class="btn btn-default" role="button">
+        Sort by size</a>
+    </div>
+  </div>
+</div>
+
+<nav aria-label="Pages">
+  <ul class="pagination">
+    <li class="disabled">
+      <a  aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+        <li class="active"><a>1<span class="sr-only">(current)</span></a></li>
+        <li><a href="APIO15_skyscraper4658.html?page=2">2</a></li>
+        <li><a href="APIO15_skyscraper9ba9.html?page=3">3</a></li>
+        <li><a href="APIO15_skyscraperfdb0.html?page=4">4</a></li>
+    <li>
+      <a href="APIO15_skyscrapere4a7.html?page=21" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+  </ul>
+</nav>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Handle</th>
+        <th>Submission time<sup><span class="render-offset"></span></sup></th>
+        <th style="min-width: 150px; width: 150px;">Score</th>
+        <th>Fastest solution</th>
+        <th>Shortest solution</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/ainta" target="">ainta</a></td>
+          <td><span format="lll" class="render-datetime">2015-05-14T16:12:14 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_6"></div><div class="text" id="progressbar_text_6" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/14435">193ms</a></td>
+          <td><a href="https://oj.uz/submission/14435">1645bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/kriii" target="">kriii</a></td>
+          <td><span format="lll" class="render-datetime">2015-05-13T07:46:03 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_9"></div><div class="text" id="progressbar_text_9" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/14388">148ms</a></td>
+          <td><a href="https://oj.uz/submission/14388">1172bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/woqja125" target="">woqja125</a></td>
+          <td><span format="lll" class="render-datetime">2015-05-13T06:33:39 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_26"></div><div class="text" id="progressbar_text_26" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/14385">738ms</a></td>
+          <td><a href="https://oj.uz/submission/14385">1580bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/gs13068" target="">gs13068</a></td>
+          <td><span format="lll" class="render-datetime">2015-06-15T02:56:28 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_30"></div><div class="text" id="progressbar_text_30" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/14735">93ms</a></td>
+          <td><a href="https://oj.uz/submission/14735">1360bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/minchurl" target="">minchurl</a></td>
+          <td><span format="lll" class="render-datetime">2017-09-10T15:36:32 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_53"></div><div class="text" id="progressbar_text_53" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/31825">853ms</a></td>
+          <td><a href="https://oj.uz/submission/31825">2709bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/cki86201" target="">cki86201</a></td>
+          <td><span format="lll" class="render-datetime">2015-07-16T00:05:20 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_69"></div><div class="text" id="progressbar_text_69" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/15720">216ms</a></td>
+          <td><a href="https://oj.uz/submission/15720">1449bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/myungwoo" target="">myungwoo</a></td>
+          <td><span format="lll" class="render-datetime">2015-07-31T09:49:52 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_136"></div><div class="text" id="progressbar_text_136" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/15878">85ms</a></td>
+          <td><a href="https://oj.uz/submission/15879">1030bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/kjp4155" target="">kjp4155</a></td>
+          <td><span format="lll" class="render-datetime">2019-07-09T13:48:35 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_140"></div><div class="text" id="progressbar_text_140" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/127530">929ms</a></td>
+          <td><a href="https://oj.uz/submission/127530">6631bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/Namnamseo" target="">Namnamseo</a></td>
+          <td><span format="lll" class="render-datetime">2018-05-23T05:11:48 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_190"></div><div class="text" id="progressbar_text_190" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/49175">946ms</a></td>
+          <td><a href="https://oj.uz/submission/49175">1677bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/comet" target="">comet</a></td>
+          <td><span format="lll" class="render-datetime">2015-11-25T17:10:37 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_225"></div><div class="text" id="progressbar_text_225" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/17356">110ms</a></td>
+          <td><a href="https://oj.uz/submission/17356">1300bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/junodeveloper" target="">junodeveloper</a></td>
+          <td><span format="lll" class="render-datetime">2019-07-21T04:23:07 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_239"></div><div class="text" id="progressbar_text_239" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/133543">291ms</a></td>
+          <td><a href="https://oj.uz/submission/133543">1196bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/dohyun0324" target="">dohyun0324</a></td>
+          <td><span format="lll" class="render-datetime">2015-05-19T22:04:50 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_246"></div><div class="text" id="progressbar_text_246" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/17606">104ms</a></td>
+          <td><a href="https://oj.uz/submission/17606">1904bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/gs14004" target="">gs14004</a></td>
+          <td><span format="lll" class="render-datetime">2015-05-14T02:44:07 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_260"></div><div class="text" id="progressbar_text_260" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/14434">338ms</a></td>
+          <td><a href="https://oj.uz/submission/14434">2518bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/khsoo01" target="">khsoo01</a></td>
+          <td><span format="lll" class="render-datetime">2015-09-02T16:01:47 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_551"></div><div class="text" id="progressbar_text_551" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/16649">104ms</a></td>
+          <td><a href="https://oj.uz/submission/16649">1525bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/choyi0521" target="">choyi0521</a></td>
+          <td><span format="lll" class="render-datetime">2016-01-30T22:20:37 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_558"></div><div class="text" id="progressbar_text_558" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/18401">143ms</a></td>
+          <td><a href="https://oj.uz/submission/18401">996bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/eaststar" target="">eaststar</a></td>
+          <td><span format="lll" class="render-datetime">2015-09-03T02:11:37 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_570"></div><div class="text" id="progressbar_text_570" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/16662">897ms</a></td>
+          <td><a href="https://oj.uz/submission/16662">913bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/rubabredwan" target="">rubabredwan</a></td>
+          <td><span format="lll" class="render-datetime">2017-05-09T09:37:08 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1013"></div><div class="text" id="progressbar_text_1013" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/23433">669ms</a></td>
+          <td><a href="https://oj.uz/submission/23431">2245bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/jjwdi0" target="">jjwdi0</a></td>
+          <td><span format="lll" class="render-datetime">2017-03-27T08:17:04 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1025"></div><div class="text" id="progressbar_text_1025" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/20988">166ms</a></td>
+          <td><a href="https://oj.uz/submission/20988">1430bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/sampriti" target="">sampriti</a></td>
+          <td><span format="lll" class="render-datetime">2017-07-15T03:51:05 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1030"></div><div class="text" id="progressbar_text_1030" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/28048">953ms</a></td>
+          <td><a href="https://oj.uz/submission/28048">2064bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/TAMREF" target="">TAMREF</a></td>
+          <td><span format="lll" class="render-datetime">2017-07-12T10:41:35 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1063"></div><div class="text" id="progressbar_text_1063" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/27365">449ms</a></td>
+          <td><a href="https://oj.uz/submission/27368">1367bytes</a></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<nav aria-label="Pages">
+  <ul class="pagination">
+    <li class="disabled">
+      <a  aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+        <li class="active"><a>1<span class="sr-only">(current)</span></a></li>
+        <li><a href="APIO15_skyscraper4658.html?page=2">2</a></li>
+        <li><a href="APIO15_skyscraper9ba9.html?page=3">3</a></li>
+        <li><a href="APIO15_skyscraperfdb0.html?page=4">4</a></li>
+    <li>
+      <a href="APIO15_skyscrapere4a7.html?page=21" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+  </ul>
+</nav>
+      </div>
+      <div class="col-lg-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">Problem source</div>
+          <div class="panel-body">
+            <ul style="padding-left: 20px;">
+              <li>
+                <a href="../../problems/source/166.html">
+                  APIO 2015 Problem 2
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+
+        <div class="panel panel-default">
+          <div class="panel-heading"><i class="fa fa-github"></i> Edit problem statement on github</div>
+          <div class="panel-body">
+            <div class="btn-group" role="group" aria-label="...">
+              <a class="btn btn-default" target="_blank" href="https://github.com/ojuz/problem-statements/edit/master/problems/APIO15_skyscraper/en.md">English</a>
+              <a class="btn btn-default" target="_blank" href="https://github.com/ojuz/problem-statements/edit/master/problems/APIO15_skyscraper/ko.md">한국어</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="row"><div class="row-lg-12"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 기능 바로 밑 광고 -->
+<div style="margin-top: 20px; margin-bottom: 20px;">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9767392980647759"
+     data-ad-slot="3848367947"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="view_compilation_commands" tabindex="-1" role="dialog" aria-labelledby="compilation_commands_title" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="compilation_commands_title">Compilation commands</h4>
+      </div>
+      <div class="modal-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Language</th>
+                  <th>Command
+                </tr>
+              </thead>
+              <tbody>
+ 
+                  <tr>
+                    <th>C / gcc</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">gcc-10 -Wall -lm -static -DEVAL -o skyscraper -O2 skyscraper.c </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++ / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o skyscraper -O2 skyscraper.cpp </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++11 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o skyscraper -O2 skyscraper.cpp -std=c++11</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++14 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o skyscraper -O2 skyscraper.cpp -std=c++14</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>Python 2 / Python 2</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">python2.7 -c &#34;import py_compile; py_compile.compile(r&#39;skyscraper.py&#39;)&#34; </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>Python 3 / Python 3</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">python3.9 -c &#34;import py_compile; py_compile.compile(r&#39;skyscraper.py&#39;)&#34; </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>PyPy / PyPy 2</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">pypy -c &#34;import py_compile; py_compile.compile(r&#39;skyscraper.py&#39;)&#34; </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++17 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o skyscraper -O2 skyscraper.cpp -std=c++17</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>PyPy 3 / PyPy 3</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">pypy3 -c &#34;import py_compile; py_compile.compile(r&#39;skyscraper.py&#39;)&#34; </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>Java 11 / Java</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">javac -J-Xms128m -J-Xmx512m -encoding UTF-8 skyscraper.java </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>Kotlin / Kotlin</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">kotlinc-jvm -include-runtime -d skyscraper.jar skyscraper.kt </code>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#my-score').circleProgress({
+      value: 0.0,
+      size: 100,
+      thickness: 50,
+      animationStartValue: 0.0,
+      fill: {
+          color: 'rgb(0, 140, 0)', // fallback color when image is not loaded
+      }
+  });
+});
+</script>
+<script src="https://s3-ap-northeast-1.amazonaws.com/ojuz-attach/pdfobject/pdfobject.min.js"></script>
+
+    </div>
+    <!-- End Full Body Container -->
+
+    <!-- Start Footer Section -->
+    <footer>
+      <div class="container">
+        <!-- Start Copyright -->
+        <div class="copyright-section">
+          <div class="row">
+            <div class="col-md-6">
+              <p>&copy; 2013-2021 박수찬</p>
+            </div>
+            <!-- .col-md-6 -->
+            <div class="col-md-6">
+              <ul class="footer-nav">
+                <li><a href="https://facebook.com/oj.uz.official" target="_blank"><i class="fa fa-facebook"></i> Facebook</a>
+                </li>
+                <li><a href="https://twitter.com/ojuz_official" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                <li><a href="https://github.com/ojuz" target="_blank"><i class="fa fa-github"></i> Github</a>
+                </li>
+              </ul>
+            </div>
+            <!-- .col-md-6 -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- End Copyright -->
+
+      </div>
+    </footer>
+
+
+    <!-- Go To Top Link -->
+  <!-- LOADER and BACK TO TOP
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  -->
+
+  <div id="loader" style="display: none;">
+      <div class="spinner">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+      </div>
+  </div>
+
+
+
+    <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/script.js"></script>
+
+    <!-- Start of Async Drift Code -->
+    <script>
+    !function() {
+      var t;
+      if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0,
+      t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+      t.factory = function(e) {
+        return function() {
+          var n;
+          return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+        };
+      }, t.methods.forEach(function(e) {
+        t[e] = t.factory(e);
+      }), t.load = function(t) {
+        var e, n, o, i;
+        e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"),
+        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js",
+        n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+      });
+    }();
+    drift.SNIPPET_VERSION = '0.3.1';
+    drift.load('dvpnv4hgnhsg');
+    drift.config({
+     locale: "en"
+    });
+    drift.on('ready',function(api){
+      api.hideWelcomeMessage();
+    });
+    </script>
+    <!-- End of Async Drift Code -->
+
+</body>
+
+
+<!-- Mirrored from oj.uz/problem/statistics/APIO15_skyscraper?locale=en by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 13:58:52 GMT -->
+</html>

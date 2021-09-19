@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+
+<!-- Mirrored from cp-algorithms.com/string/rabin-karp.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 19 Aug 2021 18:43:41 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <base />
+    <title>Rabin-Karp Algorithm - Competitive Programming Algorithms</title>
+    <script src="../../ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="../js/common.js"></script>
+    <script type="text/javascript" src="../../cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJaxdda6.js"></script>
+    <link rel="stylesheet" href="../css/common.css"/>
+
+    <!-- highlightjs for code highlighting -->
+    <link rel="stylesheet" href="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/styles/xcode.min.css">
+    <script src="../../cdnjs.cloudflare.com/ajax/libs/highlight.js/8.3/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <!-- end highlightjs -->
+    <meta name="google-site-verification" content="qSnbeMPNVgZ3kIpGVsPIAPIvEdwYSg583kPdwgJtFO8" />
+    <meta name="yandex-verification" content="315535a6d9f1c0bd" />
+</head>
+<body>
+<div id="container">
+    <div id="navbar">
+        <span id="title">
+            <a href="../index-2.html">CP-Algorithms</a>
+        </span>
+        <span id="menu">
+            <a href="../../external.html?link=https://github.com/e-maxx-eng/e-maxx-eng/commits/master/src/string/rabin-karp.md" title="Changes History">Page Authors</a>
+        </span>
+        <span id="search" style="display:inline-block;width:200px;float:right;margin-top:7px;margin-right:20px;">
+            <div class="ya-site-form ya-site-form_inited_no" data-bem="{&quot;action&quot;:&quot;https://cp-algorithms.com/search-results.html&quot;,&quot;arrow&quot;:false,&quot;bg&quot;:&quot;transparent&quot;,&quot;fontsize&quot;:12,&quot;fg&quot;:&quot;#000000&quot;,&quot;language&quot;:&quot;en&quot;,&quot;logo&quot;:&quot;rb&quot;,&quot;publicname&quot;:&quot;Yandex Site Search #2490798&quot;,&quot;suggest&quot;:true,&quot;target&quot;:&quot;_self&quot;,&quot;tld&quot;:&quot;com&quot;,&quot;type&quot;:3,&quot;usebigdictionary&quot;:true,&quot;searchid&quot;:2490798,&quot;input_fg&quot;:&quot;#000000&quot;,&quot;input_bg&quot;:&quot;#ffffff&quot;,&quot;input_fontStyle&quot;:&quot;normal&quot;,&quot;input_fontWeight&quot;:&quot;normal&quot;,&quot;input_placeholder&quot;:null,&quot;input_placeholderColor&quot;:&quot;#000000&quot;,&quot;input_borderColor&quot;:&quot;#7f9db9&quot;}"><form action="../../external.html?link=https://yandex.com/search/site/" method="get" target="_self" accept-charset="utf-8"><input type="hidden" name="searchid" value="2490798"/><input type="hidden" name="l10n" value="en"/><input type="hidden" name="reqenc" value=""/><input type="search" name="text" value=""/><input type="submit" value="Search"/></form></div><style type="text/css">.ya-page_js_yes .ya-site-form_inited_no { display: none; }</style><script type="text/javascript">(function(w,d,c){var s=d.createElement('script'),h=d.getElementsByTagName('script')[0],e=d.documentElement;if((' '+e.className+' ').indexOf(' ya-page_js_yes ')===-1){e.className+=' ya-page_js_yes';}s.type='text/javascript';s.async=true;s.charset='utf-8';s.src=(d.location.protocol==='https:'?'https:':'http:')+'//site.yandex.net/v2.0/js/all.js';h.parentNode.insertBefore(s,h);(w[c]||(w[c]=[])).push(function(){Ya.Site.Form.init()})})(window,document,'yandex_site_callbacks');</script>
+        </span>
+    </div>
+
+<h1>Rabin-Karp Algorithm for string matching</h1>
+<p>This algorithm is based on the concept of hashing, so if you are not familiar with string hashing, refer to the <a href="string-hashing.html" rel="nofollow">string hashing</a> article.</p>
+<p>This algorithm was authored by Rabin and Karp in 1987.</p>
+<p>Problem: Given two strings - a pattern \(s\) and a text \(t\), determine if the pattern appears in the text and if it does, enumerate all its occurrences in \(O(|s| + |t|)\) time.</p>
+<p>Algorithm: Calculate the hash for the pattern \(s\).
+Calculate hash values for all the prefixes of the text \(t\).
+Now, we can compare a substring of length \(|s|\) with \(s\) in constant time using the calculated hashes.
+So, compare each substring of length \(|s|\) with the pattern. This will take a total of \(O(|t|)\) time.
+Hence the final complexity of the algorithm is \(O(|t| + |s|)\): \(O(|s|)\) is required for calculating the hash of the pattern and \(O(|t|)\) for comparing each substring of length \(|s|\) with the pattern.</p>
+<h2>Implementation</h2>
+<pre><code class="language-cpp">vector&lt;int&gt; rabin_karp(string const&amp; s, string const&amp; t) {
+    const int p = 31; 
+    const int m = 1e9 + 9;
+    int S = s.size(), T = t.size();
+
+    vector&lt;long long&gt; p_pow(max(S, T)); 
+    p_pow[0] = 1; 
+    for (int i = 1; i &lt; (int)p_pow.size(); i++) 
+        p_pow[i] = (p_pow[i-1] * p) % m;
+
+    vector&lt;long long&gt; h(T + 1, 0); 
+    for (int i = 0; i &lt; T; i++)
+        h[i+1] = (h[i] + (t[i] - 'a' + 1) * p_pow[i]) % m; 
+    long long h_s = 0; 
+    for (int i = 0; i &lt; S; i++) 
+        h_s = (h_s + (s[i] - 'a' + 1) * p_pow[i]) % m; 
+
+    vector&lt;int&gt; occurences;
+    for (int i = 0; i + S - 1 &lt; T; i++) { 
+        long long cur_h = (h[i+S] + m - h[i]) % m; 
+        if (cur_h == h_s * p_pow[i] % m)
+            occurences.push_back(i);
+    }
+    return occurences;
+}
+</code></pre>
+<h2>Practice Problems</h2>
+<ul>
+<li><a href="../../external.html?link=http://www.spoj.com/problems/NAJPF/" rel="nofollow">SPOJ - Pattern Find</a></li>
+<li><a href="../../external.html?link=http://codeforces.com/problemset/problem/271/D" rel="nofollow">Codeforces - Good Substrings</a></li>
+<li><a href="../../external.html?link=https://codeforces.com/problemset/problem/835/D" rel="nofollow">Codeforces - Palindromic characteristics</a></li>
+</ul>
+
+    <div id="footer">
+    (c) 2014-2021 translation by <a href="../../external.html?link=http://github.com/e-maxx-eng">http://github.com/e-maxx-eng</a>
+    </div>
+</div>
+
+<script>
+if (/e\-maxx\-eng|cp\-algorithms/.test(location.href)) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','../../www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-85220282-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+</body>
+
+<!-- Mirrored from cp-algorithms.com/string/rabin-karp.html by HTTrack Website Copier/3.x [XR&CO'2017], Thu, 19 Aug 2021 18:43:41 GMT -->
+</html>

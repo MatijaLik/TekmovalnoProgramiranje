@@ -1,0 +1,687 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from oj.uz/problem/view/APIO20_swap?locale=ko by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 13:14:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <!-- Basic -->
+    <title>문제 보기 - 자매 도시 (APIO20_swap) :: oj.uz</title>
+
+    <!-- Define Charset -->
+    <meta charset="utf-8"/>
+
+    <!-- Responsive Metatag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <!-- Page Description and Author -->
+    <meta name="description" content="oj.uz"/>
+    <meta name="author" content="박수찬"/>
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91767657-1', 'auto');
+  ga('send', 'pageview');
+</script>
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/css/bootstrap.min.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/polygon_statement.css" type="text/css"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/codeforces-community.css" type="text/css"/>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/font-awesome.min.css" type="text/css" media="screen"/>
+    <!-- slicknav -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/slicknav.css" media="screen"/>
+    <!-- Margo CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/style.css" media="screen"/>
+
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/custom_style.css" media="screen"/>
+
+    <!-- Responsive CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/responsive.css" media="screen"/>
+
+    <!-- Css3 Transitions Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/animate.css" media="screen"/>
+
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/colors/green.css" title="green" media="screen" />
+
+    <!-- Margo JS  -->
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.migrate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/modernizrr.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.appear.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.textillate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.lettering.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.slicknav.js"></script>
+
+<script data-ad-client="ca-pub-9767392980647759" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/humanize-duration.js"></script>
+
+<script type="text/javascript">
+  moment.locale("ko");
+  var my_humanizer = humanizeDuration.humanizer({language: 'ko'});
+
+  $(document).ready(function(){
+    user_timezone_utc_offset = moment().utcOffset() / 60;
+    if(user_timezone_utc_offset > 0) user_timezone_utc_offset = "+" + user_timezone_utc_offset;
+    else if(user_timezone_utc_offset == 0) user_timezone_utc_offset = "";
+    var offsets = document.getElementsByClassName("render-offset");
+    for(var i = 0; i < offsets.length; i++) {
+      offsets[i].innerHTML = "UTC" + user_timezone_utc_offset;
+    }
+
+    var datetimes = document.getElementsByClassName('render-datetime');
+    for(var i = 0; i < datetimes.length; i++) {
+      var obj = datetimes[i];
+      obj.innerHTML = moment(obj.innerHTML).format(obj.attributes['format'].value);
+    }
+
+    var datetimes_fromnow = document.getElementsByClassName('render-datetime-fromnow');
+    for(var i = 0; i < datetimes_fromnow.length; i++) {
+      var obj = datetimes_fromnow[i];
+      obj.innerHTML = moment(obj.innerHTML).fromNow();
+    }
+
+    var durations = document.getElementsByClassName("render-duration");
+    for(var i = 0; i < durations.length; i++) {
+      var obj = durations[i];
+      obj.innerHTML = my_humanizer(Number(obj.innerHTML));
+    }
+
+    var setoffsets = document.getElementsByName('set-offset');
+    for(var i = 0; i < setoffsets.length; i++) {
+      setoffsets[i].value = moment().utcOffset() * 60; // 초
+    }
+
+    var offsetfields = document.getElementsByClassName('offset-field');
+    for(var i = 0; i < offsetfields.length; i++) {
+      var obj = offsetfields[i];
+      if (obj.attributes['data'].value != "None")
+        obj.value = moment.unix(Number(obj.attributes['data'].value)).format("YYYY-MM-DD HH:mm:ss");
+    }
+  });
+</script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/circle-progressbar.js"></script>
+<link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/progressbar.css" type="text/css">
+
+
+
+<script type="text/javascript">
+$(document).ready(() => {
+  const goodBrowser = !!window.Worker;
+  const hasBuiltInPdf = !("ActiveXObject" in window) && !/iPhone|iPod|Android|BlackBerry|Opera Mini|Phone|Mobile/i.test(navigator.userAgent);
+  if(goodBrowser && hasBuiltInPdf){
+    for(iii = 0; iii < pdf_file_list.length; iii++) {
+      $(pdf_file_list[iii][1]).html('<object data="' + pdf_file_list[iii][0] + '" type="application/pdf" style="width: 100%; height: 600px;">Your browser is outdated, or your PDF plugin is deactivated</object>');
+    }
+  }else if(goodBrowser){
+    for(iii = 0; iii < pdf_file_list.length; iii++) {
+      $(pdf_file_list[iii][1]).html('<iframe seamless src="https://s3-ap-northeast-1.amazonaws.com/ojuz-attach/pdfjs/pdfjs-2.5.207-dist/web/viewer_with_ojuz.html?file=' + pdf_file_list[iii][0] + '" style="width: 100%; height: 600px;"></iframe>');
+    }
+  }else {
+    for(iii = 0; iii < pdf_file_list.length; iii++) {
+      PDFObject.embed(pdf_file_list[iii][0], pdf_file_list[iii][1], pdf_file_list[iii][2]);
+    }
+  }
+});
+</script>
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {inlineMath: [['$','$']]}
+    });
+    </script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
+
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/pygments.css">
+    <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/favicon/ver_20161112174211.ico">
+
+</head>
+
+<body>
+
+    <!-- Full Body Container -->
+    <div id="container">
+
+        <!-- Start Header Section -->
+        <div class="hidden-header"></div>
+        <header class="clearfix">
+
+            <!-- Start Top Bar -->
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <!-- Start Contact Info -->
+                            <!-- End Contact Info -->
+                        </div><!-- .col-md-6 -->
+                        <div class="col-md-5 ">
+                            <ul class="login-bar">
+                                <li>
+                                    <a href="https://oj.uz/login?next=%2Fproblem%2Fview%2FAPIO20_swap%3Flocale%3Dko">로그인</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="../../register.html">회원가입</a>
+                                </li>
+                            </ul>
+                        </div><!-- .col-md-6 -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- .top-bar -->
+            <!-- End Top Bar -->
+
+
+            <!-- Start  Logo & Naviagtion  -->
+            <div class="navbar navbar-default navbar-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <!-- Stat Toggle Nav Link For Mobiles -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- End Toggle Nav Link For Mobiles -->
+                        <a class="navbar-brand" href="../../index.html">
+                            <img alt="oj.uz" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/logo/ver_20170205.png" style="height: 30px;">
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <div class="search-side">
+                          <a class="show-search dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-language" aria-hidden="true"></i>
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><a href="APIO20_swap7038.html?locale=en">English</a></li>
+                            <li><a href="APIO20_swapd6dc.html?locale=ko">한국어</a></li>
+                          </ul>
+                        </div>
+                        <!-- End Search -->
+                        <!-- Start Navigation List -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+				    <a href="../../contests.html">대회</a>
+                            </li>
+                            <li>
+                                <a href="../../problems.html">문제</a>
+                            </li>
+                            <li>
+                                <a href="https://oj.uz/submissions">답안 목록</a>
+                            </li>
+			    <li>
+				    <a href="https://github.com/ojuz/ojuz-contribute">기여하기</a>
+			    </li>
+                        </ul>
+                        <!-- End Navigation List -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Logo & Naviagtion -->
+
+            <!-- Mobile Menu Start -->
+                <ul class="wpb-mobile-menu">
+                    <li>
+			    <a href="../../contests.html">대회 </a>
+                    </li>
+                    <li>
+                        <a href="../../problems.html">문제</a>
+                    </li>
+                    <li>
+                        <a href="https://oj.uz/submissions">답안 목록</a>
+                    </li>
+		    <li>
+			    <a href="https://github.com/ojuz/ojuz-contribute">기여하기</a>
+		    </li>
+                    <li>
+                      <a><i class="fa fa-language" aria-hidden="true"></i> 언어</a>
+                      <ul class="dropdown">
+                        <li><a href="APIO20_swap7038.html?locale=en">English</a></li>
+                        <li><a href="APIO20_swapd6dc.html?locale=ko">한국어</a></li>
+                      </ul>
+                    </li>
+                </ul>
+                <!-- Mobile Menu End -->
+        </header>
+        <!-- End Header Section -->
+
+            <!-- Start Page Banner -->
+            <div class="page-banner no-subtitle">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h2 class="page-banner-title">문제 보기 - 자매 도시 (APIO20_swap)</h2>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="breadcrumbs">
+                     </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Page Banner -->
+
+<script type="text/javascript">var pdf_file_list = [];</script>
+
+
+
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="page-header problem-title">
+          <h1>
+            자매 도시
+            <small>
+              <span class="label label-info">Batch</span>
+              <a href="#" class="btn btn-default" data-toggle="modal" data-target="#view_compilation_commands"><i class="glyphicon glyphicon-list-alt"></i> 컴파일 명령</a>
+            </small>
+          </h1>
+        </div>
+        <ul class="nav nav-tabs" style="margin-bottom: 10px;">
+            <li role="presentation" class="active">
+    <a href="APIO20_swap.html">문제 내용</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="https://oj.uz/login?next=%2Fproblem%2Fsubmit%2FAPIO20_swap">제출</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="../statistics/APIO20_swap.html">통계</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="https://oj.uz/submissions?problem=APIO20_swap">답안들</a>
+  </li>
+
+        </ul>
+        
+  <div class="table-responsive">
+  <table class="table">
+      <thead>
+        <tr>
+          <th style="width: 20%">시간 제한</th>
+          <th style="width: 20%">메모리 제한</th>
+          <th style="width: 20%">제출 횟수</th>
+          <th style="width: 20%">통과한 사람 수</th>
+          <th style="width: 20%">비율</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr>
+              <td>2000 ms</td>
+              <td>512 MiB</td>
+	      <td>664</td>
+              <td>89</td>
+              <td>13.4%</td>
+	  </tr>
+      </tbody>
+  </table>
+  </div>
+  <div id='statement'>
+    <h3>설명</h3>
+
+<p>인도네시아에는 $N$ 개의 도시가 있고, $0$부터 $N - 1$까지 번호가 매겨져 있다. 또 $M$ 개의 양방향 도로가 있는데, $0$ 부터 $M - 1$까지 번호가 매겨져 있다. 각 도로는 두 개의 서로 다른 도시를 연결한다. $i$ 번 도로는 $U[i]$ 번 도시와 $V[i]$ 번 도시를 연결하고, 자동차로 여행하려면 휘발유 $W[i]$ 만큼이 필요하다. 어떤 두 도시도 서로 오갈 수 있도록 도로망이 구축되어 있다.</p>
+
+<p>앞으로 $Q$ 일 동안, 매일매일 한 쌍의 도시가 자매 도시 관계를 맺으려고 한다. 구체적으로는, $j$번째 날, $X[j]$ 번 도시는 $Y[j]$ 번 도시와 자매 도시 관계를 맺으려고 한다. 이러려면, $X[j]$ 번 도시는 대표단을 자동차를 이용해서 $Y[j]$ 번 도시로 보낸다. 비슷하게, $Y[j]$ 번 도시도 대표단을 자동차를 이용해서 $X[j]$ 번 도시로 보낸다.  </p>
+
+<p>혼잡을 막기 위해서, 두 자동차는 어느 순간에도 만나면 안된다. 보다 구체적으로는, 두 자동차가 동시에 같은 도시에 있으면 안된다. 또, 같은 도로를 동시에 서로 반대 방향으로 여행해도 안된다. 추가로, 어떤 도로를 여행하는 자동차는 이 도로를 끝까지 가서 목적지에 도착해야 한다. (다른 말로 하면, 도로 중간에서 유턴할 수 없다.) 그렇지만, 자동차는 같은 도시 또는 같은 도로를 한 번 이상 방문할 수 있다. 또, 자동차는 언제든지 어떤 도시에서든지 대기할 수 있다.   </p>
+
+<p>연료 탱크가 큰 자동차는 비싸기 때문에, 두 도시는 사용할 두 자동차의 연료 탱크의 최대 용량을 최소화하는 경로를 택하고 싶다. 각각의 도시에는 무한히 많은 휘발유가 있는 주유소가 있기 때문에, 자동차가 필요한 연료 탱크의 최대 용량은 자동차가 이용할 모든 도로에서 <strong>최대</strong>로 필요한 휘발유의 양이다.  </p>
+
+<h3>할 일 </h3>
+
+<p>다음 <code>init</code>와 <code>getMinimumFuelCapacity</code> 함수를 구현해야 한다.  </p>
+
+<ul>
+    <li><code>init(N, M, U, V, W)</code> - 이 함수는  <code>getMinimumFuelCapacity </code>함수를 호출하기 전에 정확히 한 번 호출된다.  
+
+    <ul>
+        <li>$N$: 도시의 수를 나타내는 정수.</li>
+        <li>$M$: 도로의 수를 나타내는 정수.  </li>
+        <li>$U$: 길이 $M$인 정수의 배열로 도로의 한 쪽 끝을 나타낸다. </li>
+        <li>$V$: 길이 $M$인 정수의 배열로 도로의 다른 쪽 끝을 나타낸다. </li>
+        <li>$W$: 길이 $M$인 정수의 배열로 각 도로를 여행하는데 필요한 휘발유의 양을 나타낸다.</li>
+    </ul>
+    </li>
+    <li><code>getMinimumFuelCapacity(X, Y)</code> - 이 함수는 그레이더가 정확히 $Q$ 번 호출한다.  
+    <ul>
+        <li>$X$: 첫번째 도시를 나타내는 정수.  </li>
+        <li>$Y$: 두번째 도시를 나타내는 정수.</li>
+        <li>이 함수는 $X$번 도시의 대표단이 $Y$번 도시로, $Y$번 도시의 대표단이 $X$번 도시로 위에서 설명한 규칙을 따라 여행할 때 두 자동차가 필요한 연료 탱크의 최대 용량의 최소값을 리턴한다.  만약 규칙을 따라 여행하는 것이 불가능하다면, $-1$을 리턴한다.  </li>
+    </ul>
+    </li>
+</ul>
+
+<h3>예제 </h3>
+
+<p>첫번째 예제에서, $N = 5$, $M = 6$, $U = [0, 0, 1, 1, 1, 2]$, $V = [1, 2, 2, 3, 4, 3]$, $W = [4, 4, 1, 2, 10, 3]$, $Q = 3$, $X = [1, 2, 0]$, $Y = [2, 4, 1]$이다. 이 예제는 다음 그림과 같다.  </p>
+
+<p><img src="https://sandalphon.tlx.toki.id/api/v2/problems/JIDPROGALYDeYjYtWab63mKaZi9/render/swap1.png" style="width: 250px;"></p>
+
+<p>그레이더는 처음에 <code>init(5, 6, [0, 0, 1, 1, 1, 2], [1, 2, 2, 3, 4, 3], [4, 4, 1, 2, 10, 3])</code>를 호출한다. 그 후, 그레이더는 다음 일들을 한다. </p>
+
+<ul>
+    <li><code>getMinimumFuelCapacity(1, 2)</code>. 먼저, 1번 도시에서 출발한 자동차는 3번 도시로 이동한다. 다음, 2번 도시에서 출발한 자동차는 1번 도시로 이동하고, 3번 도시에 있던 자동차는 2번 도시로 이동한다. 따라서 두 자동차가 필요한 연료 용량의 최대값은 $3$이다. (3번 도시에서 2번 도시로 이동하는데 필요) 이보다 적은 연료 용량으로 갈 수 있는 경로가 없기 때문에, 이 함수의 리턴값은 $3$이어야 한다.</li>
+    <li><code>getMinimumFuelCapacity(2, 4)</code>. 4번 도시에서 오거나 4번 도시로 가는 자동차는 연료가 $10$만큼 필요하기 때문에, 이 함수의 리턴값은 $10$이어야 한다.</li>
+    <li><code>getMinimumFuelCapacity(0, 1)</code>. 이 함수는 $4$를 리턴해야 한다.</li>
+</ul>
+
+<p> </p>
+
+<p>두번째 예제에서는,  $N = 3$, $M = 2$, $U = [0, 0]$, $V = [1, 2]$, $W = [5, 5]$, $Q = 1$, $X = [1]$, $Y = [2]$이다. 이 예제는 다음 그림과 같다.    </p>
+
+<p><img src="https://sandalphon.tlx.toki.id/api/v2/problems/JIDPROGALYDeYjYtWab63mKaZi9/render/swap2.png" style="width: 150px;"></p>
+
+<p>그레이더는 처음에 <code>init(3, 2, [0, 0], [1, 2], [5, 5])</code>를 호출한다. 그 후, 그레이더는 다음 일을 한다.  </p>
+
+<ul>
+    <li><code>getMinimumFuelCapacity(1, 2)</code>. 자동차가 1번 도시에서 2번 도시로 이동하는 과정에서 다른 자동차를 만나지 않는 것은 불가능하기 때문에, 이 함수는 $-1$을 리턴해야 한다.</li>
+</ul>
+
+<p> </p>
+
+<h3>제약조건</h3>
+
+<ul>
+    <li>$2 \le N \le 100\,000$.</li>
+    <li>$N - 1 \le M \le 200\,000$.</li>
+    <li>$0 \le U[i] \lt V[i] \lt N$.</li>
+    <li>두 도시를 잇는 도로는 최대 1개이다.  </li>
+    <li>어떤 두 도시도 하나 또는 둘 이상의 도로를 이용하여 오갈 수 있다.  </li>
+    <li>$1 \le W[i] \le 10^9$.</li>
+    <li>$1 \le Q \le 200\,000$.</li>
+    <li>$0 \le X[j] \lt Y[j] \lt N$.</li>
+</ul>
+
+<h4>Subtask 1 (6 points)</h4>
+
+<ul>
+    <li>각 도시는 최대 2개의 도로의 끝점이다.  </li>
+</ul>
+
+<h4>Subtask 2 (7 points)</h4>
+
+<ul>
+    <li>$M = N - 1$.</li>
+    <li>$U[i] = 0$.</li>
+</ul>
+
+<h4>Subtask 3 (17 points)</h4>
+
+<ul>
+    <li>$Q \le 5$.</li>
+    <li>$N \le 1\,000$.</li>
+    <li>$M \le 2\,000$.</li>
+</ul>
+
+<h4>Subtask 4 (20 points)</h4>
+
+<ul>
+    <li>$Q \le 5$.</li>
+</ul>
+
+<h4>Subtask 5 (23 points)</h4>
+
+<ul>
+    <li>$M = N - 1$.</li>
+</ul>
+
+<h4>Subtask 6 (27 points)</h4>
+
+<ul>
+    <li>추가적인 제약 조건이 없다. </li>
+</ul>
+
+<p> </p>
+
+<h3>샘플 그레이더</h3>
+
+<p>샘플 그레이더는 입력을 다음 양식으로 읽는다.  </p>
+
+<pre>N M
+U[0] V[0] W[0]
+U[1] V[1] W[1]
+.
+.
+.
+U[M-1] V[M-1] W[M-1]
+Q
+X[0] Y[0]
+X[1] Y[1]
+.
+.
+.
+X[Q-1] Y[Q-1]
+</pre>
+
+<p>샘플 그레이더는 <code>getMinimumFuelCapacity</code> 함수를 호출할 때마다, 이 함수의 리턴값을 출력한다.  </p>
+
+<h3>첨부</h3>
+
+<p>공개된 그레이더, 예제 케이스, 문제에 대한 기본 파일은 `swap.zip`에서 받을 수 있다. </p>
+
+  </div>
+
+  <script type="text/javascript">
+    $('.problem-statement-pdf').css('width', $("#statement").width()+'px');
+  </script>
+      </div>
+      <div class="col-lg-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">출처</div>
+          <div class="panel-body">
+            <ul style="padding-left: 20px;">
+              <li>
+                <a href="../../problems/source/526.html">
+                  APIO 2020 2번
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="panel panel-default">
+          <div class="panel-heading"><i class="fa fa-download"></i> 첨부 파일</div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>파일명</th>
+                <th>파일 크기</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td><a href="https://attach.oj.uz/problems/j2pveg3iys6mjretnpw8q4x23o4ismbl/swap.zip">swap.zip</a></td>
+                  <td>6.3 KiB</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading"><i class="fa fa-github"></i> 문제 내용 수정하기</div>
+          <div class="panel-body">
+            <div class="btn-group" role="group" aria-label="...">
+              <a class="btn btn-default" target="_blank" href="https://github.com/ojuz/problem-statements/edit/master/problems/APIO20_swap/en.md">English</a>
+              <a class="btn btn-default" target="_blank" href="https://github.com/ojuz/problem-statements/edit/master/problems/APIO20_swap/ko.md">한국어</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="view_compilation_commands" tabindex="-1" role="dialog" aria-labelledby="compilation_commands_title" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="compilation_commands_title">컴파일 명령</h4>
+      </div>
+      <div class="modal-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>언어</th>
+                  <th>명령
+                </tr>
+              </thead>
+              <tbody>
+ 
+                  <tr>
+                    <th>C++11 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o swap -O2 swap.cpp grader.cpp -std=c++11</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++14 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o swap -O2 swap.cpp grader.cpp -std=c++14</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++17 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o swap -O2 swap.cpp grader.cpp -std=c++17</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>Java 11 / Java</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">javac -J-Xms128m -J-Xmx512m -encoding UTF-8 swap.java grader.java </code>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">닫기</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#my-score').circleProgress({
+      value: 0.0,
+      size: 100,
+      thickness: 50,
+      animationStartValue: 0.0,
+      fill: {
+          color: 'rgb(0, 140, 0)', // fallback color when image is not loaded
+      }
+  });
+});
+</script>
+<script src="https://s3-ap-northeast-1.amazonaws.com/ojuz-attach/pdfobject/pdfobject.min.js"></script>
+
+    </div>
+    <!-- End Full Body Container -->
+
+    <!-- Start Footer Section -->
+    <footer>
+      <div class="container">
+        <!-- Start Copyright -->
+        <div class="copyright-section">
+          <div class="row">
+            <div class="col-md-6">
+              <p>&copy; 2013-2021 박수찬</p>
+            </div>
+            <!-- .col-md-6 -->
+            <div class="col-md-6">
+              <ul class="footer-nav">
+                <li><a href="https://facebook.com/oj.uz.official" target="_blank"><i class="fa fa-facebook"></i> 페이스북</a>
+                </li>
+                <li><a href="https://twitter.com/ojuz_official" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                <li><a href="https://github.com/ojuz" target="_blank"><i class="fa fa-github"></i> Github</a>
+                </li>
+              </ul>
+            </div>
+            <!-- .col-md-6 -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- End Copyright -->
+
+      </div>
+    </footer>
+
+
+    <!-- Go To Top Link -->
+  <!-- LOADER and BACK TO TOP
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  -->
+
+  <div id="loader" style="display: none;">
+      <div class="spinner">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+      </div>
+  </div>
+
+
+
+    <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/script.js"></script>
+
+    <!-- Start of Async Drift Code -->
+    <script>
+    !function() {
+      var t;
+      if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0,
+      t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+      t.factory = function(e) {
+        return function() {
+          var n;
+          return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+        };
+      }, t.methods.forEach(function(e) {
+        t[e] = t.factory(e);
+      }), t.load = function(t) {
+        var e, n, o, i;
+        e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"),
+        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js",
+        n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+      });
+    }();
+    drift.SNIPPET_VERSION = '0.3.1';
+    drift.load('dvpnv4hgnhsg');
+    drift.config({
+     locale: "ko"
+    });
+    drift.on('ready',function(api){
+      api.hideWelcomeMessage();
+    });
+    </script>
+    <!-- End of Async Drift Code -->
+
+</body>
+
+
+<!-- Mirrored from oj.uz/problem/view/APIO20_swap?locale=ko by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 13:14:55 GMT -->
+</html>

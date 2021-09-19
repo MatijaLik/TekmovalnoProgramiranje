@@ -42,6 +42,16 @@ void un(ll x, ll y){
     if(r[xRoot] == r[yRoot]) r[xRoot]++;
 }
 
+struct hash_pair {
+    template <class T1, class T2>
+    size_t operator()(const pair<T1, T2>& p) const
+    {
+        auto hash1 = hash<T1>{}(p.first);
+        auto hash2 = hash<T2>{}(p.second);
+        return hash1 ^ hash2;
+    }
+};
+
 void solve(){
     int n, m;
     cin >> n >> m;
@@ -52,9 +62,10 @@ void solve(){
     }
 
     vector<pll> brati;
+    brati.reserve(m);
     vector<int> cigani[limit];
 
-    map<pll, int> adj;
+    unordered_map<pll, int, hash_pair> adj;
 
     FOR(i, 1, m){
         int a, b, p;
@@ -80,8 +91,8 @@ void solve(){
     }
 
     //vsi oblaki
-    set<int> oblaki;
-    map<int, int> id;
+    unordered_set<int> oblaki;
+    unordered_map<int, int> id;
     int x = 0;
     FOR(i, 1, n){
         if(!oblaki.count(find(i))){
@@ -103,8 +114,9 @@ void solve(){
     //2 preverimo znotraj oblaka
     FOR(i, 0, x-1){
         int os = nodes[i].size();
-        for(auto a : nodes[i])for(auto b : nodes[i]){
-            if(a == b) continue;
+        FOR(ia, 0, os-1)FOR(ib, ia+1, os-1){
+            int a = nodes[i][ia];
+            int b = nodes[i][ib];
             if(adj[mp(a, b)] != 1){
 
                 if(DEBUG)printf("%d %d are in same cloud but not friends!\n", a, b);
@@ -127,19 +139,21 @@ void solve(){
                     return;
                 }
                 enemies.insert(id[find(sovrag)]);
+                if(enemies.size() >= 2){
+                    if(DEBUG)printf("Cloud %lld has too many enemies!\n", i);
+                    printf("NE\n");
+                    return;
+                }
             }
         }
 
-        if(enemies.size() >= 2){
-            if(DEBUG)printf("Cloud %d has too many enemies!\n", i);
-            printf("NE\n");
-            return;
-        }
+        
 
         if(enemies.empty()) continue;
 
         //3. pogoj
         int ecloud = *enemies.begin();
+        if(ecloud < i) continue;
 
         for(auto a : nodes[i]){
             for(auto b : nodes[ecloud]){

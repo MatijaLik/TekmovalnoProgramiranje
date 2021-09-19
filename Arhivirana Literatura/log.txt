@@ -1,0 +1,3 @@
+started stdio logging in file
+building top index to /storage/emulated/0/HTTrack/Websites/ using templates /storage/emulated/0/Android/data/com.httrack.android/cache/resources/
+building top index to /storage/emulated/0/HTTrack/Websites/ using templates /storage/emulated/0/Android/data/com.httrack.android/cache/resources/

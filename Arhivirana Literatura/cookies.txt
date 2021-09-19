@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+cses.fi	TRUE	/	FALSE	1999999999	PHPSESSID	e7f99a122820f50232c8d9cab3a56264a3263bf4
+.oj.uz	TRUE	/	FALSE	1999999999	session	eyJsb2NhbGUiOnsiIGIiOiJaVzQ9In19.E_ga_A.BPtFW_9sRE9n_KMoXduBdOjBhnI
+

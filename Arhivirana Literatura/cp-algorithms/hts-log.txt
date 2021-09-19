@@ -1,0 +1,17 @@
+HTTrack3.49-2 launched on Thu, 19 Aug 2021 20:40:30 at https://cp-algorithms.com/ +*.png +*.gif +*.jpg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(httrack -@i4 -O /storage/emulated/0/HTTrack/Websites/cp-algorithms -A25000k%Pnx%q0u1s2%s%u%fDaK0H0N0p3 https://cp-algorithms.com/ +*.png +*.gif +*.jpg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2017], %s -->" -%l LANGUAGE_ISO,* )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+20:45:06	Error: 	"Not Found" (404) at link https://cp-algorithms.com/test.php (from https://cp-algorithms.com/)
+20:47:07	Error: 	"Forbidden" (403) at link www.geometer.org/mathcircles/catalan.pdf (from https://cp-algorithms.com/combinatorics/catalan-numbers.html)
+20:47:07	Error: 	"Forbidden" (403) at link www.geometer.org/mathcircles/pick.pdf (from https://cp-algorithms.com/geometry/picks-theorem.html)
+20:47:09	Warning: 	Warning: store text/css without scan: /storage/emulated/0/HTTrack/Websites/cp-algorithms/web.archive.org/_static/css/banner-styles2d4a.css
+20:47:09	Warning: 	Warning: store text/css without scan: /storage/emulated/0/HTTrack/Websites/cp-algorithms/web.archive.org/_static/css/iconochive8307.css
+20:47:09	Error: 	"Not Found" (404) at link https://cp-algorithms.com/img/search-bridge-formula.png (from https://cp-algorithms.com/demo-article.html)
+
+HTTrack Website Copier/3.49-2 mirror complete in 6 minutes 39 seconds : 239 links scanned, 234 files written (6919790 bytes overall) [5667170 bytes received at 14203 bytes/sec], 2812943 bytes transferred using HTTP compression in 208 files, ratio 49%, 6.4 requests per connection
+(4 errors, 2 warnings, 0 messages)

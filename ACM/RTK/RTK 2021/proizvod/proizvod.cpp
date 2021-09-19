@@ -31,7 +31,7 @@ void solve(){
 
     vector<pll> d;
     set<ll> x;
-    map<ll, ll> amnt;
+    unordered_map<ll, ll> amnt;
     d.pb(mp(0,0));
     loop(i, D){
         int a, b;
@@ -43,8 +43,8 @@ void solve(){
     for(auto e :x) d.pb(mp(e, amnt[e]));
     
 
-    const int dayLimit = 4000;
-    const int powerLimit = 4000;
+    const int dayLimit = 10300;
+    const int powerLimit = 1000;
 
     ll dp[dayLimit][powerLimit];
     FOR(dan, 0, dayLimit-1)

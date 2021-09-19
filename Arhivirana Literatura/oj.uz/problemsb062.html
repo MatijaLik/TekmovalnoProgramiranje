@@ -1,0 +1,643 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from oj.uz/problems?search=&type=&page=41 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 14:44:43 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <!-- Basic -->
+    <title>Problems :: oj.uz</title>
+
+    <!-- Define Charset -->
+    <meta charset="utf-8"/>
+
+    <!-- Responsive Metatag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <!-- Page Description and Author -->
+    <meta name="description" content="oj.uz"/>
+    <meta name="author" content="박수찬"/>
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91767657-1', 'auto');
+  ga('send', 'pageview');
+</script>
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/css/bootstrap.min.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/polygon_statement.css" type="text/css"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/codeforces-community.css" type="text/css"/>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/font-awesome.min.css" type="text/css" media="screen"/>
+    <!-- slicknav -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/slicknav.css" media="screen"/>
+    <!-- Margo CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/style.css" media="screen"/>
+
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/custom_style.css" media="screen"/>
+
+    <!-- Responsive CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/responsive.css" media="screen"/>
+
+    <!-- Css3 Transitions Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/animate.css" media="screen"/>
+
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/colors/green.css" title="green" media="screen" />
+
+    <!-- Margo JS  -->
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.migrate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/modernizrr.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.appear.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.textillate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.lettering.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.slicknav.js"></script>
+
+<script data-ad-client="ca-pub-9767392980647759" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/humanize-duration.js"></script>
+
+<script type="text/javascript">
+  moment.locale("en");
+  var my_humanizer = humanizeDuration.humanizer({language: 'en'});
+
+  $(document).ready(function(){
+    user_timezone_utc_offset = moment().utcOffset() / 60;
+    if(user_timezone_utc_offset > 0) user_timezone_utc_offset = "+" + user_timezone_utc_offset;
+    else if(user_timezone_utc_offset == 0) user_timezone_utc_offset = "";
+    var offsets = document.getElementsByClassName("render-offset");
+    for(var i = 0; i < offsets.length; i++) {
+      offsets[i].innerHTML = "UTC" + user_timezone_utc_offset;
+    }
+
+    var datetimes = document.getElementsByClassName('render-datetime');
+    for(var i = 0; i < datetimes.length; i++) {
+      var obj = datetimes[i];
+      obj.innerHTML = moment(obj.innerHTML).format(obj.attributes['format'].value);
+    }
+
+    var datetimes_fromnow = document.getElementsByClassName('render-datetime-fromnow');
+    for(var i = 0; i < datetimes_fromnow.length; i++) {
+      var obj = datetimes_fromnow[i];
+      obj.innerHTML = moment(obj.innerHTML).fromNow();
+    }
+
+    var durations = document.getElementsByClassName("render-duration");
+    for(var i = 0; i < durations.length; i++) {
+      var obj = durations[i];
+      obj.innerHTML = my_humanizer(Number(obj.innerHTML));
+    }
+
+    var setoffsets = document.getElementsByName('set-offset');
+    for(var i = 0; i < setoffsets.length; i++) {
+      setoffsets[i].value = moment().utcOffset() * 60; // 초
+    }
+
+    var offsetfields = document.getElementsByClassName('offset-field');
+    for(var i = 0; i < offsetfields.length; i++) {
+      var obj = offsetfields[i];
+      if (obj.attributes['data'].value != "None")
+        obj.value = moment.unix(Number(obj.attributes['data'].value)).format("YYYY-MM-DD HH:mm:ss");
+    }
+  });
+</script>
+<link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/progressbar.css" type="text/css">    <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/favicon/ver_20161112174211.ico">
+
+</head>
+
+<body>
+
+    <!-- Full Body Container -->
+    <div id="container">
+
+        <!-- Start Header Section -->
+        <div class="hidden-header"></div>
+        <header class="clearfix">
+
+            <!-- Start Top Bar -->
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <!-- Start Contact Info -->
+                            <!-- End Contact Info -->
+                        </div><!-- .col-md-6 -->
+                        <div class="col-md-5 ">
+                            <ul class="login-bar">
+                                <li>
+                                    <a href="https://oj.uz/login?next=%2Fproblems%3Fsearch%3D%26type%3D%26page%3D41">Sign in</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="register.html">Register</a>
+                                </li>
+                            </ul>
+                        </div><!-- .col-md-6 -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- .top-bar -->
+            <!-- End Top Bar -->
+
+
+            <!-- Start  Logo & Naviagtion  -->
+            <div class="navbar navbar-default navbar-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <!-- Stat Toggle Nav Link For Mobiles -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- End Toggle Nav Link For Mobiles -->
+                        <a class="navbar-brand" href="index.html">
+                            <img alt="oj.uz" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/logo/ver_20170205.png" style="height: 30px;">
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <div class="search-side">
+                          <a class="show-search dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-language" aria-hidden="true"></i>
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><a href="problems0c8e.html?locale=en&amp;search=&amp;type=&amp;page=41">English</a></li>
+                            <li><a href="problems188d.html?locale=ko&amp;search=&amp;type=&amp;page=41">한국어</a></li>
+                          </ul>
+                        </div>
+                        <!-- End Search -->
+                        <!-- Start Navigation List -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+				    <a href="contests.html">Contests</a>
+                            </li>
+                            <li>
+                                <a href="problems.html">Problems</a>
+                            </li>
+                            <li>
+                                <a href="https://oj.uz/submissions">Submissions</a>
+                            </li>
+			    <li>
+				    <a href="https://github.com/ojuz/ojuz-contribute">Contribute</a>
+			    </li>
+                        </ul>
+                        <!-- End Navigation List -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Logo & Naviagtion -->
+
+            <!-- Mobile Menu Start -->
+                <ul class="wpb-mobile-menu">
+                    <li>
+			    <a href="contests.html">Contests </a>
+                    </li>
+                    <li>
+                        <a href="problems.html">Problems</a>
+                    </li>
+                    <li>
+                        <a href="https://oj.uz/submissions">Submissions</a>
+                    </li>
+		    <li>
+			    <a href="https://github.com/ojuz/ojuz-contribute">Contribute</a>
+		    </li>
+                    <li>
+                      <a><i class="fa fa-language" aria-hidden="true"></i> Change language</a>
+                      <ul class="dropdown">
+                        <li><a href="problems0c8e.html?locale=en&amp;search=&amp;type=&amp;page=41">English</a></li>
+                        <li><a href="problems188d.html?locale=ko&amp;search=&amp;type=&amp;page=41">한국어</a></li>
+                      </ul>
+                    </li>
+                </ul>
+                <!-- Mobile Menu End -->
+        </header>
+        <!-- End Header Section -->
+
+            <!-- Start Page Banner -->
+            <div class="page-banner no-subtitle">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h2 class="page-banner-title">Problems</h2>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="breadcrumbs">
+                     </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Page Banner -->
+
+
+
+<div id="content">
+  <div class="container">
+	 <div class="row"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 페이지 상단 수평 얇은 광고 -->
+<style type="text/css">.ad-thin {width: 100%; height: 120px; }</style>
+<div style="margin-top: 10px; margin-bottom: 10px;">
+<ins class="adsbygoogle ad-thin"
+     style="display:block;"
+     data-ad-client="ca-pub-9767392980647759"
+     data-ad-slot="4666495717"
+     data-ad-format="horizontal"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>   
+	  <ul class="nav nav-tabs" style="margin-bottom: 10px;">
+        <li role="presentation" class="active">
+    <a href="problems.html">Problems</a>
+  </li>
+
+        <li role="presentation" >
+    <a href="problems/sorted/solved.html">Problems sorted by # of solved</a>
+  </li>
+
+        <li role="presentation" >
+    <a href="problems/source.html">Sources</a>
+  </li>
+
+    </ul>
+<div class="table-responsive">
+  <table class="table table-striped table-hover">
+    <thead>
+      <tr>
+      	<th class="col-md-2">Identifier</th>
+        <th class="col-md-2" style="min-width: 150px;">Your score</th>
+      	<th>Title</th>
+<th class="col-md-2">Solved</th>      </tr>
+    </thead>
+    <tbody>
+        <tr>
+          <td>kriii3_C</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_568"></div><div class="text" id="progressbar_text_568" style="top: calc(6px - 20px);">0 / 62</div></div></td>
+          <td><a href="problem/view/kriii3_C.html">
+            최적의 능력 구성
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>12</td>
+        </tr>
+        <tr>
+          <td>kriii3_E</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_561"></div><div class="text" id="progressbar_text_561" style="top: calc(6px - 20px);">0 / 70</div></div></td>
+          <td><a href="problem/view/kriii3_E.html">
+            달리는 게임
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>16</td>
+        </tr>
+        <tr>
+          <td>kriii3_EE</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_575"></div><div class="text" id="progressbar_text_575" style="top: calc(6px - 20px);">0 / 20</div></div></td>
+          <td><a href="problem/view/kriii3_EE.html">
+            뚊
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>32</td>
+        </tr>
+        <tr>
+          <td>kriii3_F</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_560"></div><div class="text" id="progressbar_text_560" style="top: calc(6px - 20px);">0 / 79</div></div></td>
+          <td><a href="problem/view/kriii3_F.html">
+            로봇 심판의 님 게임
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>kriii3_G</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_573"></div><div class="text" id="progressbar_text_573" style="top: calc(6px - 20px);">0 / 101</div></div></td>
+          <td><a href="problem/view/kriii3_G.html">
+            흑백 이미지 찾기
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>kriii3_Q</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_564"></div><div class="text" id="progressbar_text_564" style="top: calc(6px - 20px);">0 / 24</div></div></td>
+          <td><a href="problem/view/kriii3_Q.html">
+            분배
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>23</td>
+        </tr>
+        <tr>
+          <td>kriii3_QQ</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_576"></div><div class="text" id="progressbar_text_576" style="top: calc(6px - 20px);">0 / 20</div></div></td>
+          <td><a href="problem/view/kriii3_QQ.html">
+            빨간 직사각형
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>kriii3_R</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_559"></div><div class="text" id="progressbar_text_559" style="top: calc(6px - 20px);">0 / 113</div></div></td>
+          <td><a href="problem/view/kriii3_R.html">
+            괄호 문자열
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>kriii3_RR</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_574"></div><div class="text" id="progressbar_text_574" style="top: calc(6px - 20px);">0 / 20</div></div></td>
+          <td><a href="problem/view/kriii3_RR.html">
+            꼬마 정민
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>37</td>
+        </tr>
+        <tr>
+          <td>kriii3_S</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_562"></div><div class="text" id="progressbar_text_562" style="top: calc(6px - 20px);">0 / 29</div></div></td>
+          <td><a href="problem/view/kriii3_S.html">
+            님 무기가 좀 나쁘시네여
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>21</td>
+        </tr>
+        <tr>
+          <td>kriii3_T</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_565"></div><div class="text" id="progressbar_text_565" style="top: calc(6px - 20px);">0 / 109</div></div></td>
+          <td><a href="problem/view/kriii3_T.html">
+            색종이
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>kriii3_TT</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_577"></div><div class="text" id="progressbar_text_577" style="top: calc(6px - 20px);">0 / 30</div></div></td>
+          <td><a href="problem/view/kriii3_TT.html">
+            씽크스몰
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>kriii3_V</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_570"></div><div class="text" id="progressbar_text_570" style="top: calc(6px - 20px);">0 / 74</div></div></td>
+          <td><a href="problem/view/kriii3_V.html">
+            피보나미얼
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>kriii3_W</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_567"></div><div class="text" id="progressbar_text_567" style="top: calc(6px - 20px);">0 / 46</div></div></td>
+          <td><a href="problem/view/kriii3_W.html">
+            접미사 배열의 개수
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>kriii3_X</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_572"></div><div class="text" id="progressbar_text_572" style="top: calc(6px - 20px);">0 / 85</div></div></td>
+          <td><a href="problem/view/kriii3_X.html">
+            통로 위의 개미
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>kriii3_Z</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_569"></div><div class="text" id="progressbar_text_569" style="top: calc(6px - 20px);">0 / 126</div></div></td>
+          <td><a href="problem/view/kriii3_Z.html">
+            쿼터너리 컴퓨터
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>kriii4_A</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_603"></div><div class="text" id="progressbar_text_603" style="top: calc(6px - 20px);">0 / 100</div></div></td>
+          <td><a href="problem/view/kriii4_A.html">
+            목공
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>kriii4_C</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_608"></div><div class="text" id="progressbar_text_608" style="top: calc(6px - 20px);">0 / 100</div></div></td>
+          <td><a href="problem/view/kriii4_C.html">
+            창문
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>40</td>
+        </tr>
+        <tr>
+          <td>kriii4_D</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_606"></div><div class="text" id="progressbar_text_606" style="top: calc(6px - 20px);">0 / 100</div></div></td>
+          <td><a href="problem/view/kriii4_D.html">
+            악수
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>kriii4_E</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_601"></div><div class="text" id="progressbar_text_601" style="top: calc(6px - 20px);">0 / 100</div></div></td>
+          <td><a href="problem/view/kriii4_E.html">
+            동전
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>kriii4_F</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_602"></div><div class="text" id="progressbar_text_602" style="top: calc(6px - 20px);">0 / 100</div></div></td>
+          <td><a href="problem/view/kriii4_F.html">
+            로봇
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>kriii4_G</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_612"></div><div class="text" id="progressbar_text_612" style="top: calc(6px - 20px);">0 / 100</div></div></td>
+          <td><a href="problem/view/kriii4_G.html">
+            흑백
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>kriii4_P1</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_613"></div><div class="text" id="progressbar_text_613" style="top: calc(6px - 20px);">0 / 100</div></div></td>
+          <td><a href="problem/view/kriii4_P1.html">
+            Α
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>56</td>
+        </tr>
+        <tr>
+          <td>kriii4_P2</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_614"></div><div class="text" id="progressbar_text_614" style="top: calc(6px - 20px);">0 / 100</div></div></td>
+          <td><a href="problem/view/kriii4_P2.html">
+            Σ
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>38</td>
+        </tr>
+        <tr>
+          <td>kriii4_P3</td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 0.0%;" class="bar" id="progressbar_615"></div><div class="text" id="progressbar_text_615" style="top: calc(6px - 20px);">0 / 100</div></div></td>
+          <td><a href="problem/view/kriii4_P3.html">
+            Ω
+          </a> <span class="label label-info">Batch</span>
+          </td>
+          <td>19</td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+<nav aria-label="Pages">
+  <ul class="pagination">
+    <li>
+      <a href="problems64ac.html?search=&amp;page=1" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+        <li><a href="problems8184.html?search=&amp;type=&amp;page=37">37</a></li>
+        <li><a href="problems01fa.html?search=&amp;type=&amp;page=38">38</a></li>
+        <li><a href="problems0dd2.html?search=&amp;type=&amp;page=39">39</a></li>
+        <li><a href="problemsc4ff.html?search=&amp;type=&amp;page=40">40</a></li>
+        <li class="active"><a>41<span class="sr-only">(current)</span></a></li>
+        <li><a href="problems1536.html?search=&amp;type=&amp;page=42">42</a></li>
+        <li><a href="problems8935.html?search=&amp;type=&amp;page=43">43</a></li>
+        <li><a href="problems4b85.html?search=&amp;type=&amp;page=44">44</a></li>
+        <li><a href="problemsd6f7.html?search=&amp;type=&amp;page=45">45</a></li>
+    <li>
+      <a href="problems3025.html?search=&amp;type=&amp;page=48" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+  </ul>
+</nav>
+
+<form class="form-inline" action="https://oj.uz/problems?search=&amp;type=&amp;page=41" method="get" style="padding-bottom:20px;">
+  <div class="form-group">
+    <input type="text" style="width: 250px;" class="form-control" name="search" value=''>
+  </div>
+  <div class="form-group">                                                                                                                                                                     <select class="form-control" name="type" value="">                                                                                                                   <option value="">(Problem Type)</option>                                                                                                                                                                                                                                                                                                       <option value="BATCH">Batch</option>                                                                                                                                                                                                                                                                                  <option value="OUTPUT_ONLY">Output Only</option>                                                                                                                                                                                                                                                                                  <option value="INTERACTIVE">Interactive</option>                                                                                                                                                                                                                                                                                  <option value="COMMUNICATION">Communication</option>                                                                                                                                                                                                                                                                                  <option value="FILE_ARCHIVE">Archive</option>                                                                                                                                                                                                                                                                                                                     </select>                                                                                                                                                                                    </div> 
+  <button type="submit" class="btn btn-default">Search</button>
+</form>
+
+    <div class="row"><div class="col-lg-12"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 기능 바로 밑 광고 -->
+<div style="margin-top: 20px; margin-bottom: 20px;">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9767392980647759"
+     data-ad-slot="3848367947"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div></div>
+  </div>
+
+</div>
+
+    </div>
+    <!-- End Full Body Container -->
+
+    <!-- Start Footer Section -->
+    <footer>
+      <div class="container">
+        <!-- Start Copyright -->
+        <div class="copyright-section">
+          <div class="row">
+            <div class="col-md-6">
+              <p>&copy; 2013-2021 박수찬</p>
+            </div>
+            <!-- .col-md-6 -->
+            <div class="col-md-6">
+              <ul class="footer-nav">
+                <li><a href="https://facebook.com/oj.uz.official" target="_blank"><i class="fa fa-facebook"></i> Facebook</a>
+                </li>
+                <li><a href="https://twitter.com/ojuz_official" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                <li><a href="https://github.com/ojuz" target="_blank"><i class="fa fa-github"></i> Github</a>
+                </li>
+              </ul>
+            </div>
+            <!-- .col-md-6 -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- End Copyright -->
+
+      </div>
+    </footer>
+
+
+    <!-- Go To Top Link -->
+  <!-- LOADER and BACK TO TOP
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  -->
+
+  <div id="loader" style="display: none;">
+      <div class="spinner">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+      </div>
+  </div>
+
+
+
+    <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/script.js"></script>
+
+    <!-- Start of Async Drift Code -->
+    <script>
+    !function() {
+      var t;
+      if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0,
+      t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+      t.factory = function(e) {
+        return function() {
+          var n;
+          return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+        };
+      }, t.methods.forEach(function(e) {
+        t[e] = t.factory(e);
+      }), t.load = function(t) {
+        var e, n, o, i;
+        e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"),
+        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js",
+        n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+      });
+    }();
+    drift.SNIPPET_VERSION = '0.3.1';
+    drift.load('dvpnv4hgnhsg');
+    drift.config({
+     locale: "en"
+    });
+    drift.on('ready',function(api){
+      api.hideWelcomeMessage();
+    });
+    </script>
+    <!-- End of Async Drift Code -->
+
+</body>
+
+
+<!-- Mirrored from oj.uz/problems?search=&type=&page=41 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 14:45:07 GMT -->
+</html>

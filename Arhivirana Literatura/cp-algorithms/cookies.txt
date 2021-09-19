@@ -1,0 +1,7 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+www.cs.cmu.edu	TRUE	/	FALSE	1999999999	BALANCEID	balancer.web39.srv.cs.cmu.edu
+www.cs.cmu.edu	TRUE	/	FALSE	1999999999	BIGipServer~SCS~cs-userdir-pool-443	550109824.47873.0000
+.cs.cmu.edu	TRUE	/	FALSE	1999999999	SHIBLOCATION	tilde
+www.cs.cmu.edu	TRUE	/	FALSE	1999999999	BIGipServer~SCS~cs-userdir-pool-80	550109824.20480.0000
+

@@ -1,0 +1,753 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><html lang="en" class="no-js"> <![endif]-->
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+
+<!-- Mirrored from oj.uz/problem/statistics/JOI18_commuter_pass?page=3 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 15:02:11 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+
+    <!-- Basic -->
+    <title>View problem - Commuter Pass (JOI18_commuter_pass) :: oj.uz</title>
+
+    <!-- Define Charset -->
+    <meta charset="utf-8"/>
+
+    <!-- Responsive Metatag -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+    <!-- Page Description and Author -->
+    <meta name="description" content="oj.uz"/>
+    <meta name="author" content="박수찬"/>
+
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-91767657-1', 'auto');
+  ga('send', 'pageview');
+</script>
+    <!-- Bootstrap CSS  -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/css/bootstrap.min.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/polygon_statement.css" type="text/css"/>
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/codeforces-community.css" type="text/css"/>
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/font-awesome.min.css" type="text/css" media="screen"/>
+    <!-- slicknav -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/slicknav.css" media="screen"/>
+    <!-- Margo CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/style.css" media="screen"/>
+
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/custom_style.css" media="screen"/>
+
+    <!-- Responsive CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/responsive.css" media="screen"/>
+
+    <!-- Css3 Transitions Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/animate.css" media="screen"/>
+
+    <!-- Color CSS Styles  -->
+    <link rel="stylesheet" type="text/css" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/css/colors/green.css" title="green" media="screen" />
+
+    <!-- Margo JS  -->
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.migrate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/modernizrr.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/asset/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.appear.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.textillate.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.lettering.js"></script>
+  <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/jquery.slicknav.js"></script>
+
+<script data-ad-client="ca-pub-9767392980647759" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/humanize-duration.js"></script>
+
+<script type="text/javascript">
+  moment.locale("en");
+  var my_humanizer = humanizeDuration.humanizer({language: 'en'});
+
+  $(document).ready(function(){
+    user_timezone_utc_offset = moment().utcOffset() / 60;
+    if(user_timezone_utc_offset > 0) user_timezone_utc_offset = "+" + user_timezone_utc_offset;
+    else if(user_timezone_utc_offset == 0) user_timezone_utc_offset = "";
+    var offsets = document.getElementsByClassName("render-offset");
+    for(var i = 0; i < offsets.length; i++) {
+      offsets[i].innerHTML = "UTC" + user_timezone_utc_offset;
+    }
+
+    var datetimes = document.getElementsByClassName('render-datetime');
+    for(var i = 0; i < datetimes.length; i++) {
+      var obj = datetimes[i];
+      obj.innerHTML = moment(obj.innerHTML).format(obj.attributes['format'].value);
+    }
+
+    var datetimes_fromnow = document.getElementsByClassName('render-datetime-fromnow');
+    for(var i = 0; i < datetimes_fromnow.length; i++) {
+      var obj = datetimes_fromnow[i];
+      obj.innerHTML = moment(obj.innerHTML).fromNow();
+    }
+
+    var durations = document.getElementsByClassName("render-duration");
+    for(var i = 0; i < durations.length; i++) {
+      var obj = durations[i];
+      obj.innerHTML = my_humanizer(Number(obj.innerHTML));
+    }
+
+    var setoffsets = document.getElementsByName('set-offset');
+    for(var i = 0; i < setoffsets.length; i++) {
+      setoffsets[i].value = moment().utcOffset() * 60; // 초
+    }
+
+    var offsetfields = document.getElementsByClassName('offset-field');
+    for(var i = 0; i < offsetfields.length; i++) {
+      var obj = offsetfields[i];
+      if (obj.attributes['data'].value != "None")
+        obj.value = moment.unix(Number(obj.attributes['data'].value)).format("YYYY-MM-DD HH:mm:ss");
+    }
+  });
+</script>
+<script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/js/circle-progressbar.js"></script>
+<link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/progressbar.css" type="text/css">
+
+<link rel="stylesheet" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/style/css/progressbar.css" type="text/css">
+    <!--[if IE 8]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <!-- favicon -->
+    <link rel="shortcut icon" href="https://s3.ap-northeast-2.amazonaws.com/oj.uz/favicon/ver_20161112174211.ico">
+
+</head>
+
+<body>
+
+    <!-- Full Body Container -->
+    <div id="container">
+
+        <!-- Start Header Section -->
+        <div class="hidden-header"></div>
+        <header class="clearfix">
+
+            <!-- Start Top Bar -->
+            <div class="top-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-7">
+                            <!-- Start Contact Info -->
+                            <!-- End Contact Info -->
+                        </div><!-- .col-md-6 -->
+                        <div class="col-md-5 ">
+                            <ul class="login-bar">
+                                <li>
+                                    <a href="https://oj.uz/login?next=%2Fproblem%2Fstatistics%2FJOI18_commuter_pass%3Fpage%3D3">Sign in</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="../../register.html">Register</a>
+                                </li>
+                            </ul>
+                        </div><!-- .col-md-6 -->
+                    </div><!-- .row -->
+                </div><!-- .container -->
+            </div><!-- .top-bar -->
+            <!-- End Top Bar -->
+
+
+            <!-- Start  Logo & Naviagtion  -->
+            <div class="navbar navbar-default navbar-top">
+                <div class="container">
+                    <div class="navbar-header">
+                        <!-- Stat Toggle Nav Link For Mobiles -->
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                            <i class="fa fa-bars"></i>
+                        </button>
+                        <!-- End Toggle Nav Link For Mobiles -->
+                        <a class="navbar-brand" href="../../index.html">
+                            <img alt="oj.uz" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/logo/ver_20170205.png" style="height: 30px;">
+                        </a>
+                    </div>
+                    <div class="navbar-collapse collapse">
+                        <div class="search-side">
+                          <a class="show-search dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fa fa-language" aria-hidden="true"></i>
+                          </a>
+                          <ul class="dropdown-menu">
+                            <li><a href="JOI18_commuter_passe5a4.html?locale=en&amp;page=3">English</a></li>
+                            <li><a href="JOI18_commuter_passcad1.html?locale=ko&amp;page=3">한국어</a></li>
+                          </ul>
+                        </div>
+                        <!-- End Search -->
+                        <!-- Start Navigation List -->
+                        <ul class="nav navbar-nav navbar-right">
+                            <li>
+				    <a href="../../contests.html">Contests</a>
+                            </li>
+                            <li>
+                                <a href="../../problems.html">Problems</a>
+                            </li>
+                            <li>
+                                <a href="https://oj.uz/submissions">Submissions</a>
+                            </li>
+			    <li>
+				    <a href="https://github.com/ojuz/ojuz-contribute">Contribute</a>
+			    </li>
+                        </ul>
+                        <!-- End Navigation List -->
+                    </div>
+                </div>
+            </div>
+            <!-- End Header Logo & Naviagtion -->
+
+            <!-- Mobile Menu Start -->
+                <ul class="wpb-mobile-menu">
+                    <li>
+			    <a href="../../contests.html">Contests </a>
+                    </li>
+                    <li>
+                        <a href="../../problems.html">Problems</a>
+                    </li>
+                    <li>
+                        <a href="https://oj.uz/submissions">Submissions</a>
+                    </li>
+		    <li>
+			    <a href="https://github.com/ojuz/ojuz-contribute">Contribute</a>
+		    </li>
+                    <li>
+                      <a><i class="fa fa-language" aria-hidden="true"></i> Change language</a>
+                      <ul class="dropdown">
+                        <li><a href="JOI18_commuter_passe5a4.html?locale=en&amp;page=3">English</a></li>
+                        <li><a href="JOI18_commuter_passcad1.html?locale=ko&amp;page=3">한국어</a></li>
+                      </ul>
+                    </li>
+                </ul>
+                <!-- Mobile Menu End -->
+        </header>
+        <!-- End Header Section -->
+
+            <!-- Start Page Banner -->
+            <div class="page-banner no-subtitle">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-6">
+                    <h2 class="page-banner-title">View problem - Commuter Pass (JOI18_commuter_pass)</h2>
+                  </div>
+                  <div class="col-md-6">
+                    <ul class="breadcrumbs">
+                     </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Page Banner -->
+
+<script type="text/javascript">var pdf_file_list = [];</script>
+
+
+
+<div id="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-9">
+        <div class="page-header problem-title">
+          <h1>
+            Commuter Pass
+            <small>
+              <span class="label label-info">Batch</span>
+              <a href="#" class="btn btn-default" data-toggle="modal" data-target="#view_compilation_commands"><i class="glyphicon glyphicon-list-alt"></i> Compilation commands</a>
+            </small>
+          </h1>
+        </div>
+        <ul class="nav nav-tabs" style="margin-bottom: 10px;">
+            <li role="presentation" >
+    <a href="../view/JOI18_commuter_pass.html">Statement</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="https://oj.uz/login?next=%2Fproblem%2Fsubmit%2FJOI18_commuter_pass">Submit</a>
+  </li>
+
+            <li role="presentation" class="active">
+    <a href="JOI18_commuter_pass.html">Statistics</a>
+  </li>
+
+            <li role="presentation" >
+    <a href="https://oj.uz/submissions?problem=JOI18_commuter_pass">Submissions</a>
+  </li>
+
+        </ul>
+        
+
+<div class="row" style="margin-bottom: 10px;">
+  <div class=col-lg-12>
+    <div class="btn-group">
+          <a href="JOI18_commuter_pass07d8.html?order_by=time" class="btn btn-default" role="button">
+        Sort by time</a>
+
+        <a href="JOI18_commuter_pass39a8.html?order_by=size" class="btn btn-default" role="button">
+        Sort by size</a>
+    </div>
+  </div>
+</div>
+
+<nav aria-label="Pages">
+  <ul class="pagination">
+    <li class="disabled">
+      <a  aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+        <li><a href="JOI18_commuter_pass2679.html?page=1">1</a></li>
+        <li><a href="JOI18_commuter_pass4658.html?page=2">2</a></li>
+        <li class="active"><a>3<span class="sr-only">(current)</span></a></li>
+        <li><a href="JOI18_commuter_passfdb0.html?page=4">4</a></li>
+        <li><a href="JOI18_commuter_passaf4d.html?page=5">5</a></li>
+        <li><a href="JOI18_commuter_passc575.html?page=6">6</a></li>
+    <li>
+      <a href="JOI18_commuter_pass5c43.html?page=17" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+  </ul>
+</nav>
+
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <th>Handle</th>
+        <th>Submission time<sup><span class="render-offset"></span></sup></th>
+        <th style="min-width: 150px; width: 150px;">Score</th>
+        <th>Fastest solution</th>
+        <th>Shortest solution</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/aleksami" target="">aleksami</a></td>
+          <td><span format="lll" class="render-datetime">2018-05-13T12:10:28 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1657"></div><div class="text" id="progressbar_text_1657" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/48436">548ms</a></td>
+          <td><a href="https://oj.uz/submission/48436">1555bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/Benq" target="">Benq</a></td>
+          <td><span format="lll" class="render-datetime">2018-07-25T00:51:49 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1658"></div><div class="text" id="progressbar_text_1658" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/60909">762ms</a></td>
+          <td><a href="https://oj.uz/submission/60909">2919bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/Mercenary" target="">Mercenary</a></td>
+          <td><span format="lll" class="render-datetime">2019-06-04T09:49:50 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1670"></div><div class="text" id="progressbar_text_1670" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/114984">538ms</a></td>
+          <td><a href="https://oj.uz/submission/114984">2269bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/updown1" target="">updown1</a></td>
+          <td><span format="lll" class="render-datetime">2018-12-03T03:29:28 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1679"></div><div class="text" id="progressbar_text_1679" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/87894">913ms</a></td>
+          <td><a href="https://oj.uz/submission/87894">2753bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/Jatana" target="">Jatana</a></td>
+          <td><span format="lll" class="render-datetime">2019-01-08T10:49:34 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1688"></div><div class="text" id="progressbar_text_1688" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/93416">1396ms</a></td>
+          <td><a href="https://oj.uz/submission/93416">12347bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/3zp" target="">3zp</a></td>
+          <td><span format="lll" class="render-datetime">2018-08-23T13:33:28 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1691"></div><div class="text" id="progressbar_text_1691" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/70817">1115ms</a></td>
+          <td><a href="https://oj.uz/submission/70817">2282bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/luciocf" target="">luciocf</a></td>
+          <td><span format="lll" class="render-datetime">2020-06-21T22:12:58 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1697"></div><div class="text" id="progressbar_text_1697" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/240962">453ms</a></td>
+          <td><a href="https://oj.uz/submission/240962">1998bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/tieunhi" target="">tieunhi</a></td>
+          <td><span format="lll" class="render-datetime">2018-12-05T03:35:08 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1707"></div><div class="text" id="progressbar_text_1707" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/88269">585ms</a></td>
+          <td><a href="https://oj.uz/submission/88269">2205bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/kyleliu" target="">kyleliu</a></td>
+          <td><span format="lll" class="render-datetime">2018-05-13T22:42:38 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1712"></div><div class="text" id="progressbar_text_1712" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/48475">614ms</a></td>
+          <td><a href="https://oj.uz/submission/48475">1751bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/tincamatei" target="">tincamatei</a></td>
+          <td><span format="lll" class="render-datetime">2019-03-30T00:53:22 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1714"></div><div class="text" id="progressbar_text_1714" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/103359">467ms</a></td>
+          <td><a href="https://oj.uz/submission/103359">2033bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/Vasiljko" target="">Vasiljko</a></td>
+          <td><span format="lll" class="render-datetime">2018-09-14T17:47:39 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1731"></div><div class="text" id="progressbar_text_1731" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/82975">485ms</a></td>
+          <td><a href="https://oj.uz/submission/76570">1711bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/gusfring" target="">gusfring</a></td>
+          <td><span format="lll" class="render-datetime">2018-07-24T13:53:53 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1737"></div><div class="text" id="progressbar_text_1737" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/60665">799ms</a></td>
+          <td><a href="https://oj.uz/submission/60665">1563bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/lovemathboy" target="">lovemathboy</a></td>
+          <td><span format="lll" class="render-datetime">2019-03-05T16:45:24 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1746"></div><div class="text" id="progressbar_text_1746" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/99613">524ms</a></td>
+          <td><a href="https://oj.uz/submission/99613">2679bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/lyc" target="">lyc</a></td>
+          <td><span format="lll" class="render-datetime">2019-07-06T06:39:30 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1752"></div><div class="text" id="progressbar_text_1752" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/125638">1433ms</a></td>
+          <td><a href="https://oj.uz/submission/125638">2652bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/WLZ" target="">WLZ</a></td>
+          <td><span format="lll" class="render-datetime">2019-02-28T21:04:39 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1761"></div><div class="text" id="progressbar_text_1761" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/99150">812ms</a></td>
+          <td><a href="https://oj.uz/submission/99150">2083bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/rzbt" target="">rzbt</a></td>
+          <td><span format="lll" class="render-datetime">2019-07-29T10:45:23 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1762"></div><div class="text" id="progressbar_text_1762" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/138101">933ms</a></td>
+          <td><a href="https://oj.uz/submission/138101">2076bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/bharat2002" target="">bharat2002</a></td>
+          <td><span format="lll" class="render-datetime">2020-05-03T08:11:24 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1773"></div><div class="text" id="progressbar_text_1773" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/228972">637ms</a></td>
+          <td><a href="https://oj.uz/submission/228972">2623bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/hamzqq9" target="">hamzqq9</a></td>
+          <td><span format="lll" class="render-datetime">2018-08-12T08:47:52 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1777"></div><div class="text" id="progressbar_text_1777" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/66750">830ms</a></td>
+          <td><a href="https://oj.uz/submission/66750">3270bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/noclever" target="">noclever</a></td>
+          <td><span format="lll" class="render-datetime">2019-02-28T21:02:30 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1778"></div><div class="text" id="progressbar_text_1778" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/99149">740ms</a></td>
+          <td><a href="https://oj.uz/submission/99149">2332bytes</a></td>
+        </tr>
+        <tr class="success">
+          <td><a href="https://oj.uz/profile/Anai" target="">Anai</a></td>
+          <td><span format="lll" class="render-datetime">2019-02-18T18:51:41 Z</span></td>
+          <td><div class="progressbar" style="width: inherit; font-size: 12px; height: 20px; text-align: left;"><div style="width: 100.0%;" class="bar" id="progressbar_1789"></div><div class="text" id="progressbar_text_1789" style="top: calc(6px - 20px);">100 / 100</div></div></td>
+          <td><a href="https://oj.uz/submission/97834">442ms</a></td>
+          <td><a href="https://oj.uz/submission/97834">2192bytes</a></td>
+        </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<nav aria-label="Pages">
+  <ul class="pagination">
+    <li class="disabled">
+      <a  aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+        <li><a href="JOI18_commuter_pass2679.html?page=1">1</a></li>
+        <li><a href="JOI18_commuter_pass4658.html?page=2">2</a></li>
+        <li class="active"><a>3<span class="sr-only">(current)</span></a></li>
+        <li><a href="JOI18_commuter_passfdb0.html?page=4">4</a></li>
+        <li><a href="JOI18_commuter_passaf4d.html?page=5">5</a></li>
+        <li><a href="JOI18_commuter_passc575.html?page=6">6</a></li>
+    <li>
+      <a href="JOI18_commuter_pass5c43.html?page=17" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+  </ul>
+</nav>
+      </div>
+      <div class="col-lg-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">Problem source</div>
+          <div class="panel-body">
+            <ul style="padding-left: 20px;">
+              <li>
+                <a href="../../problems/source/307.html">
+                  The 17th Japanese Olympiad in Informatics Final Round Problem 4
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+
+        <div class="panel panel-default">
+          <div class="panel-heading"><i class="fa fa-download"></i> Attachments</div>
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>File name</th>
+                <th>File size</th>
+              </tr>
+            </thead>
+            <tbody>
+                <tr>
+                  <td><a href="https://attach.oj.uz/problems/r7duvyfe17yu4dym7y8syn4ufyi8nauk/commuter_pass.zip">commuter_pass.zip</a></td>
+                  <td>1.7 KiB</td>
+                </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel panel-default">
+          <div class="panel-heading"><i class="fa fa-github"></i> Edit problem statement on github</div>
+          <div class="panel-body">
+            <div class="btn-group" role="group" aria-label="...">
+              <a class="btn btn-default" target="_blank" href="https://github.com/ojuz/problem-statements/edit/master/problems/JOI18_commuter_pass/en.md">English</a>
+              <a class="btn btn-default" target="_blank" href="https://github.com/ojuz/problem-statements/new/master?filename=problems/JOI18_commuter_pass/ko.md">한국어</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+    <div class="row"><div class="row-lg-12"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- 기능 바로 밑 광고 -->
+<div style="margin-top: 20px; margin-bottom: 20px;">
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-9767392980647759"
+     data-ad-slot="3848367947"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div></div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="view_compilation_commands" tabindex="-1" role="dialog" aria-labelledby="compilation_commands_title" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="compilation_commands_title">Compilation commands</h4>
+      </div>
+      <div class="modal-body">
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Language</th>
+                  <th>Command
+                </tr>
+              </thead>
+              <tbody>
+ 
+                  <tr>
+                    <th>C / gcc</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">gcc-10 -Wall -lm -static -DEVAL -o commuter_pass -O2 commuter_pass.c </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++ / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o commuter_pass -O2 commuter_pass.cpp </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++11 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o commuter_pass -O2 commuter_pass.cpp -std=c++11</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++14 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o commuter_pass -O2 commuter_pass.cpp -std=c++14</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>Python 2 / Python 2</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">python2.7 -c &#34;import py_compile; py_compile.compile(r&#39;commuter_pass.py&#39;)&#34; </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>Python 3 / Python 3</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">python3.9 -c &#34;import py_compile; py_compile.compile(r&#39;commuter_pass.py&#39;)&#34; </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>PyPy / PyPy 2</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">pypy -c &#34;import py_compile; py_compile.compile(r&#39;commuter_pass.py&#39;)&#34; </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>C++17 / g++</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">g++-10 -Wall -lm -static -DEVAL -o commuter_pass -O2 commuter_pass.cpp -std=c++17</code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>PyPy 3 / PyPy 3</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">pypy3 -c &#34;import py_compile; py_compile.compile(r&#39;commuter_pass.py&#39;)&#34; </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>Java 11 / Java</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">javac -J-Xms128m -J-Xmx512m -encoding UTF-8 commuter_pass.java </code>
+                    </td>
+                  </tr>
+ 
+ </tr><tr>                   <tr>
+                    <th>Kotlin / Kotlin</th>
+                    <td class="compilation_command_cell">
+                        <code class="compilation_command">kotlinc-jvm -include-runtime -d commuter_pass.jar commuter_pass.kt </code>
+                    </td>
+                  </tr>
+              </tbody>
+            </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  $('#my-score').circleProgress({
+      value: 0.0,
+      size: 100,
+      thickness: 50,
+      animationStartValue: 0.0,
+      fill: {
+          color: 'rgb(0, 140, 0)', // fallback color when image is not loaded
+      }
+  });
+});
+</script>
+<script src="https://s3-ap-northeast-1.amazonaws.com/ojuz-attach/pdfobject/pdfobject.min.js"></script>
+
+    </div>
+    <!-- End Full Body Container -->
+
+    <!-- Start Footer Section -->
+    <footer>
+      <div class="container">
+        <!-- Start Copyright -->
+        <div class="copyright-section">
+          <div class="row">
+            <div class="col-md-6">
+              <p>&copy; 2013-2021 박수찬</p>
+            </div>
+            <!-- .col-md-6 -->
+            <div class="col-md-6">
+              <ul class="footer-nav">
+                <li><a href="https://facebook.com/oj.uz.official" target="_blank"><i class="fa fa-facebook"></i> Facebook</a>
+                </li>
+                <li><a href="https://twitter.com/ojuz_official" target="_blank"><i class="fa fa-twitter"></i> Twitter</a>
+                </li>
+                <li><a href="https://github.com/ojuz" target="_blank"><i class="fa fa-github"></i> Github</a>
+                </li>
+              </ul>
+            </div>
+            <!-- .col-md-6 -->
+          </div>
+          <!-- .row -->
+        </div>
+        <!-- End Copyright -->
+
+      </div>
+    </footer>
+
+
+    <!-- Go To Top Link -->
+  <!-- LOADER and BACK TO TOP
+    <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+  -->
+
+  <div id="loader" style="display: none;">
+      <div class="spinner">
+          <div class="dot1"></div>
+          <div class="dot2"></div>
+      </div>
+  </div>
+
+
+
+    <script type="text/javascript" src="https://s3.ap-northeast-2.amazonaws.com/oj.uz/margo/js/script.js"></script>
+
+    <!-- Start of Async Drift Code -->
+    <script>
+    !function() {
+      var t;
+      if (t = window.driftt = window.drift = window.driftt || [], !t.init) return t.invoked ? void (window.console && console.error && console.error("Drift snippet included twice.")) : (t.invoked = !0,
+      t.methods = [ "identify", "config", "track", "reset", "debug", "show", "ping", "page", "hide", "off", "on" ],
+      t.factory = function(e) {
+        return function() {
+          var n;
+          return n = Array.prototype.slice.call(arguments), n.unshift(e), t.push(n), t;
+        };
+      }, t.methods.forEach(function(e) {
+        t[e] = t.factory(e);
+      }), t.load = function(t) {
+        var e, n, o, i;
+        e = 3e5, i = Math.ceil(new Date() / e) * e, o = document.createElement("script"),
+        o.type = "text/javascript", o.async = !0, o.crossorigin = "anonymous", o.src = "https://js.driftt.com/include/" + i + "/" + t + ".js",
+        n = document.getElementsByTagName("script")[0], n.parentNode.insertBefore(o, n);
+      });
+    }();
+    drift.SNIPPET_VERSION = '0.3.1';
+    drift.load('dvpnv4hgnhsg');
+    drift.config({
+     locale: "en"
+    });
+    drift.on('ready',function(api){
+      api.hideWelcomeMessage();
+    });
+    </script>
+    <!-- End of Async Drift Code -->
+
+</body>
+
+
+<!-- Mirrored from oj.uz/problem/statistics/JOI18_commuter_pass?page=3 by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 13 Aug 2021 15:02:16 GMT -->
+</html>
