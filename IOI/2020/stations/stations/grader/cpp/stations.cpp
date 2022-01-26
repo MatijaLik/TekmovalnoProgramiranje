@@ -111,7 +111,7 @@ int find_next_station(int cur, int goal, vector<int> adjacent){
 
         reverse(all(adjacent));
         if(goal < cur or goal > maxChild) return parent;
-        else return *upper_bound(all(adjacent), goal);  
+        else return *upper_bound(all(adjacent), goal);
     }
     else{
         //cur je out poddrevesa 
@@ -124,6 +124,7 @@ int find_next_station(int cur, int goal, vector<int> adjacent){
     }
 
 }
+/*
 void solve(){
     int n, k;
     cin >> n >> k;
@@ -160,4 +161,4 @@ int main(){
         }
     }
 
-}
+}*/

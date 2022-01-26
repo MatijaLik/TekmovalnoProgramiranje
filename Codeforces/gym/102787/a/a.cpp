@@ -97,6 +97,7 @@ Treap::Treap(int _data) {
 	priority = mt_rand();
 }
 
+
 void inOrderTraversal(Treap *t){
     if(t == NULL) return;
 
