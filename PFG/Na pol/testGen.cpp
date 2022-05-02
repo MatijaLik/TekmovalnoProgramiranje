@@ -7,17 +7,18 @@ int f(int n){
     return ans;
 }
 int main(){
+    srand (time(NULL));
     for(int i = 0; i < 10; i++){
-        char c = i + '0';
-        string s = "./testcases/";
+        char c = '0' + i;
+        string s = "./testcases/1";
         s += c;
         s += ".in";
         ofstream outfile(s);
-        int r = rand()%100001 + 1;
+        int r = rand()%1000000 + 1;
         outfile << r;
         outfile.close();
 
-        s = "./testcases/";
+        s = "./testcases/1";
         s += c;
         s += ".out";
         ofstream boutfile(s);

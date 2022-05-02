@@ -18,8 +18,8 @@ int main(){
     ios::sync_with_stdio(0);
     cin.tie(0);
     
-    freopen("test0.in", "w", stdout);
+    freopen("test1.in", "w", stdout);
     //freopen("output.txt", "w", stdout);
-    cout << 499999 << endl;
-    FOR(i, 2, 500000) cout << 2*i << endl; 
+    cout << 2000 << endl;
+    FOR(i, 2, 2000) cout << 2*i << endl; 
 }
